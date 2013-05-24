@@ -1,0 +1,13 @@
+<%= @errors.join(', ') if @errors %>
+
+<%= form_for @teacher do |f| %>
+  <%= f.text_field :first_name, :placeholder => "First Name" %>
+  <%= f.text_field :last_name, :placeholder => "Last Name" %>
+  <%= f.email_field :email, :placeholder => "example@address.com" %>
+  <%= f.password_field :password, :placeholder => "Create a password" %>
+  <%= f.text_field :school_name, :placeholder => "Example Elementary" %>
+  <%= f.text_field :zip, :placeholder => "School zipcode" %>
+  <%= f.text_field :grade, :placeholder => "Grade" %>
+
+  <%= f.submit "Sign Up" %>
+<% end %>

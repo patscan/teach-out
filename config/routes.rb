@@ -1,6 +1,9 @@
 TeachOut::Application.routes.draw do
   
+
   root :to => 'home#index'
+
+  resources :messages, :only => [:new, :create]
 
   resources :students
 

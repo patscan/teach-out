@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @teacher = Teacher.find_by_email(params[:session][:email])
     if @teacher && @teacher.authenticate(params[:session][:password])
       session[:id] = @teacher.id
-      redirect_to teachers_dashboard_path
+      redirect_to dashboard_teachers_path
     else
       @errors = "Invalid email or password"
       render :new

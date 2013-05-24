@@ -11,6 +11,7 @@ TeachOut::Application.routes.draw do
   post "students/search"
 
   resources :teachers
+  resources :messages, :only => [:new, :create]
 
   root :to => 'home#index'
 

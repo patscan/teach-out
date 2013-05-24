@@ -15,15 +15,11 @@ class TeachersController < ApplicationController
   end
 
   def dashboard
-    # @teacher = Teacher.find(current_user.id)
-    # @students = @teacher.students
-    # @messages = [Message.where(current_user.id)]
-
     @teacher = current_user
     @students = current_user.students
     @messages = current_user.messages
-    @messages_by_date = @messages.group_by(&:time_sent)
-    @date = params[:created_at] ? Date.parse(params[:created_at]) : Date.today
+    @messages_by_date = @messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d")}
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def show

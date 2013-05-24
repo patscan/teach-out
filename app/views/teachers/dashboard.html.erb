@@ -16,10 +16,10 @@
   </h2>
   <%= calendar @date do |date| %>
     <%= date.day %>
-    <% if @messages_by_date[date] %>
+    <% if @messages_by_date[date.to_s] %>
       <ul>
-        <% @messages_by_date[date].each do |message| %>
-          <li><%= link_to "message", message %></li>
+        <% @messages_by_date[date.to_s].each do |message| %>
+          <li><%= message.header%></li>
         <% end %>
       </ul>
     <% end %>

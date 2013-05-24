@@ -8,7 +8,4 @@ module MessagesHelper
   def phone
     @phone = '+14159929905'
   end
-
-
-
 end

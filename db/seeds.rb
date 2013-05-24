@@ -23,12 +23,12 @@ end
 
 
 Student.all.each do |student|
- contact = Contacts.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, 
+ contact = Contact.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, 
                   email: Faker::Internet.email, relationship_to_student: "Guardian", 
                   language: "English", phone_number: Faker::PhoneNumber.phone_number)
   student.contacts << contact
 end
-
+n = 11
 Contact.all.each do |contact|
   message = Message.create(header: "Mr. Brown, 6th Grade", 
                            content: Faker::Lorem.sentence(5),

@@ -1,19 +1,14 @@
 TeachOut::Application.routes.draw do
   
-  get "home/index"
-
-  # post "students/create"
-  # get "students/show"
-  # delete "students/delete"
-  # post "students/search"
+  root :to => 'home#index'
 
   resources :students
 
   resources :teachers
-  
+
   resources :sessions, :only => [:new, :create, :destroy]
 
-  root :to => 'home#index'
+  resource :search, :only => [:show]
 
   match "teachers/dashboard" => "teacher#show"
 

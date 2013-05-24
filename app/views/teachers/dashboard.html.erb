@@ -1,0 +1,13 @@
+
+<h2>Welcome, <%= @teacher.first_name %></h2>
+
+<div>
+  <ul>
+<% @students.each do |student| %>
+  <li><%= student.first_name %></li>
+<% end %>
+  </ul>
+</div>
+
+
+

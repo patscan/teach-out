@@ -28,6 +28,7 @@ Student.all.each do |student|
                   language: "English", phone_number: Faker::PhoneNumber.phone_number)
   student.contacts << contact
 end
+
 n = 11
 Contact.all.each do |contact|
   message = Message.create(header: "Mr. Brown, 6th Grade", 
@@ -35,3 +36,26 @@ Contact.all.each do |contact|
                            delivered: true, time_sent: Time.now, teacher_id: (n-=1))
   contact.messages << message
 end
+
+pat = Teacher.create(first_name: "Pat", last_name: "Scanlan",
+                 email: "pat@example.com", password: "password", 
+                 grade: "6th", zip: Faker::Address.zip)
+
+sean = Student.create(first_name: "Sean", last_name: "Miller",
+                 teacher_id: (pat.id))
+
+michael = Student.create(first_name: "Michael", last_name: "Malchak",
+                 teacher_id: (pat.id))
+
+avalon = Student.create(first_name: "Avalon", last_name: "Emerson",
+                 teacher_id: (pat.id))
+
+jkai = Contact.create(first_name: "Jkai", last_name: "Son", 
+                  email: Faker::Internet.email, relationship_to_student: "Daddy", 
+                  language: "English", phone_number: "+17602850799")
+
+sean.contacts << jkai
+michael.contacts << jkai
+avalon.contacts << jkai
+
+

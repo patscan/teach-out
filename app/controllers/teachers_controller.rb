@@ -5,12 +5,12 @@ class TeachersController < ApplicationController
 
   def create
     @teacher = Teacher.create(params[:teacher])
-    if @teacher.save?
+    if @teacher.save
       session[:id]=@teacher.id
       redirect_to teachers_dashboard_path
     else
       @errors = @teacher.errors.full_messages
-      render new 
+      render :new 
     end
   end
 

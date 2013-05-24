@@ -7,15 +7,15 @@ class TeachersController < ApplicationController
     @teacher = Teacher.create(params[:teacher])
     if @teacher.save?
       session[:id]=@teacher.id
-      redirect_to root
+      redirect_to teachers_dashboard_path
     else
       @errors = @teacher.errors.full_messages
-      render new ##take
+      render new 
     end
   end
 
   def dashboard
-
+    @teacher = Teacher.find(params[:id])
   end
 
 end

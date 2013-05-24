@@ -12,12 +12,22 @@
 </ul>
 
 </div>
-<!-- 
 
 
-
-
-
-
-
- -->
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @messages_by_date[date.to_s] %>
+      <ul>
+        <% @messages_by_date[date.to_s].each do |message| %>
+          <li><%= message.header%></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

@@ -1,3 +1,5 @@
+<%= @errors.join(', ') if @errors %>
+
 <%= form_for @teacher do |f| %>
   <%= f.text_field :first_name, :placeholder => "First Name" %>
   <%= f.text_field :last_name, :placeholder => "Last Name" %>

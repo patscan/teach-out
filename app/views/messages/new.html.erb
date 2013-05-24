@@ -1,5 +1,12 @@
 <div>
   <%= form_for @message do |t| %>
+  <ul>
+  <% @students.each do |student| %>
+      <%= check_box_tag "recipients[#{student.id}]", student.contacts.first.id %> <%= student.first_name %>
+    <% end %>
+  </ul>
+
+
   <%= t.label :content %>
   <%= t.text_area :content %>
 
@@ -7,3 +14,7 @@
   <% end %>
 
 </div>
+
+
+
+

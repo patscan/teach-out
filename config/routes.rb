@@ -4,6 +4,13 @@ TeachOut::Application.routes.draw do
 
   resources :messages, :only => [:new, :create]
 
+  resources :messages do
+    collection do
+      post "pre_new"
+    end
+  end
+
+
   resources :students
 
   resources :teachers do

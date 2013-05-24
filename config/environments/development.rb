@@ -34,4 +34,10 @@ TeachOut::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+
+  twilio_config = YAML.load(File.read(Rails.root
+    .join("config", "app_config.yml")))
+  twilio_config.each { |k,v| ENV[k]= v }
+
 end

@@ -7,3 +7,21 @@
 <% end %>
   </ul>
 </div>
+
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @messages_by_date[date] %>
+      <ul>
+        <% @messages_by_date[date].each do |message| %>
+          <li><%= link_to "message", message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

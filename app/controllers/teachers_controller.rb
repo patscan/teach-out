@@ -16,12 +16,18 @@ class TeachersController < ApplicationController
 
   def dashboard
     # @teacher = Teacher.find(current_user.id)
-    @teacher = Teacher.find(11)
-    @students = @teacher.students
+    # @students = @teacher.students
+    # @messages = [Message.where(current_user.id)]
+
+    @teacher = current_user
+    @students = current_user.students
+    @messages = current_user.messages
+    @messages_by_date = @messages.group_by(&:time_sent)
+    @date = params[:created_at] ? Date.parse(params[:created_at]) : Date.today
   end
 
   def show
-    @teacher = Teacher.find(session[:id])
+    @teacher = current_user
     redirect_to teachers_dashboard_path
   end
 

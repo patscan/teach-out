@@ -14,25 +14,3 @@
 /log/*.log
 /tmp
 /config/app_config.yml
-
-
-require 'rubygems'
-require 'twilio-ruby'
-
-@account_sid = 'ACd37ce3aea784289c26a895ba532c8a77'
-@auth_token = 'f063460740c9ecf1bb2a2067dd458280'
-
-# set up a client to talk to the Twilio REST API
-@client = Twilio::REST::Client.new(@account_sid, @auth_token)
-
-
-@account = @client.account
-@account.list({}).each do |@account|
-  puts @account
-end
-
-@account = @client.account
-@application = @account.applications.create({:friendly_name => 'teachout'})
-puts @application
-
-(415) 992-9905

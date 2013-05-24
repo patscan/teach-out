@@ -14,4 +14,8 @@ class TeachersController < ApplicationController
     end
   end
 
+  def dashboard
+
+  end
+
 end

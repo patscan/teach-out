@@ -18,4 +18,9 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
   end
 
+  def show
+    @teacher = Teacher.find(session[:id])
+    redirect_to teachers_dashboard_path
+  end
+
 end

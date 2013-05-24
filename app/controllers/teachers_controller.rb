@@ -15,8 +15,7 @@ class TeachersController < ApplicationController
   end
 
   def dashboard
-    # @teacher = Teacher.find(current_user.id)
-    @teacher = Teacher.find(11)
+    @teacher = Teacher.find(current_user.id)
     @students = @teacher.students
   end
 

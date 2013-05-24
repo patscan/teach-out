@@ -13,8 +13,8 @@ class MessagesController < ApplicationController
       contact.messages << message
     end
     contacts.each do |contact|
-      # twilio_client.account.sms.messages.create(from: app_phone, to: contact.phone_number, 
-      #   body: message.content)
+      twilio_client.account.sms.messages.create(from: app_phone, to: contact.phone_number, 
+        body: message.content)
     end
       redirect_to root_path
   end

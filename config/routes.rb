@@ -6,12 +6,15 @@ TeachOut::Application.routes.draw do
 
   resources :students
 
-  resources :teachers
+  resources :teachers do
+    collection do
+      get "dashboard"
+    end
+  end
 
   resources :sessions, :only => [:new, :create, :destroy]
 
   resource :search, :only => [:show]
 
-  match "teachers/dashboard" => "teacher#show"
 
 end

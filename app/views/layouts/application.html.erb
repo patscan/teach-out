@@ -11,7 +11,7 @@
     <h1 class="logo"><%= link_to "TeachOut.org", root_path %></h1>
     <% if current_user %>
       <span class="header-info">
-        dashboard | <%= link_to "Logout", session_path(session), :method => :delete %>
+        <%= link_to "dashboard", dashboard_teachers_path %> | <%= link_to "Logout", session_path(session), :method => :delete %>
       </span>
     <% else %>
       <span class="header-info">

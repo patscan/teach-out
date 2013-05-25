@@ -27,6 +27,8 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
+gem 'redis'
+gem 'sidekiq'
 gem 'factory_girl_rails'
 
 gem 'jquery-rails'

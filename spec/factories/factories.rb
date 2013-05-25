@@ -12,8 +12,6 @@ FactoryGirl.define do
   end
 
   factory :student do
-    teacher
-    contact # don't know if i need this
     first_name "Bobby"
     last_name "Wilson"
   end  

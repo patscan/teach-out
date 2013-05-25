@@ -25,5 +25,8 @@ class MessagesController < ApplicationController
   redirect_to dashboard_teachers_path
 end
 
+  def show
+    @message = Message.find(params[:id])
+  end
 end
 

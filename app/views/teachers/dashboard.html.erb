@@ -24,8 +24,8 @@
     <%= date.day %>
     <% if @messages_by_date[date.to_s] %>
       <ul>
-        <% @messages_by_date[date.to_s].each do |message| %>
-          <li><%= message.contacts.first.students.first.first_name%></li>
+        <% @messages_by_date[date.to_s].each do |m| %>
+          <li><%= link_to m.subject, message_path(m)%></li>
         <% end %>
       </ul>
     <% end %>

@@ -5,4 +5,11 @@ class Message < ActiveRecord::Base
   has_and_belongs_to_many :students
 
 
+  def students_to
+    self.students.pluck(:first_name).join(', ')
+  end
+
+  def sent_on
+    self.time_sent.strftime("%m/%d/%y @ %H:%M")
+  end
 end

@@ -18,7 +18,7 @@ class TeachersController < ApplicationController
     @teacher = current_user
     @students = current_user.students
     @messages = current_user.messages
-    @messages_by_date = @messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d")}
+    @messages_by_date = @messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d") if m.time_sent}
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 

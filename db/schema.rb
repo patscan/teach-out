@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525024124) do
+ActiveRecord::Schema.define(:version => 20130525024721) do
 
   create_table "contacts", :force => true do |t|
     t.string   "first_name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130525024124) do
     t.string   "email"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+    t.boolean  "active"
   end
 
   add_index "contacts", ["phone_number"], :name => "index_contacts_on_phone_number", :unique => true

@@ -1,0 +1,26 @@
+<h2>Student Information</h2>
+<%= form_for @student do |t| %>
+
+  <%= t.label :first_name %>
+  <%= t.text_field :first_name %>
+  <%= t.label :last_name %>
+  <%= t.text_field :last_name %>
+
+  <h2>Contact Information</h2>
+    <%= t.fields_for :contacts do |contact_field| %>
+    <%= contact_field.label :first_name %>
+    <%= contact_field.text_field :first_name %>
+    <%= contact_field.label :last_name %>
+    <%= contact_field.text_field :last_name %>  
+    <%= contact_field.label "Relation to Student" %>
+    <%= select_tag(:relationship_to_student, options_for_select([["Guardian", "Guardian" ], ["Parent","Parent"]])) %>
+    <%= contact_field.label :language %>
+    <%= select_tag(:language, options_for_select([["English", "English" ], ["Spanish","Spanish"], ["Chinese", "Chinese"], ["Tagalog", "Tagalog"], ["Japanese", "Japanese"], ["French", "French"], ["German", "German"]])) %>
+    <%= contact_field.label :phone_number %>
+    <%= contact_field.text_field :phone_number %>
+    <%= contact_field.label :email %>
+    <%= contact_field.text_field :email %>
+
+    <% end %>
+  <%= t.submit "Submit" %>
+<% end %>

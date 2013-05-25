@@ -6,24 +6,22 @@ class MessagesController < ApplicationController
   end
 
   def create
-
+    message = Message.create(params[:message].merge(
+      header: "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}"))
     students = Student.where :id => params[:students].values
+    current_user.messages << message
     contacts = []
     students.each do |student|
-      student.contacts.where("active=?", true)
-      
+      student.messages << message
+      student.contacts.where("active=?", true).each do |contact|
+        contact.messages << message
+        contacts << contact
+      end
     end
-
-    # message = Message.create(params[:message].merge(
-    #   header: "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}"))
-    # current_user.messages << message
-    # contacts.each do |contact|
-    #   contact.messages << message
-    # end
-    # contacts.each do |contact|
-    #   twilio_client.account.sms.messages.create(from: app_phone, to: contact.phone_number, 
-    #     body: message.content)
-    # end
+    contacts.each do |contact|
+      twilio_client.account.sms.messages.create(from: app_phone, to: contact.phone_number, 
+        body: message.content)
+    end
     redirect_to dashboard_teachers_path
   end
 

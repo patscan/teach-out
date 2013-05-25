@@ -8,7 +8,7 @@
 
 
   <%= t.label :content %>
-  <%= t.text_area :content %>
+  <%= t.text_area :content, :value => "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}" %>
 
   <%= t.submit %>
   <% end %>

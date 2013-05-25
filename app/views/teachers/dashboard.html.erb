@@ -19,7 +19,7 @@
     <% if @messages_by_date[date.to_s] %>
       <ul>
         <% @messages_by_date[date.to_s].each do |message| %>
-          <li><%= message.header%></li>
+          <li><%= message.contacts.first.students.first.first_name%></li>
         <% end %>
       </ul>
     <% end %>

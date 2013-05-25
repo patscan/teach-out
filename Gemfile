@@ -17,10 +17,14 @@ group :assets do
 end
 
 group :development do
-  gem 'rspec-rails'
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'sextant'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 gem 'factory_girl_rails'

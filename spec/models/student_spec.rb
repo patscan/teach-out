@@ -18,4 +18,3 @@ describe Student do
   end
 
 end
-

@@ -1,5 +1,15 @@
 require 'spec_helper'
 
 describe Teacher do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let :teacher do
+    build :teacher
+  end
+
+  context "with valid attriubutes" do
+    it "should create a teacher" do
+      teacher.should be_valid
+    end
+  end
+
 end

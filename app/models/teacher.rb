@@ -1,5 +1,5 @@
 class Teacher < ActiveRecord::Base
-  attr_accessible :email, :first_name, :grade, :last_name, :password, :zip, :school_name
+  attr_accessible :email, :first_name, :grade, :last_name, :password, :zip, :school_name, :title
   
   has_many :messages
   has_many :students

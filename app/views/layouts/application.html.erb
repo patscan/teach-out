@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TeachOut</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <title>TeachOut</title>
 </head>
 <body>
-
-<%= yield %>
+ <header>
+    <h1 class="logo">TeachOut.org</h1>
+    <% if current_user %>
+      <span class="header-info">
+        dashboard | <%= link_to "Logout", session_path(session), :method => :delete %>
+      </span>
+    <% else %>
+      <span class="header-info">
+        <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_teacher_path %>
+      </span>
+    <% end %>
+ </header>
+ <%= yield %>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <%= @errors if @errors %>
 
 <%= form_for :session, :url => sessions_path do |f| %>
-  <%= f.email_field :email, :placeholder => "example@address.com" %>
-  <%= f.password_field :password, :placeholder => "Enter your password" %>
-  <%= f.submit "Log In" %>
+  <p><%= f.email_field :email, :placeholder => "example@address.com" %></p>
+  <p><%= f.password_field :password, :placeholder => "Enter your password" %></p>
+  <p><%= f.submit "Log In" %></p>
 <% end %>

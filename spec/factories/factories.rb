@@ -17,8 +17,6 @@ FactoryGirl.define do
   end  
 
   factory :contact do
-    teacher
-    student
     first_name "Jkai"
     last_name "Hsu"
     relationship_to_student "Parent"

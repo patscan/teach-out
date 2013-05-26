@@ -2,14 +2,12 @@ TeachOut::Application.routes.draw do
   
   root :to => 'home#index'
 
-  resources :messages, :only => [:new, :create]
-
   resources :messages do
     collection do
-      post "pre_new"
+      get "schedule_new"
+      post "schedule"
     end
   end
-
 
   resources :students
 

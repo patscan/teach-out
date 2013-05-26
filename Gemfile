@@ -30,7 +30,6 @@ end
 gem 'redis'
 gem 'sidekiq'
 gem 'factory_girl_rails'
-
 gem 'jquery-rails'
 
 gem 'twilio-ruby'

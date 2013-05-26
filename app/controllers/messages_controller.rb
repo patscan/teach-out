@@ -15,9 +15,21 @@ class MessagesController < ApplicationController
       student.generate_contact_list(message, contacts_ids)
     end
 
-    TwilioWorker.perform_async(contacts_ids, message.id)
-
+    job_ids = contacts_ids.map do |contact_id|
+      TwilioWorker.perform_async(contact_id, message.id)
+    end
     redirect_to dashboard_teachers_path
+  end
+
+
+  def schedule_new
+    @students = Student.all  #refactor to only show students for current_user
+    @message = Message.new
+  end
+
+  def schedule
+
+
   end
 
   def show

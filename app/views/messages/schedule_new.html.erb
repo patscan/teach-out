@@ -1,0 +1,20 @@
+<div>
+  <%= form_for @message do |t| %>
+  <ul>
+  <% @students.each do |student| %>
+      <%= check_box_tag "students[#{student.first_name}]", student.id %> <%= student.first_name %>
+    <% end %>
+  </ul>
+
+
+  <%= t.label :content %>
+  <%= t.text_area :content, :value => "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}" %>
+
+  <%= t.submit %>
+  <% end %>
+
+</div>
+
+
+
+

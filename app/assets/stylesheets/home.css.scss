@@ -14,6 +14,68 @@ $off_white: #F8F8F3;
   padding-right: 8px; 
 }
 
-body {
+#image_box {
+  margin-top: 50px;
+  position: absolute;
+  width: 1000px;
+  min-width: 500px;
+  height: 600px;
+  border-radius: 12px;
+  background-color: $peach;
+  background: url(image_path('classroom-03.jpg')) no-repeat;
+  background-size: 1000px auto;
+}
+
+#logo_box {
+  position: absolute;
+  opacity: .9;
+  margin-left: 200px;
+  margin-top: 225px;
+  width: 600px;
+  height: 150px;
+  border-radius: 12px;
   background-color: $off_white;
 }
+
+#front-logo {
+  opacity: 1;
+  margin-top: 30px;
+  margin-left: 85px;
+  font-size: 70px;
+  color: $blue;
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  #dot {
+    color: $orange;
+  }
+}
+
+#button_container {
+  position: absolute;
+  /*left: 0;*/
+  margin-top: 400px;
+  margin-left: 375px;
+  
+  /*margin-left: 200px;*/
+}
+
+.front_button {
+  margin-right: 20px;
+  font-size: 20px;
+  padding: 3px;
+  text-align: center;
+  display: inline-block;
+  background-color: $off_white;
+  width: 100px;
+  background-color: $blue;
+  border-radius: 3px;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  &:hover { background-color: darken($blue, 10%)}
+}
+
+
+
+
+
+

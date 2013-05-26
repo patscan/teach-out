@@ -13,7 +13,6 @@ class Student < ActiveRecord::Base
   end
 
   def generate_contact_list(message, array)
-    
     self.messages << message
     self.active_contacts.each do |contact|
         contact.messages << message

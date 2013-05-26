@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def new
-    @students = Student.all  #refactor to only show students for current_user
+    @students = current_user.students.sort
     @message = Message.new
   end
 
@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
 
 
   def schedule_new
-    @students = Student.all  #refactor to only show students for current_user
+    @students = current_user.students.sort
     @message = Message.new
   end
 

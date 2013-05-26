@@ -15,9 +15,9 @@ class MessagesController < ApplicationController
       student.generate_contact_list(message, contacts_ids)
     end
 
-    # job_ids = contacts_ids.map do |contact_id|
-    #   TwilioWorker.perform_aßsync(contact_id, message.id)
-    # end
+    job_ids = contacts_ids.map do |contact_id|
+      TwilioWorker.perform_async(contact_id, message.id)
+    end
     redirect_to dashboard_teachers_path
   end
 
@@ -28,14 +28,37 @@ class MessagesController < ApplicationController
   end
 
   def schedule
-    puts "****************************************"
-    p params
+    message = Message.create(params[:message].merge(
+      header: "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}"))
+    students = Student.where :id => params[:students].values
+    current_user.messages << message
+    contacts_ids = []
+    students.each do |student|
+      student.generate_contact_list(message, contacts_ids)
+    end
 
-    redirect_to root_path
+    interval = parse_time(params['scheduled_for'], params["hour"], params["minute"], params["day_night"])
+    job_ids = contacts_ids.map do |contact_id|
+      TwilioWorker.perform_at(interval, contact_id, message.id)
+    end
+    p job_ids
+    redirect_to dashboard_teachers_path
   end
 
   def show
     @message = Message.find(params[:id])
   end
+end
+
+private
+
+def parse_time(date, hour, minute, day_night)
+  month_day_year = date.split("/")
+  year = month_day_year[2]
+  month = month_day_year[0]
+  day = month_day_year[1]
+  hour = hour.to_i + 12 if day_night == "pm"
+
+  p Time.mktime(year, month, day, hour, minute, 0)
 end
 

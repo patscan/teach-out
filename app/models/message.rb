@@ -13,8 +13,5 @@ class Message < ActiveRecord::Base
     self.time_sent.strftime("%m/%d/%y @ %H:%M")
   end
 
-  def parse_time(date, hour, minute, day_night)
-    mdy = date.split("/")
-    Time.mktime()
-  end
+  
 end

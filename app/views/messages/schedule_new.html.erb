@@ -6,11 +6,11 @@
     <% end %>
   </ul>
 
-
+  <%= text_field_tag "scheduled_for", nil, :placeholder => "Click to Schedule", :class => "scheduled-for" %><br>
   <%= t.label :content %>
   <%= t.text_area :content, :value => "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}" %>
 
-  <%= t.submit %>
+  <%= t.submit "Schedule It!" %>
   <% end %>
 
 </div>

@@ -4,6 +4,7 @@ class Message < ActiveRecord::Base
   has_and_belongs_to_many :contacts
   has_and_belongs_to_many :students
 
+  validates :content, :presence => true
 
   def students_to
     self.students.pluck(:first_name).join(', ')

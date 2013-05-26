@@ -15,9 +15,9 @@ class MessagesController < ApplicationController
       student.generate_contact_list(message, contacts_ids)
     end
 
-    job_ids = contacts_ids.map do |contact_id|
-      TwilioWorker.perform_async(contact_id, message.id)
-    end
+    # job_ids = contacts_ids.map do |contact_id|
+    #   TwilioWorker.perform_aßsync(contact_id, message.id)
+    # end
     redirect_to dashboard_teachers_path
   end
 
@@ -28,8 +28,10 @@ class MessagesController < ApplicationController
   end
 
   def schedule
+    puts "****************************************"
+    p params
 
-
+    redirect_to root_path
   end
 
   def show

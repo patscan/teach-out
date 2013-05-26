@@ -7,7 +7,7 @@ class TeachersController < ApplicationController
     @teacher = Teacher.create(params[:teacher])
     if @teacher.save
       session[:id]=@teacher.id
-      redirect_to teachers_dashboard_path
+      redirect_to dashboard_teachers_path
     else
       @errors = @teacher.errors.full_messages
       render :new 
@@ -24,7 +24,7 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = current_user
-    redirect_to teachers_dashboard_path
+    redirect_to dashboard_teachers_path
   end
 
 end

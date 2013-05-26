@@ -6,22 +6,36 @@ class MessagesController < ApplicationController
   end
 
   def create
-    contacts = Contact.where :id => params["recipients"].values
     message = Message.create(params[:message].merge(
       header: "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}"))
+    students = Student.where :id => params[:students].values
     current_user.messages << message
-    contacts.each do |contact|
-      contact.messages << message
+    contacts_ids = []
+    students.each do |student|
+      student.generate_contact_list(message, contacts_ids)
     end
-    # contacts.each do |contact|
-    #   twilio_client.account.sms.messages.create(from: app_phone, to: contact.phone_number, 
-    #     body: message.content)
+
+    # job_ids = contacts_ids.map do |contact_id|
+    #   TwilioWorker.perform_aßsync(contact_id, message.id)
     # end
-      redirect_to root_path
+    redirect_to dashboard_teachers_path
+  end
+
+
+  def schedule_new
+    @students = Student.all  #refactor to only show students for current_user
+    @message = Message.new
+  end
+
+  def schedule
+    puts "****************************************"
+    p params
+
+    redirect_to root_path
   end
 
   def show
     @message = Message.find(params[:id])
   end
 end
- 
+

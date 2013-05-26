@@ -9,24 +9,28 @@ gem 'pg'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-ui-rails'
 end
 
 group :development do
-  gem 'rspec-rails'
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'sextant'
 end
 
-gem 'factory_girl_rails'
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+end
+
 
 gem 'jquery-rails'
-
+gem 'redis'
+gem 'sidekiq'
+gem 'factory_girl_rails'
 gem 'twilio-ruby'
 
 gem 'faker'

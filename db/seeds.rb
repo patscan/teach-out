@@ -47,19 +47,19 @@ avalon = Student.create(first_name: "Avalon", last_name: "Emerson",
 
 jkai = Contact.create(first_name: "Jkai", last_name: "Son", 
                   email: Faker::Internet.email, relationship_to_student: "Parent", 
-                  language: "English", phone_number: "+17602850799") #sean
+                  language: "English", phone_number: "+17602850799", active: true) #sean
 
 fei = Contact.create(first_name: "Fei-ker", last_name: "Bronson", 
                   email: Faker::Internet.email, relationship_to_student: "Guardian", 
-                  language: "English", phone_number: "+14157246575") #pat
+                  language: "English", phone_number: "+14157246575", active: true) #pat
 
 johnny = Contact.create(first_name: "Johnny", last_name: "Dogg", 
                   email: Faker::Internet.email, relationship_to_student: "Parent", 
-                  language: "English", phone_number: "+14159441274") #avalon
+                  language: "English", phone_number: "+14159441274", active: true) #avalon
 
 mike = Contact.create(first_name: "Johnny", last_name: "Dogg", 
                   email: Faker::Internet.email, relationship_to_student: "Parent", 
-                  language: "English", phone_number: "+17143811795") #michael
+                  language: "English", phone_number: "+17143811795", active: true) #michael
 
 sean.contacts << [jkai, mike]
 michael.contacts << [fei, johnny]

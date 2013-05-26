@@ -1,6 +1,9 @@
 class TeachersController < ApplicationController
   def new
     @teacher = Teacher.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create

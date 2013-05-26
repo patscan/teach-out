@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def new
-    @students = current_user.students.sort
+    @students = current_user.students.order(:first_name)
     @message = Message.new
   end
 
@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
 
 
   def schedule_new
-    @students = current_user.students.sort
+    @students = current_user.students.order(:first_name)
     @message = Message.new
   end
 

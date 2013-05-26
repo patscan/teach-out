@@ -1,4 +1,9 @@
+<div class="display">
+  <%= @display if @display %>
+</div>
+
 <h2>Student Information</h2>
+
 <%= form_for @student do |f| %>
 
   <%= f.label :first_name %>
@@ -8,18 +13,24 @@
 
   <h2>Contact Information</h2>
     <%= f.fields_for :contacts do |contact_field| %>
-    <%= contact_field.label :first_name %>
-    <%= contact_field.text_field :first_name %>
-    <%= contact_field.label :last_name %>
-    <%= contact_field.text_field :last_name %>  
-    <%= contact_field.label "Relation to Student" %>
-    <%= select_tag(:relationship_to_student, options_for_select(@relations)) %>
-    <%= contact_field.label :language %>
-    <%= select_tag(:language, options_for_select(@languages)) %>
-    <%= contact_field.label :phone_number %>
-    <%= contact_field.text_field :phone_number %>
-    <%= contact_field.label :email %>
-    <%= contact_field.text_field :email %>
+      <%= contact_field.label :first_name %>
+      <%= contact_field.text_field :first_name %> <br/>
+
+      <%= contact_field.label :last_name %>
+      <%= contact_field.text_field :last_name %>  <br/>
+
+      <%= contact_field.label "Relationship to Student" %>
+      <%= select_tag(:relationship_to_student, options_for_select([["Father", "Father"], ["Mother", "Mother"]])) %> <br/>
+
+      <%= contact_field.label :language %>
+      <%= select_tag(:language, options_for_select([["English", "English"], 
+                        ["Spanish","Spanish"]])) %> <br/>
+
+      <%= contact_field.label :phone_number %>
+      <%= contact_field.text_field :phone_number %> <br/>
+
+      <%= contact_field.label :email %>
+      <%= contact_field.text_field :email %>
 
     <% end %>
   <%= f.submit "Submit" %>

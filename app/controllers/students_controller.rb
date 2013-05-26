@@ -22,9 +22,21 @@ class StudentsController < ApplicationController
   def create
     p params
     @student = Student.create(params[:student])
-    current_user.students << @student
-    Contact.first_or_create(params[:contacts_attributes])
-    redirect_to dashboard_teachers_path
+    # @student.save!
+    #       puts "***contacts params*****"
+    #   p params[:contacts_attributes]
+    if @student
+      @display = "Student Added"
+      current_user.students << @student
+
+      # @student.contacts <<  Contact.first_or_create(params[:contacts_attributes])
+      Contact.first_or_create(params[:contacts_attributes])
+      
+      render :new
+    else
+      @display = @student.errors.full_messages.join(", ")
+      render :new
+    end
   end
 
   def show

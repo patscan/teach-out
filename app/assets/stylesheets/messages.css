@@ -1,7 +1,13 @@
 .students-list {
-
+  float: left;
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .compose {
-  
+  float: left;
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
 }

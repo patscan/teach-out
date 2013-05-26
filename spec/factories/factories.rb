@@ -12,15 +12,11 @@ FactoryGirl.define do
   end
 
   factory :student do
-    teacher
-    contact # don't know if i need this
     first_name "Bobby"
     last_name "Wilson"
   end  
 
   factory :contact do
-    teacher
-    student
     first_name "Jkai"
     last_name "Hsu"
     relationship_to_student "Parent"

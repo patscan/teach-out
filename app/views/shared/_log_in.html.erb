@@ -3,5 +3,5 @@
 <%= form_for :session, :url => sessions_path do |f| %>
   <p><%= f.email_field :email, :placeholder => "example@address.com" %></p>
   <p><%= f.password_field :password, :placeholder => "Enter your password" %></p>
-  <p><%= f.submit "Log In" %></p>
+  <p><%= f.submit "Log In", :class => "custom_submit" %></p>
 <% end %>

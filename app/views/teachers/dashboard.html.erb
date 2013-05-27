@@ -17,17 +17,30 @@
     <br>
   </div>
 
-  <% if @sent_messages.length != 0 %>
+  <div class="text-preview">
     <div id="last-text">
-      <%= @sent_messages.last.content %>
+      <span class="text-title"> last text </span>
+      <% if @last_sent_message %>
+        <span class="text-content">
+          <%=  %>
+          <%= @last_sent_message.content %>
+        </span>
+      <% end %>
     </div>
-  <% end %>
 
-  <% if @unsent_messages.length != 0 %>
-    <div id="next-texts">
-      <%= @unsent_messages.first.content %>
+    <div id="next-text">
+      <span class="text-title"> next text </span>
+      <% if @last_unsent_message %>
+        <span class="text-content">
+          <%= @last_unsent_message.content %>
+        </span>
+      <% else %>
+        <span class="text-content">
+        You have no scheduled texts
+        </span>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 
   <div id="calendar">
     <h3 id="month">
@@ -40,7 +53,7 @@
     <% if @messages_by_date[date.to_s] %>
     <ul>
       <% @messages_by_date[date.to_s].each do |m| %>
-      <li><%= link_to m.subject, message_path(m)%></li>
+      <li><%= link_to m.content[0,10], message_path(m)%></li>
       <% end %>
     </ul>
     <% end %>

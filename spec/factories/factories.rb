@@ -1,3 +1,5 @@
+
+
 FactoryGirl.define do
 
   factory :teacher do
@@ -16,14 +18,26 @@ FactoryGirl.define do
     last_name "Wilson"
   end  
 
+  factory :student_with_contact, :parent => :student do
+    before(:create) do |student|
+      student.contacts.build attributes_for(:contact)
+    end
+  end
+
   factory :contact do
     first_name "Jkai"
     last_name "Hsu"
     relationship_to_student "Parent"
     language "English"
-    phone_number "+14157246575"
+    phone_number{ ((rand(900) + 100).to_s + "-" + (rand(900) + 100).to_s + "-" + (rand(9000) + 1000).to_s) }
     email "jkai@son.com"
     active true
+    trait :active do
+      active true
+    end
+    trait :inactive do
+      active false
+    end
   end
 
   factory :message do

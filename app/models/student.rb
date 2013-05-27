@@ -7,9 +7,8 @@ class Student < ActiveRecord::Base
   accepts_nested_attributes_for :contacts
   validates_presence_of :first_name, :last_name
 
-
   def active_contacts
-    self.contacts.where("active=?", true)
+    self.contacts.select(&:active?)
   end
 
   def generate_contact_list(message, array)

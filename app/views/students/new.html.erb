@@ -13,9 +13,9 @@
     <%= contact_field.label :last_name %>
     <%= contact_field.text_field :last_name %>  
     <%= contact_field.label "Relation to Student" %>
-    <%= select_tag(:relationship_to_student, options_for_select([["Guardian", "Guardian" ], ["Parent","Parent"]])) %>
+    <%= contact_field.select(:relationship_to_student, options_for_select([["Guardian", "Guardian" ], ["Parent","Parent"]])) %>
     <%= contact_field.label :language %>
-    <%= select_tag(:language, options_for_select([["English", "English" ], ["Spanish","Spanish"], ["Chinese", "Chinese"], ["Tagalog", "Tagalog"], ["Japanese", "Japanese"], ["French", "French"], ["German", "German"]])) %>
+    <%= contact_field.select(:language, options_for_select([["English", "English" ], ["Spanish","Spanish"], ["Chinese", "Chinese"], ["Tagalog", "Tagalog"], ["Japanese", "Japanese"], ["French", "French"], ["German", "German"]])) %>
     <%= contact_field.label :phone_number %>
     <%= contact_field.text_field :phone_number %>
     <%= contact_field.label :email %>

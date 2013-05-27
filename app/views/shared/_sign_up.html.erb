@@ -1,10 +1,13 @@
 <%= @errors.join(', ') if @errors %>
 
+<div id="join_errors"></div>
+
 <%= form_for @teacher, :remote => true do |f| %>
   <p><%= f.text_field :first_name, :placeholder => "First Name" %></p>
   <p><%= f.text_field :last_name, :placeholder => "Last Name" %></p>
   <p><%= f.email_field :email, :placeholder => "example@address.com" %></p>
   <p><%= f.password_field :password, :placeholder => "Create a password" %></p>
+  <p><%= f.password_field :password_confirmation, :placeholder => "Re-enter password" %></p>
   <p><%= f.text_field :school_name, :placeholder => "Example Elementary" %></p>
   <p><%= f.text_field :zip, :placeholder => "School zipcode" %></p>
   <p><%= f.text_field :grade, :placeholder => "Grade" %></p>

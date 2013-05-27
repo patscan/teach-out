@@ -6,12 +6,13 @@ $("#join_modal").dialog({
   width: 350,
   modal: true,
   title: 'Create account',
-  buttons: {
-    "New": function() { $("#join_modal").submit() },
-  },
+  // buttons: {
+  //   "New": function() { $("#join_modal").submit() },
+  // },
   open: function() {
     $("#join_modal").html("<%= escape_javascript(render('teacher')) %>")
   },
+  
 });
 
 //bootstrap modal below:

@@ -12,8 +12,11 @@ class TeachersController < ApplicationController
       session[:id]=@teacher.id
       redirect_to dashboard_teachers_path
     else
-      @errors = @teacher.errors.full_messages
-      render :new 
+      # @errors = @teacher.errors.full_messages
+      return render :json => { :errors => @teacher.errors.full_messages }, :status => 422
+      # render :new
+
+      #render json errors
     end
   end
 

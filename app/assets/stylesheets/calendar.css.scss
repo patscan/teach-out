@@ -1,5 +1,6 @@
 #calendar {
-  margin-top: 100px;
+  clear:both;
+  padding-top: 24px;
 }
 
 #calendar .calendar {
@@ -13,11 +14,11 @@
     font-family: "Lucida Grande", arial, helvetica, sans-serif;
     font-size: 10px;
     padding: 6px;
-    border: 1px solid #E0E0E0;
+    border: 1px solid #EBEBEB;
   }
 
   th {
-    background: #DDD;
+    background: #F5F5F5;
     color: #666;
     text-align: center;
     width: 14.2857142857143%;
@@ -40,7 +41,7 @@
   margin: 0;
   padding-bottom: 10px;
   text-align: center;
-  font-size: 22px;
+  font-size: 18px;
   a {
     text-decoration: none;
     padding: 0 10px;

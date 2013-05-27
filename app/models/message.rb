@@ -6,6 +6,9 @@ class Message < ActiveRecord::Base
 
   validates :content, :presence => true
 
+  scope :delivered, where(:delivered  => true)
+  scope :undelivered, where(:delivered  => false)
+
   def students_to
     self.students.pluck(:first_name).join(', ')
   end
@@ -13,6 +16,5 @@ class Message < ActiveRecord::Base
   def sent_on
     self.time_sent.strftime("%m/%d/%y @ %H:%M")
   end
-
   
 end

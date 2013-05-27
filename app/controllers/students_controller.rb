@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  
+
   def new
     @student = Student.new
     @student.contacts.build
@@ -20,22 +20,16 @@ class StudentsController < ApplicationController
   end
 
   def create
-    p params
-    @student = Student.create(params[:student])
-    # @student.save!
-    #       puts "***contacts params*****"
-    #   p params[:contacts_attributes]
-    if @student
-      @display = "Student Added"
+    contact = Contact.find_by_phone_number(params[:student][:contacts_attributes]["0"][:phone_number])
+    if contact
+      @student = Student.create(first_name: params[:student][:first_name], last_name: params[:student][:last_name])
+      @student.contacts << contact
       current_user.students << @student
-
-      # @student.contacts <<  Contact.first_or_create(params[:contacts_attributes])
-      Contact.first_or_create(params[:contacts_attributes])
-      
-      render :new
+      redirect_to dashboard_teachers_path
     else
-      @display = @student.errors.full_messages.join(", ")
-      render :new
+      @student = Student.create(params[:student])
+      current_user.students << @student
+      redirect_to dashboard_teachers_path
     end
   end
 

@@ -6,6 +6,11 @@
 text-align: center;
 }
 
+#dashboard #last-next-texts {
+  background-color: #fff;
+  height:100px;
+}
+
 #dashboard .students-list {
   margin-bottom: 1em;
   margin-left: auto;

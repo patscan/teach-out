@@ -17,12 +17,24 @@
     <br>
   </div>
 
+  <% if @sent_messages.length != 0 %>
+    <div id="last-text">
+      <%= @sent_messages.last.content %>
+    </div>
+  <% end %>
+
+  <% if @unsent_messages.length != 0 %>
+    <div id="next-texts">
+      <%= @unsent_messages.first.content %>
+    </div>
+  <% end %>
+
   <div id="calendar">
-    <h2 id="month">
+    <h3 id="month">
       <%= link_to "<", date: @date.prev_month %>
       <%= @date.strftime("%B %Y") %>
       <%= link_to ">", date: @date.next_month %>
-    </h2>
+    </h3>
     <%= calendar @date do |date| %>
     <%= date.day %>
     <% if @messages_by_date[date.to_s] %>

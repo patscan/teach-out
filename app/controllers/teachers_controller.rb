@@ -19,6 +19,8 @@ class TeachersController < ApplicationController
     @students = current_user.students.order(:first_name)
     @messages = current_user.messages
     @messages_by_date = @messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d") if m.time_sent}
+    @sent_messages = @messages.where("delivered = ?", true)
+    @unsent_messages = @messages.where("delivered = ?", false)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 

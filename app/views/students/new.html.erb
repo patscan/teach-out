@@ -12,7 +12,7 @@
   <%= f.text_field :last_name %>
 
   <h2>Contact Information</h2>
-    <%= f.fields_for :contacts do |contact_field| %>
+    <%= f.fields_for :contacts, :remote => true do |contact_field| %>
     <%= contact_field.label :first_name %>
     <%= contact_field.text_field :first_name %>
     <%= contact_field.label :last_name %>

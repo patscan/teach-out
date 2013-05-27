@@ -20,10 +20,17 @@ class TeachersController < ApplicationController
   def dashboard
     @teacher = current_user
     @students = current_user.students.order(:first_name)
-    @messages = current_user.messages
-    @messages_by_date = @messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d") if m.time_sent}
-    @sent_messages = @messages.delivered
-    @unsent_messages = @messages.undelivered
+
+    messages = current_user.messages
+
+    @messages_by_date = messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d") if m.time_sent}
+
+    sent_messages = messages.delivered
+    @last_sent_message = sent_messages.sort_by! {|m| m.time_sent}.first
+
+    unsent_messages = messages.undelivered
+    @last_unsent_message = unsent_messages.sort_by! {|m| m.time_sent}.first
+    
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 

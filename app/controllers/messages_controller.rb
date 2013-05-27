@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
     job_ids = contacts_ids.map do |contact_id|
       TwilioWorker.perform_async(contact_id, message.id)
     end
-    
+
     redirect_to dashboard_teachers_path
   end
 
@@ -45,7 +45,7 @@ class MessagesController < ApplicationController
     job_ids = contacts_ids.map do |contact_id|
       TwilioWorker.perform_at(interval, contact_id, message.id)
     end
-    p job_ids
+    
     redirect_to dashboard_teachers_path
   end
 

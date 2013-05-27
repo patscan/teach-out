@@ -2,6 +2,8 @@ TeachOut::Application.routes.draw do
   
   root :to => 'home#index'
 
+  match "message/status" => "messagestatus#create"
+  
   resources :messages do
     collection do
       get "schedule_new"

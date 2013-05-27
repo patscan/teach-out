@@ -29,10 +29,10 @@ class TeachersController < ApplicationController
     @messages_by_date = messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d") if m.time_sent}
 
     @sent_messages = messages.delivered
-    @last_sent_message = sent_messages.sort_by! {|m| m.time_sent}.first
+    @last_sent_message = @sent_messages.sort_by! {|m| m.time_sent}.first
 
     @unsent_messages = messages.undelivered
-    @last_unsent_message = unsent_messages.sort_by! {|m| m.time_sent}.first
+    @last_unsent_message = @unsent_messages.sort_by! {|m| m.time_sent}.first
 
 
     @date = params[:date] ? Date.parse(params[:date]) : Date.today

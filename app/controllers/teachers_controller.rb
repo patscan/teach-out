@@ -10,10 +10,10 @@ class TeachersController < ApplicationController
     @teacher = Teacher.create(params[:teacher])
     if @teacher.save
       session[:id]=@teacher.id
-      redirect_to dashboard_teachers_path
+      render :js => "window.location = '/teachers/dashboard'"
     else
       # @errors = @teacher.errors.full_messages
-      return render :json => { :errors => @teacher.errors.full_messages }, :status => 422
+      render :json => { :error => @teacher.errors.full_messages.join(", ") }, :status => 422
       # render :new
 
       #render json errors

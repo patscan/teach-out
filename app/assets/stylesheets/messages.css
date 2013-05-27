@@ -1,8 +1,9 @@
-.students-list {
+#new-message .students-list {
   float: left;
   width: 45%;
   margin-left: auto;
   margin-right: auto;
+  clear: both;
 }
 
 .compose {

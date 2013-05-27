@@ -1,6 +1,13 @@
+#calendar {
+  margin-top: 140px;
+}
+
 #calendar .calendar {
   border-collapse: collapse;
-  width: 100%;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+
 
   td, th {
     font-family: "Lucida Grande", arial, helvetica, sans-serif;

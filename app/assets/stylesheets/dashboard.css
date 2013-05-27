@@ -1,0 +1,36 @@
+#dashboard h2 {
+  text-align: center;
+}
+
+#dashboard .dashboard-buttons {
+text-align: center;
+}
+
+#dashboard .students-list {
+  margin-bottom: 1em;
+}
+
+.students-list h4 {
+  text-align: center;
+}
+
+.students-list ul {
+  width: 40em;
+  list-style-type: none;
+}
+
+.students-list ul li{
+  float: left;
+  width: 11em;
+}
+
+.students-list br{
+  clear :left;
+}
+
+.students-list ul li a
+{
+  display: block;
+  width: 7em;
+  text-decoration: none;
+}

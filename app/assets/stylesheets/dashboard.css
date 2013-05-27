@@ -2,30 +2,38 @@
   text-align: center;
 }
 
-#dashboard .dashboard-buttons img{
-  padding-left: 20px;
-  padding-right: 15px;
-  margin-left: 11px;
-}
-
 #dashboard .dashboard-buttons {
-  width: 60%;
+  position: relative;
+  width: 414px;
   margin-left: auto;
   margin-right: auto;
+  height: 144px;
+}
+
+#dashboard .dashboard-buttons img{
+  margin:auto;
+  clear:both;
 }
 
 #dashboard .dashboard-buttons a {
-padding-left: 1em;
-color: #363636;
+  color: #363636;
 }
 
 #dashboard .dashboard-buttons a:hover {
-color: #21A2BC;
+  color: #21A2BC;
 }
 
-#dashboard .dashboard-text {
-text-align: center;
+#dashboard .dashboard-buttons .button {
+  width: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  text-align: center;
+  padding: 1em;
 }
+
+
+
 
 
 #dashboard #last-next-texts {
@@ -33,31 +41,35 @@ text-align: center;
   height:100px;
 }
 
+
+
+
+
 #dashboard .students-list {
-  margin-bottom: 1em;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto auto 1em;
+  padding-top: 1em;
+  clear: both;
 }
 
-.students-list h4 {
+#dashboard .students-list h4 {
   margin-left: 39px;
 }
 
-.students-list ul {
+#dashboard .students-list ul {
   width: 40em;
   list-style-type: none;
 }
 
-.students-list ul li {
+#dashboard .students-list ul li {
   float: left;
   width: 12em;
 }
 
-.students-list br {
+#dashboard .students-list br {
   clear :left;
 }
 
-.students-list ul li a {
+#dashboard .students-list ul li a {
   display: block;
   width: 7em;
   text-decoration: none;

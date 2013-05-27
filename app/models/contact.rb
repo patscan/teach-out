@@ -6,7 +6,6 @@ class Contact < ActiveRecord::Base
   
   validates :phone_number, :format => /1?-?\d{3}-?\d{3}-?\d{4}/
 
-
   def full_name
     self.first_name +" " + self.last_name
   end

@@ -15,8 +15,6 @@ class StudentsController < ApplicationController
       redirect_to dashboard_teachers_path
     else
       @student = Student.create(params[:student])
-      p current_user
-      p @student
       current_user.students << @student
       redirect_to dashboard_teachers_path
     end

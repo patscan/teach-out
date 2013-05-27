@@ -8,22 +8,22 @@
   <title>TeachOut</title>
 </head>
 
- <header>
-    <h2 class="logo"><%= link_to "TeachOut.org", root_path %></h2>
-    <% if current_user %>
-      <span class="header-info">
-        <%= current_user.first_name %> <%= current_user.last_name %>  &nbsp; 
-        <%= link_to " Dashboard", dashboard_teachers_path %> | <%= link_to "Logout", session_path(session), :method => :delete %>
-      </span>
-    <% else %>
-      <span class="header-info">
-        <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_teacher_path %>
-      </span>
-    <% end %>
- </header>
- <body>
+<header>
+  <h2 class="logo"><%= link_to "Teach-Out.com", root_path %></h2>
+  <% if current_user %>
+  <span class="header-info">
+    <%= current_user.first_name %> <%= current_user.last_name %>  &nbsp; 
+    <%= link_to " Dashboard", dashboard_teachers_path %> | <%= link_to "Logout", session_path(session), :method => :delete %>
+  </span>
+  <% else %>
+  <span class="header-info">
+    <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_teacher_path %>
+  </span>
+  <% end %>
+</header>
+<body>
  <div id="container">
    <%= yield %>
-</div>
+ </div>
 </body>
 </html>

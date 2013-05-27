@@ -2,9 +2,31 @@
   text-align: center;
 }
 
+#dashboard .dashboard-buttons img{
+  padding-left: 20px;
+  padding-right: 15px;
+  margin-left: 11px;
+}
+
 #dashboard .dashboard-buttons {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#dashboard .dashboard-buttons a {
+padding-left: 1em;
+color: #363636;
+}
+
+#dashboard .dashboard-buttons a:hover {
+color: #21A2BC;
+}
+
+#dashboard .dashboard-text {
 text-align: center;
 }
+
 
 #dashboard #last-next-texts {
   background-color: #fff;

@@ -1,11 +1,19 @@
 <div id="dashboard">
-  <h2>Welcome, <%= @teacher.first_name %></h2>
+  <h2>Welcome, <%= @teacher.first_name.capitalize %></h2>
 
   <div class="dashboard-buttons">
-    <%= link_to "Schedule a text", schedule_new_messages_path %>
-    <%= link_to "Send a Text", new_message_path %>
-    <%= link_to "Add a Student", new_student_path %>
-  </div>
+    <%= image_tag "scheduletext.png" %>
+    <%= image_tag "newtext.png" %>
+    <%= image_tag "addstudent.png" %>
+    <%= image_tag "edit-student.png" %>
+</div>
+
+  <div class="dashboard-buttons">
+    <%= link_to "Schedule text", schedule_new_messages_path %>
+    <%= link_to "Send Text", new_message_path %>
+    <%= link_to "Add Student", new_student_path %>
+    <%= link_to "Edit Student", new_student_path %>
+</div>
 
   <div class="students-list" >
     <h4>students</h4>

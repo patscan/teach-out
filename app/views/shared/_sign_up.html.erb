@@ -1,4 +1,3 @@
-<h4>create a new account</h4>
 <%= @errors.join(', ') if @errors %>
 
 <%= form_for @teacher do |f| %>
@@ -10,5 +9,5 @@
   <p><%= f.text_field :zip, :placeholder => "School zipcode" %></p>
   <p><%= f.text_field :grade, :placeholder => "Grade" %></p>
 
-  <%= f.submit "Sign Up" %>
+  <%= f.submit "Sign Up", :class => "custom_submit" %>
 <% end %>

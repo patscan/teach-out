@@ -1,19 +1,22 @@
 //jquery ui modal below
 
-$("#join_modal").dialog({
-  autoOpen: true,
-  height: 500,
-  width: 350,
-  modal: true,
-  title: 'Create account',
-  // buttons: {
-  //   "New": function() { $("#join_modal").submit() },
-  // },
-  open: function() {
-    $("#join_modal").html("<%= escape_javascript(render('teacher')) %>")
-  },
+// $("#join_modal").dialog({
+//   autoOpen: true,
+//   height: 500,
+//   width: 350,
+//   modal: true,
+//   title: 'Create account',
+//   // buttons: {
+//   //   "New": function() { $("#join_modal").submit() },
+//   // },
+//   open: function() {
+//     $("#join_modal").html("<%= escape_javascript(render('teacher')) %>");
+//     $('.custom-submit').on('click', function(e){
+//       e.preventDefault();
+//     });
+//   },
   
-});
+// });
 
 //bootstrap modal below:
 

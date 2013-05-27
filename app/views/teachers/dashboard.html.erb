@@ -1,34 +1,37 @@
-<h2>Welcome, <%= @teacher.first_name %></h2>
+<div id="dashboard">
+  <h2>Welcome, <%= @teacher.first_name %></h2>
 
+  <div class="dashboard-buttons">
+    <%= link_to "Schedule a text", schedule_new_messages_path %>
+    <%= link_to "Send a Text", new_message_path %>
+    <%= link_to "Add a Student", new_student_path %>
+  </div>
 
-<div>
+  <div class="students-list" >
+    <h4>students</h4>
+    <ul>
+      <% @students.each do |student| %>
+      <li><%= "#{student.first_name} #{student.last_name}" %></li>
+      <% end %>
+    </ul>
+    <br>
+  </div>
 
-<%= link_to "Schedule a text", schedule_new_messages_path %>
-<%= link_to "Send a Text", new_message_path %>
-<%= link_to "Add a Student", new_student_path %>
-<ul>
-<% @students.each do |student| %>
-  <li><%= "#{student.first_name} #{student.last_name}" %></li>
-<% end %>
-</ul>
-
-</div>
-
-
-<div id="calendar">
-  <h2 id="month">
-    <%= link_to "<", date: @date.prev_month %>
-    <%= @date.strftime("%B %Y") %>
-    <%= link_to ">", date: @date.next_month %>
-  </h2>
-  <%= calendar @date do |date| %>
+  <div id="calendar">
+    <h2 id="month">
+      <%= link_to "<", date: @date.prev_month %>
+      <%= @date.strftime("%B %Y") %>
+      <%= link_to ">", date: @date.next_month %>
+    </h2>
+    <%= calendar @date do |date| %>
     <%= date.day %>
     <% if @messages_by_date[date.to_s] %>
-      <ul>
-        <% @messages_by_date[date.to_s].each do |m| %>
-          <li><%= link_to m.subject, message_path(m)%></li>
-        <% end %>
-      </ul>
+    <ul>
+      <% @messages_by_date[date.to_s].each do |m| %>
+      <li><%= link_to m.subject, message_path(m)%></li>
+      <% end %>
+    </ul>
     <% end %>
-  <% end %>
+    <% end %>
+  </div>
 </div>

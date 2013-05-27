@@ -1,10 +1,15 @@
-<h2>Student Information</h2>
-<%= form_for @student do |t| %>
+<div class="display">
+  <%= @display if @display %>
+</div>
 
-  <%= t.label :first_name %>
-  <%= t.text_field :first_name %>
-  <%= t.label :last_name %>
-  <%= t.text_field :last_name %>
+<h2>Student Information</h2>
+
+<%= form_for @student do |f| %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
 
   <h2>Contact Information</h2>
     <%= t.fields_for :contacts do |contact_field| %>
@@ -20,7 +25,8 @@
     <%= contact_field.text_field :phone_number %>
     <%= contact_field.label :email %>
     <%= contact_field.text_field :email %>
-
     <% end %>
-  <%= t.submit "Submit" %>
+
+  <%= f.submit "Submit" %>
+
 <% end %>

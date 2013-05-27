@@ -74,7 +74,25 @@ $off_white: #F8F8F3;
   &:hover { background-color: darken($blue, 10%)}
 }
 
+.ui-button-text {
+  font-family: 'Roboto Condensed', sans-serif;
+  }
+.ui-dialog-buttonpane {
+  display: none;
+}
 
+.ui-icon {
+  /*background-color: black;*/
+  /*background-image: url(images/ui-icons_888888_256x240.png);*/
+}
+
+.ui-state-default .ui-icon {
+background: url(image_path('x.png')) no-repeat;
+}
+
+ui-button-icon-primary ui-icon ui-icon-closethick {
+background: url(image_path('x.png')) no-repeat;
+}
 
 
 

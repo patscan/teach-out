@@ -1,6 +1,9 @@
 class TeachersController < ApplicationController
   def new
     @teacher = Teacher.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -9,8 +12,11 @@ class TeachersController < ApplicationController
       session[:id]=@teacher.id
       redirect_to dashboard_teachers_path
     else
-      @errors = @teacher.errors.full_messages
-      render :new 
+      # @errors = @teacher.errors.full_messages
+      return render :json => { :errors => @teacher.errors.full_messages }, :status => 422
+      # render :new
+
+      #render json errors
     end
   end
 
@@ -27,6 +33,7 @@ class TeachersController < ApplicationController
 
     @unsent_messages = messages.undelivered
     @last_unsent_message = unsent_messages.sort_by! {|m| m.time_sent}.first
+
 
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end

@@ -3,17 +3,20 @@
     <div id="front-logo">
       teachout<span id="dot">.</span>io
     </div>
-
-    <div class="log-in">
-      <!--<%= render "shared/log_in" %>-->
-    </div>
-    <div class="sign-up">
-      <!--<%= render "shared/sign_up" %>-->
-  </div>
 </div>
 
 <div id="button_container">
-
-    <%= link_to "join", new_teacher_path, :class => "front_button" %>
-    <%= link_to "login", new_session_path, :class => "front_button" %>
+    <%= link_to "join", new_teacher_path, :class => "front_button", :remote => true %>
+    <%= link_to "login", new_session_path, :class => "front_button", :remote => true %>
 </div>
+
+<div id="join_modal" style="display:none">
+</div>
+
+<div id="login_modal" style="display:none">
+</div>
+
+
+
+
+<!-- http://stackoverflow.com/questions/4065432/rails-ajax-a-modal-dialog -->

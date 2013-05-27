@@ -1,0 +1,13 @@
+$("#login_modal").dialog({
+  autoOpen: true,
+  height: 240,
+  width: 350,
+  modal: true,
+  title: 'Log in',
+  buttons: {
+    "New": function() { $("#login_modal").submit() },
+  },
+  open: function() {
+    $("#login_modal").html("<%= escape_javascript(render('session')) %>")
+  },
+});

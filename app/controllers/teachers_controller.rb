@@ -11,12 +11,8 @@ class TeachersController < ApplicationController
     if @teacher.save
       session[:id]=@teacher.id
       render :js => "window.location = '/teachers/dashboard'"
-    else
-      # @errors = @teacher.errors.full_messages
-      render :json => { :error => @teacher.errors.full_messages.join(", ") }, :status => 422
-      # render :new
-
-      #render json errors
+    else      
+      render :json => { :error => @teacher.errors.full_messages.join("<br/>") }, :status => 422
     end
   end
 

@@ -16,6 +16,8 @@ $off_white: #F8F8F3;
 
 #image_box {
   margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
   position: absolute;
   width: 1000px;
   min-width: 500px;
@@ -122,6 +124,11 @@ input, select, textarea, button {
   margin-right: 50px;
 
   &:hover { color: $peach};
+}
+
+#join_errors, #login_errors {
+  font-size: 14px;
+  color: red;
 }
 
 

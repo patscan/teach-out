@@ -18,9 +18,9 @@ class MessagesController < ApplicationController
     job_ids = contacts_ids.map do |contact_id|
       TwilioWorker.perform_async(contact_id, message.id)
     end
+    
     redirect_to dashboard_teachers_path
   end
-
 
   def schedule_new
     @students = current_user.students.order(:first_name)

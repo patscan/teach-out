@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def new
-    @students = Student.all  #refactor to only show students for current_user
+    @students = current_user.students.order(:first_name)
     @message = Message.new
   end
 
@@ -18,12 +18,12 @@ class MessagesController < ApplicationController
     job_ids = contacts_ids.map do |contact_id|
       TwilioWorker.perform_async(contact_id, message.id)
     end
+    
     redirect_to dashboard_teachers_path
   end
 
-
   def schedule_new
-    @students = Student.all  #refactor to only show students for current_user
+    @students = current_user.students.order(:first_name)
     @message = Message.new
   end
 

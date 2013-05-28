@@ -19,6 +19,7 @@ describe Contact do
     it { should validate_format_of(:phone_number).not_with('abc') }
     it { should validate_format_of(:phone_number).not_with('1') }
     it { should validate_format_of(:phone_number).not_with('311-4313') }
-  end
+    it { should ensure_inclusion_of(:language).in_array(Contact.valid_languages) }
 
+  end
 end

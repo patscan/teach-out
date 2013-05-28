@@ -10,13 +10,9 @@ class TeachersController < ApplicationController
     @teacher = Teacher.create(params[:teacher])
     if @teacher.save
       session[:id]=@teacher.id
-      redirect_to dashboard_teachers_path
-    else
-      # @errors = @teacher.errors.full_messages
-      return render :json => { :errors => @teacher.errors.full_messages }, :status => 422
-      # render :new
-
-      #render json errors
+      render :js => "window.location = '/teachers/dashboard'"
+    else      
+      render :json => { :error => @teacher.errors.full_messages.join("<br/>") }, :status => 422
     end
   end
 
@@ -28,7 +24,7 @@ class TeachersController < ApplicationController
 
     @messages_by_date = messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d") if m.time_sent}
 
-    @sent_messages = messages.delivered
+    @sent_messages = messages.select
     @last_sent_message = @sent_messages.sort_by! {|m| m.time_sent}.first
 
     @unsent_messages = messages.undelivered

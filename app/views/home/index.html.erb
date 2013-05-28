@@ -1,10 +1,12 @@
 <div id="image_box">
   <div id="logo_box" >
     <div id="front-logo">
-      teachout<span id="dot">.</span>io
+      teach<span id="dot">-</span>out<span id="dot">.</span>com
     </div>
 </div>
 
+<!-- jquery ui modal -->
+<!--
 <div id="button_container">
     <%= link_to "join", new_teacher_path, :class => "front_button", :remote => true %>
     <%= link_to "login", new_session_path, :class => "front_button", :remote => true %>
@@ -14,6 +16,23 @@
 </div>
 
 <div id="login_modal" style="display:none">
+</div>-->
+<!-- end jquery ui modal -->
+
+<div id="button_container">
+    <%= link_to "join", "#", :class => "front_button", :id => "join_button"%>
+    <%= link_to "login", new_session_path, :class => "front_button", :id => "login_button" %>
+</div>
+
+<div id="modal_background"></div>
+
+
+<div class="front_form" id="join_form" style="display:none">
+  <%= render "shared/sign_up" %>
+</div>
+
+<div class="front_form" id="login_form" style="display:none">
+  <%= render "shared/log_in" %>
 </div>
 
 

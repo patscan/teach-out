@@ -2,18 +2,23 @@
   <h2>Welcome, <%= @teacher.first_name.capitalize %></h2>
 
   <div class="dashboard-buttons">
-    <%= image_tag "scheduletext.png" %>
-    <%= image_tag "newtext.png" %>
-    <%= image_tag "addstudent.png" %>
-    <%= image_tag "edit-student.png" %>
-</div>
-
-  <div class="dashboard-buttons">
-    <%= link_to "Schedule text", schedule_new_messages_path %>
-    <%= link_to "Send Text", new_message_path %>&nbsp;&nbsp;
-    <%= link_to "Add Student", new_student_path %>
-    <%= link_to "Edit Student", new_student_path %>
-</div>
+    <div class="button">
+      <%= image_tag "scheduletext.png" %>
+      <%= link_to "Schedule text", schedule_new_messages_path %>
+    </div>
+    <div class="button">    
+      <%= image_tag "newtext.png" %>
+      <%= link_to "Send Text", new_message_path %>
+    </div>
+    <div class="button">
+      <%= image_tag "addstudent.png" %>
+      <%= link_to "Add Student", new_student_path %>
+    </div>
+    <div class="button">
+      <%= image_tag "edit-student.png" %>
+      <%= link_to "Edit Student", new_student_path %>
+    </div>
+  </div>
 
   <div class="students-list" >
     <h4>students</h4>
@@ -29,23 +34,23 @@
     <div id="last-text">
       <span class="text-title"> last text </span>
       <% if @last_sent_message %>
-        <span class="text-content">
-          <%=  %>
-          <%= @last_sent_message.content %>
-        </span>
+      <span class="text-content">
+        <%=  %>
+        <%= @last_sent_message.content %>
+      </span>
       <% end %>
     </div>
 
     <div id="next-text">
       <span class="text-title"> next text </span>
       <% if @last_unsent_message %>
-        <span class="text-content">
-          <%= @last_unsent_message.content %>
-        </span>
+      <span class="text-content">
+        <%= @last_unsent_message.content %>
+      </span>
       <% else %>
-        <span class="text-content">
+      <span class="text-content">
         You have no scheduled texts
-        </span>
+      </span>
       <% end %>
     </div>
   </div>

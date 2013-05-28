@@ -16,7 +16,7 @@ end
 Student.all.each do |student|
  contact = Contact.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, 
                   email: Faker::Internet.email, relationship_to_student: "Guardian", 
-                  language: "English", phone_number: Faker::PhoneNumber.phone_number)
+                  language: "English", phone_number: ((rand(900) + 100).to_s + "-" + (rand(900) + 100).to_s + "-" + (rand(9000) + 1000).to_s))
   student.contacts << contact
 end
 
@@ -46,20 +46,20 @@ avalon = Student.create(first_name: "Avalon", last_name: "Emerson",
 
 
 jkai = Contact.create(first_name: "Jkai", last_name: "Son", 
-                  email: Faker::Internet.email, relationship_to_student: "Parent", 
-                  language: "English", phone_number: "+17602850799", active: true) #sean
+                  email: Faker::Internet.email, relationship_to_student: "Father", 
+                  language: "English", phone_number: "17602850799") #sean
 
 fei = Contact.create(first_name: "Fei-ker", last_name: "Bronson", 
                   email: Faker::Internet.email, relationship_to_student: "Guardian", 
-                  language: "English", phone_number: "+14157246575", active: true) #pat
+                  language: "English", phone_number: "14157246575") #pat
 
 johnny = Contact.create(first_name: "Johnny", last_name: "Dogg", 
-                  email: Faker::Internet.email, relationship_to_student: "Parent", 
-                  language: "English", phone_number: "+14159441274", active: true) #avalon
+                  email: Faker::Internet.email, relationship_to_student: "Father", 
+                  language: "English", phone_number: "14159441274") #avalon
 
 mike = Contact.create(first_name: "Johnny", last_name: "Dogg", 
-                  email: Faker::Internet.email, relationship_to_student: "Parent", 
-                  language: "English", phone_number: "+17143811795", active: true) #michael
+                  email: Faker::Internet.email, relationship_to_student: "Father", 
+                  language: "English", phone_number: "17143811795") #michael
 
 sean.contacts << [jkai, mike]
 michael.contacts << [fei, johnny]

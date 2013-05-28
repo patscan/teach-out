@@ -18,7 +18,15 @@
   <h2>Contact Information</h2>
 
     <%= f.fields_for :contacts do |contact_field| %>
-    <%= render "shared/new_contact", contact_field: contact_field %>
+      <%= render "shared/new_contact", contact_field: contact_field %>
+      <%= contact_field.fields_for :contact_students  do |cs| %>
+        <% if cs.object.student == @student %>
+          <%= cs.label :active %> 
+          <%= cs.radio_button :active, true%>
+          <%= cs.label :inactive %> 
+          <%= cs.radio_button :active, false %><br>
+        <% end %>
+      <% end %>
     <% end %>
     <br>
     <%= link_to_add_fields "Add Contact", f, :contacts %>

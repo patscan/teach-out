@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130527230148) do
+ActiveRecord::Schema.define(:version => 20130528190918) do
 
   create_table "contact_messages", :force => true do |t|
     t.integer "contact_id"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(:version => 20130527230148) do
 
   add_index "contact_messages", ["contact_id", "message_id"], :name => "index_contact_messages_on_contact_id_and_message_id", :unique => true
 
+  create_table "contact_students", :force => true do |t|
+    t.integer "contact_id"
+    t.integer "student_id"
+    t.boolean "active",     :default => false
+  end
+
   create_table "contacts", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -29,17 +35,11 @@ ActiveRecord::Schema.define(:version => 20130527230148) do
     t.string   "language"
     t.string   "phone_number"
     t.string   "email"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.boolean  "active",                  :default => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   add_index "contacts", ["phone_number"], :name => "index_contacts_on_phone_number", :unique => true
-
-  create_table "contacts_students", :force => true do |t|
-    t.integer "contact_id"
-    t.integer "student_id"
-  end
 
   create_table "messages", :force => true do |t|
     t.string   "header"

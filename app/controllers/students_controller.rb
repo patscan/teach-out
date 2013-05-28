@@ -27,6 +27,7 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
+    @contact_student = ContactStudent.where("student_id = ?", @student.id)
   end
 
   def update

@@ -141,6 +141,8 @@ GEM
       json
       redis (>= 3.0)
       redis-namespace
+    sidekiq-status (0.3.0)
+      sidekiq (~> 2.7)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -187,6 +189,7 @@ DEPENDENCIES
   sextant
   shoulda-matchers
   sidekiq
+  sidekiq-status
   thin
   twilio-ruby
   uglifier (>= 1.0.3)

@@ -27,7 +27,7 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
-
+gem 'sidekiq-status'
 gem 'jquery-rails'
 gem 'redis'
 gem 'sidekiq'

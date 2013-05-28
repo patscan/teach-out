@@ -45,7 +45,7 @@ class TeachersController < ApplicationController
 
     @messages_by_date = messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d") if m.time_sent}
 
-    @sent_messages = messages.delivered
+    @sent_messages = messages.select
     @last_sent_message = @sent_messages.sort_by! {|m| m.time_sent}.first
 
     @unsent_messages = messages.undelivered

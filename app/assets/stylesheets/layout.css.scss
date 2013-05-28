@@ -72,16 +72,36 @@ header .header-info {
   margin-left: auto;
 }
 
+.errors {
+  font-size: 14px;
+  color: red;
+}
+
+#add_student_form {
+  display: none;
+  z-index: 3;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  position: absolute;
+  margin-left: 330px;
+  width: auto;
+  height: auto;
+  background-color: white;
+}
 
 
-/*hex color palatte
-- 363636 -charcoal
-- ED9B7E -peach
-- 21A2BC -teal
-- DCE89D -leaf
-- E8D0C0 -oyster shell
-- C8BFB7 -shale
-- F8F8F3 -pearl
-Montserrat (400 w) 
-Robato Condensed Bold
-Robato Slab*/
+/*.front_form {
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 40px;
+  z-index: 3;
+  position: absolute;
+  margin-top: 200px;
+  margin-left: 330px;
+  width: 300px;
+  height: auto;
+  background-color: white;
+}*/

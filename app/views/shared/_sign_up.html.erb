@@ -1,6 +1,6 @@
 <%= @errors.join(', ') if @errors %>
 
-<div id="join_errors"></div>
+<div id="join_errors" class="errors"></div>
 
 <%= form_for @teacher, :remote => true do |f| %>
   <p><%= f.text_field :first_name, :placeholder => "First Name" %></p>

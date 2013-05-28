@@ -11,7 +11,7 @@ function Modal(button, form, errors) {
       $(this).hide();
       $(errors).html("");
     });
-  }
+  }.   
 
   this.toggleForm = function(e) {
     e.preventDefault();

@@ -5,10 +5,10 @@
 <%= contact_field.text_field :last_name %>  
 <br>
 <%= contact_field.label "Relation to Student" %>
-<%= contact_field.select(:relationship_to_student, options_for_select(@relations)) %>
+<%= contact_field.select(:relationship_to_student, options_for_select(Contact.valid_relations)) %>
 <br>
 <%= contact_field.label :language %>
-<%= contact_field.select(:language, options_for_select(@languages)) %>
+<%= contact_field.select(:language, options_for_select(Contact.valid_languages)) %>
 <br>
 <%= contact_field.label :phone_number %>
 <%= contact_field.text_field :phone_number %>

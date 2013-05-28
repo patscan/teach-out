@@ -1,24 +1,5 @@
 class StudentsController < ApplicationController
 
-  def new
-    @student = Student.new
-    @student.contacts.build
-    @relations = [["Mother", "Mother"],
-                  ["Father", "Father"], 
-                  ["Guardian", "Guardian"],
-                  ["Grandmother", "Grandmother"], 
-                  ["Grandfather", "Grandfather"], 
-                  ["Aunt", "Aunt"], 
-                  ["Uncle", "Uncle"]]
-    @languages = [["English", "English"], 
-                  ["Spanish","Spanish"], 
-                  ["Chinese", "Chinese"], 
-                  ["Tagalog", "Tagalog"], 
-                  ["Japanese", "Japanese"], 
-                  ["French", "French"], 
-                  ["German", "German"]]
-  end
-
   def create
     contact = Contact.find_by_phone_number(params[:student][:contacts_attributes]["0"][:phone_number])
     if contact
@@ -43,6 +24,24 @@ class StudentsController < ApplicationController
 
   def show
   end
+
+  def edit
+    @student = Student.find(params[:id])
+  end
+
+  def update
+    p params
+    @student = Student.find(params[:id])
+    @student.update_attributes(params[:student])
+    p @student.errors.count
+    if @student.errors.count > 0
+      @errors = @student.errors.full_messages.join("<br/>") 
+      render :edit
+    else
+      redirect_to dashboard_teachers_path
+    end
+  end
+
 
   def delete
   end

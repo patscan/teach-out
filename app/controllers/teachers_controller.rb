@@ -23,22 +23,6 @@ class TeachersController < ApplicationController
     @student = Student.new
     @student.contacts.build
 
-    @relations = [["Mother", "Mother"],
-                  ["Father", "Father"], 
-                  ["Guardian", "Guardian"],
-                  ["Grandmother", "Grandmother"], 
-                  ["Grandfather", "Grandfather"], 
-                  ["Aunt", "Aunt"], 
-                  ["Uncle", "Uncle"]]
-    @languages = [["English", "English"], 
-                  ["Spanish","Spanish"], 
-                  ["Chinese", "Chinese"], 
-                  ["Tagalog", "Tagalog"], 
-                  ["Japanese", "Japanese"], 
-                  ["French", "French"], 
-                  ["German", "German"]]
-    #
-
     @students = current_user.students.order(:first_name)
 
     messages = current_user.messages

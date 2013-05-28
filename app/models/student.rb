@@ -18,6 +18,14 @@ class Student < ActiveRecord::Base
       TwilioWorker.perform_async(contact.id, message.id)
     end
   end
+
+  def schedule_to_contacts(message, interval)
+    self.add_to_messages(message)
+    self.active_contacts.each do |contact|
+      contact.messages << message
+      TwilioWorker.perform_at(interval, contact.id, message.id)
+    end
+  end
   
   def add_to_messages(message)
     self.messages << message

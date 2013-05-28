@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
   def create
     message = Message.new(params[:message].merge(
       header: "From #{current_user.first_name.capitalize} #{current_user.last_name.capitalize}, #{current_user.school_name}"))
+    message.time_sent = Time.now
     students = Student.where :id => params[:students].values
     if message.save
       current_user.messages << message

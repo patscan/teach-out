@@ -9,8 +9,10 @@ class Student < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
 
   def active_contacts
-    self.contacts.select(&:active?)
-    # self.contact_students.where("active = ?", true)
+    # self.contacts.select(&:active?)
+    contact_ids = self.contact_students.where("active = ?", true).pluck(:contact_id)
+    contacts = Contact.where :id => contact_ids
+    p contacts
   end
 
   def send_to_contacts(message)

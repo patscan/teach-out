@@ -6,6 +6,7 @@ class Message < ActiveRecord::Base
   has_and_belongs_to_many :students
 
   validates :content, :presence => true
+  validates :time_sent, :presence => true
 
   # scope :sent, where("id = ?", (ContactMessage.all.where("delivered = ? AND message_id = ?", true, message.id ))) 
 

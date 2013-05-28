@@ -120,3 +120,35 @@
   padding-top: 20px;
 }
 
+
+#schedule_text_form {
+  display: none;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 40px;
+  z-index: 3;
+  position: absolute;
+/*  margin-top: 200px;
+  margin-left: 330px;*/
+  width: 40%;
+  margin-right:auto;
+  margin-right:auto;
+  height: auto;
+  background-color: white;
+}
+
+#new_text_form {
+  display: none;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 40px;
+  z-index: 3;
+  position: absolute;
+/*  margin-top: 200px;
+  margin-left: 330px;*/
+  width: 40%;
+  margin-right:auto;
+  margin-right:auto;
+  height: auto;
+  background-color: white;
+}

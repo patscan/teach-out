@@ -2,19 +2,22 @@
   <h2>Welcome, <%= @teacher.first_name.capitalize %></h2>
 
   <div class="dashboard-buttons">
-    <div class="button">
-      <%= image_tag "scheduletext.png" %>
-      <%= link_to "Schedule text", schedule_new_messages_path %>
+    <div class="button" id="schedule_text_button">
+      <%= link_to image_tag("scheduletext.png"), schedule_new_messages_path %>
+      <%= link_to "Schedule text" %>
     </div>
-    <div class="button">    
-      <%= image_tag "newtext.png" %>
-      <%= link_to "Send Text", new_message_path %>
+
+    <div class="button" id="new_text_button">    
+      <%= link_to image_tag("newtext.png"), new_message_path %>
+      <%= link_to "Send Text" %>
     </div>
+
     <div class="button" id="add_student_button">
       <%= image_tag "addstudent.png" %>
       <%= link_to "Add Student", new_student_path %>
     </div>
-    <div class="button">
+    
+    <div class="button" id="edit_student_button">
       <%= image_tag "edit-student.png" %>
       <%= link_to "Edit Student", new_student_path %>
     </div>
@@ -22,6 +25,9 @@
 
   <div id="modal_background"></div>
   <div id="add_student_form"><%= render "shared/new_student" %></div>
+  <div id="schedule_text_form"><%= render "shared/schedule_message_form" %></div>
+  <div id="new_text_form"><%= render "shared/message_form" %></div>
+  
 
   <div class="students-list" >
     <h4>students</h4>

@@ -9,7 +9,10 @@ class TwilioWorker
     contact_message = ContactMessage.where("message_id = ? AND contact_id = ?", message_id, contact_id).first
     contact_message.update_attributes(delivered: true)
     contact = Contact.find(contact_id)
-    response = twilio_client.account.sms.messages.create(from: app_phone, to: contact.phone_number, body: message.content)
+    response = twilio_client.account.sms.messages.create(from: app_phone, 
+                                                         to: contact.phone_number,
+                                                         body: message.content,
+                                                         statuscallback: "/message/status")
     contact_message.update_attributes(sms_sid: response.sid)
   end
 

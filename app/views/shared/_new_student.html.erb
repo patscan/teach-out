@@ -14,6 +14,7 @@
 
     <%= f.fields_for :contacts, :remote => true do |contact_field| %>
     <%= render "shared/new_contact", contact_field: contact_field %>
+    
     <% end %>
     <br>
     <%= link_to_add_fields "Add Contact", f, :contacts %>

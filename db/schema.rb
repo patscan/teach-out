@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20130528190918) do
   create_table "contact_students", :force => true do |t|
     t.integer "contact_id"
     t.integer "student_id"
-    t.boolean "active"
+    t.boolean "active",     :default => false
   end
 
   create_table "contacts", :force => true do |t|

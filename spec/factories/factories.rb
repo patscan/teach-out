@@ -1,11 +1,9 @@
-
-
 FactoryGirl.define do
 
   factory :teacher do
     first_name "Betty"
     last_name "White"
-    email "betty@white.com"
+    email {Faker::Internet.email}
     password "password"
     grade "5th"
     zip "88924"
@@ -42,12 +40,15 @@ FactoryGirl.define do
 
   factory :message do
     teacher
-    contact
-    student
     header "Betty White, 6th Grade, Licoln"
     content "Your son has been absent 3 days this week, please call 415-123-5678"
-    delivered false
     subject "Absence"
+    trait :delivered do
+      delivered true
+    end
+    trait :undelivered do
+      delivered false
+    end
   end
 
 end

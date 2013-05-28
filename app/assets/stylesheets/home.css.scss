@@ -29,6 +29,7 @@ $off_white: #F8F8F3;
 }
 
 #logo_box {
+  z-index:100;
   position: absolute;
   opacity: .9;
   margin-left: 200px;
@@ -40,6 +41,7 @@ $off_white: #F8F8F3;
 }
 
 #front-logo {
+  z-index: 101;
   opacity: 1;
   margin-top: 30px;
   margin-left: 35px;
@@ -54,6 +56,7 @@ $off_white: #F8F8F3;
 
 #button_container {
   position: absolute;
+  z-index: 100;
   /*left: 0;*/
   margin-top: 400px;
   margin-left: 375px;
@@ -126,7 +129,67 @@ input, select, textarea, button {
   &:hover { color: $peach};
 }
 
+/*#slideshow {
+  position: absolute;
+  width:500px;
+  height: 500px;
+  border-radius: 15px;
+  overflow: hidden;
+}*/
 
+#slideshow {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  border-radius: 12px;
+
+  overflow: hidden;
+  width: 1000px;
+  height: 600px;
+  background-color: $peach;
+  background-size: 1000px auto;
+}
+
+.slideshowImg {
+  z-index: 8;
+  position: absolute;
+  border-radius: 12px;
+  left: 0;
+  top: 0; 
+}
+
+.active {
+  z-index: 10;
+  position: absolute;
+  border-radius: 12px;
+  left: 0;
+  top: 0; 
+}
+
+.last-active {
+  z-index: 9;
+  position: absolute;
+  border-radius: 12px;
+  left: 0;
+  top: 0; 
+}
+/*#slideshow1 {
+  z-index: 4;
+}
+
+#slideshow2 {
+  z-index: 3;
+}
+
+#slideshow3 {
+  z-index: 2;
+}
+
+#slideshow4 {
+  z-index: 1;
+}
+*/
 
 
 

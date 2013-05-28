@@ -25,7 +25,7 @@ n = 11
 Contact.all.each do |contact|
   message = Message.create(header: "Mr. Brown, 6th Grade", 
                            content: Faker::Lorem.sentence(5),
-                           delivered: true, time_sent: Time.now, teacher_id: (n-=1))
+                           time_sent: Time.now, teacher_id: (n-=1))
   contact.messages << message
 end
 
@@ -68,7 +68,7 @@ avalon.contacts << [johnny, jkai]
 3.times do 
   message = Message.create(header: "Mr. Scanlan, Perley School", subject: "absence",
                                  content: Faker::Lorem.sentence(8), 
-                                 delivered: true, time_sent: Time.now)
+                                 time_sent: Time.now)
   pat.messages << message
   
   fei.messages << message

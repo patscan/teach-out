@@ -1,7 +1,8 @@
 class Message < ActiveRecord::Base
   attr_accessible :content, :delivered, :header, :time_sent, :teacher_id, :subject, :sms_sid
   belongs_to :teacher
-  has_and_belongs_to_many :contacts
+  has_many :contacts, :through => :contact_messages
+  has_many :contact_messages
   has_and_belongs_to_many :students
 
   validates :content, :presence => true

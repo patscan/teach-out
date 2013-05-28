@@ -11,7 +11,6 @@ class MessagesController < ApplicationController
     message.time_sent = Time.now
     message.delivered = true
     message.save!
-    current_user.messages << message
 
     students = Student.where :id => params[:students].values
     students.each { |student| student.send_to_contacts(message) }
@@ -28,17 +27,10 @@ class MessagesController < ApplicationController
     message = Message.create(params[:message].merge(
       header: "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}"))
     students = Student.where :id => params[:students].values
-    current_user.messages << message
-    contacts_ids = []
-    students.each do |student|
-      student.generate_contact_list(message, contacts_ids)
-    end
-
+    
     interval = parse_time(params['scheduled_for'], params["hour"], params["minute"], params["day_night"])
-    job_ids = contacts_ids.map do |contact_id|
-      TwilioWorker.perform_at(interval, contact_id, message.id)
-    end
-    p job_ids
+    students.each { |student| student.schedule_to_contacts(message, interval) }
+    
     redirect_to dashboard_teachers_path
   end
 

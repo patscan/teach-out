@@ -18,7 +18,7 @@ class TeachersController < ApplicationController
 
   def dashboard
     @teacher = current_user
-    
+    @message = Message.new #for displaying in the modal
     # - refactor - locals: true?
     @student = Student.new
     @student.contacts.build
@@ -29,15 +29,7 @@ class TeachersController < ApplicationController
     ids = messages.pluck(:id)
     contact_messsages = ContactMessage.delivered.where(:message_id => ids)
     @sent_messages = messages
-    p ids
-    p @sent_messages
     @messages_by_date = messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d") if m.time_sent}
-
-    # @sent_messages = 
-    # @last_sent_message = @sent_messages.sort_by! {|m| m.time_sent}.first
-
-    # @unsent_messages = messages.undelivered
-    # @last_unsent_message = @unsent_messages.sort_by! {|m| m.time_sent}.first
 
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end

@@ -29,11 +29,15 @@ function Modal(button, form, errors) {
 var joinModal = new Modal("#join_button", "#join_form", "#join_errors");
 var loginModal = new Modal("#login_button", "#login_form", "#login_errors");
 var addStudentModal = new Modal("#add_student_button", "#add_student_form", "#add_student_errors");
+var scheduleTextModal = new Modal("#schedule_text_button", "#schedule_text_form", "#schedule_text_errors");
+var sendTextModal = new Modal("#new_text_button", "#new_text_form", "#new_text_errors");
 
 $(document).ready(function(){
   joinModal.initialize();
   loginModal.initialize();
+  scheduleTextModal.initialize();
   addStudentModal.initialize();
+  sendTextModal.initialize();
 
   $('form').on('click', ".add_fields", function(e){
     e.preventDefault;
@@ -41,5 +45,4 @@ $(document).ready(function(){
     regex = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regex, time));
   })
-
 });

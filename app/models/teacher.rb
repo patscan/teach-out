@@ -14,5 +14,4 @@ class Teacher < ActiveRecord::Base
 
   after_validation { self.errors.messages.delete(:password_digest) }
 
-
 end

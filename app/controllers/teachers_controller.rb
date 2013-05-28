@@ -21,15 +21,18 @@ class TeachersController < ApplicationController
     @students = current_user.students.order(:first_name)
 
     messages = current_user.messages
-
+    ids = messages.pluck(:id)
+    contact_messsages = ContactMessage.delivered.where(:message_id => ids)
+    @sent_messages = messages
+    p ids
+    p @sent_messages
     @messages_by_date = messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d") if m.time_sent}
 
-    @sent_messages = messages.select
-    @last_sent_message = @sent_messages.sort_by! {|m| m.time_sent}.first
+    # @sent_messages = 
+    # @last_sent_message = @sent_messages.sort_by! {|m| m.time_sent}.first
 
-    @unsent_messages = messages.undelivered
-    @last_unsent_message = @unsent_messages.sort_by! {|m| m.time_sent}.first
-
+    # @unsent_messages = messages.undelivered
+    # @last_unsent_message = @unsent_messages.sort_by! {|m| m.time_sent}.first
 
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end

@@ -10,7 +10,7 @@
       <%= image_tag "newtext.png" %>
       <%= link_to "Send Text", new_message_path %>
     </div>
-    <div class="button">
+    <div class="button" id="add_student_button">
       <%= image_tag "addstudent.png" %>
       <%= link_to "Add Student", new_student_path %>
     </div>
@@ -19,6 +19,9 @@
       <%= link_to "Edit Student", new_student_path %>
     </div>
   </div>
+
+  <div id="modal_background"></div>
+  <div id="add_student_form"><%= render "shared/new_student" %></div>
 
   <div class="students-list" >
     <h4>students</h4>
@@ -74,4 +77,9 @@
     <% end %>
     <% end %>
   </div>
+
+
+
+
+
 </div>

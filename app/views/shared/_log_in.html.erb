@@ -1,6 +1,6 @@
 <%= @errors if @errors %>
 
-<div id="login_errors"></div>
+<div id="login_errors" class="errors"></div>
 
 <%= form_for :session, :url => sessions_path, :remote => true do |f| %>
   <p><%= f.email_field :email, :placeholder => "example@address.com" %></p>

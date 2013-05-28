@@ -1,0 +1,19 @@
+<%= contact_field.label :first_name %>
+<%= contact_field.text_field :first_name %>
+<br>
+<%= contact_field.label :last_name %>
+<%= contact_field.text_field :last_name %>  
+<br>
+<%= contact_field.label "Relation to Student" %>
+<%= contact_field.select(:relationship_to_student, options_for_select(@relations)) %>
+<br>
+<%= contact_field.label :language %>
+<%= contact_field.select(:language, options_for_select(@languages)) %>
+<br>
+<%= contact_field.label :phone_number %>
+<%= contact_field.text_field :phone_number %>
+<br>
+<%= contact_field.label :email %>
+<%= contact_field.text_field :email %>
+<br>
+<br>

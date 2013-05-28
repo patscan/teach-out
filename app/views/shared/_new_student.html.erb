@@ -11,26 +11,13 @@
   <%= f.text_field :last_name %>
 
   <h2>Contact Information</h2>
-    <%= f.fields_for :contacts, :remote => true do |contact_field| %>
-    <%= contact_field.label :first_name %>
-    <%= contact_field.text_field :first_name %>
-    <br>
-    <%= contact_field.label :last_name %>
-    <%= contact_field.text_field :last_name %>  
-    <br>
-    <%= contact_field.label "Relation to Student" %>
-    <%= contact_field.select(:relationship_to_student, options_for_select(@relations)) %>
-    <br>
-    <%= contact_field.label :language %>
-    <%= contact_field.select(:language, options_for_select(@languages)) %>
-    <br>
-    <%= contact_field.label :phone_number %>
-    <%= contact_field.text_field :phone_number %>
-    <br>
-    <%= contact_field.label :email %>
-    <%= contact_field.text_field :email %>
-    <% end %>
 
+    <%= f.fields_for :contacts, :remote => true do |contact_field| %>
+    <%= render "shared/new_contact", contact_field: contact_field %>
+    <% end %>
+    <br>
+    <%= link_to_add_fields "Add Contact", f, :contacts %>
+    <br>
   <%= f.submit "Submit", :class => "custom_submit" %>
 
 <% end %>

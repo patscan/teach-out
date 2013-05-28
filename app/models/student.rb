@@ -11,12 +11,15 @@ class Student < ActiveRecord::Base
     self.contacts.select(&:active?)
   end
 
-  def generate_contact_list(message, array)
-    self.messages << message
+  def send_to_contacts(message)
+    self.add_to_messages(message)
     self.active_contacts.each do |contact|
-        contact.messages << message
-        array << contact.id
+      contact.messages << message
+      TwilioWorker.perform_async(contact.id, message.id)
     end
   end
-
+  
+  def add_to_messages(message)
+    self.messages << message
+  end
 end

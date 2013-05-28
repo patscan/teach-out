@@ -19,7 +19,7 @@ describe Student do
     it { should validate_presence_of(:last_name) }
   end
 
-  context "when the student has one contact" do
+  context "#active_contacts" do
 
     let(:active_contact) { FactoryGirl.build(:contact) }
 
@@ -28,9 +28,28 @@ describe Student do
       student.contacts << FactoryGirl.build(:contact, :inactive)
     end
 
-    it "we see list of contacts via student.active_contacts" do
+    it "return list of active contacts" do
       student.active_contacts.should eq [active_contact]
     end
+  end
+
+  context "#send_to_contacts" do
+
+  let(:message) {FactoryGirl.build(:message)}
+
+    before(:each) do
+      student.contacts << FactoryGirl.build(:contact)
+      student.send_to_contacts(message)
+    end
+
+    it "add message to student's messages" do
+      student.messages.should include(message)
+    end
+
+    it "sends twilio text of message to student's contacts" do
+      t = mock(Twilio::RestAccount)
+    end
+
   end
 
 end

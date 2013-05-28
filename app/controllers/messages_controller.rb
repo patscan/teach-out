@@ -11,17 +11,10 @@ class MessagesController < ApplicationController
     message.time_sent = Time.now
     message.delivered = true
     message.save!
-    students = Student.where :id => params[:students].values
-    
     current_user.messages << message
-    contacts_ids = []
-    students.each do |student|
-      student.generate_contact_list(message, contacts_ids)
-    end
 
-    job_ids = contacts_ids.map do |contact_id|
-      TwilioWorker.perform_async(contact_id, message.id)
-    end
+    students = Student.where :id => params[:students].values
+    students.each { |student| student.send_to_contacts(message) }
     
     redirect_to dashboard_teachers_path
   end

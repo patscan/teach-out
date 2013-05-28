@@ -1,51 +1,34 @@
-/// Yes, we know we have to refactor this.
+function Modal(button, form, errors) {
+  this.button = button;
+  this.form = form;
+  this.errors = errors;
 
-var Join = {
-  init: function() {
-    $("#join_button").on('click', this.toggleForm);
-    $("#join_form").on('ajax:error', this.showErrors);
+  this.initialize = function() {
+    $(button).on('click', this.toggleForm);
+    $(form).on('ajax:error', this.showErrors);
     $("#modal_background").click(function(){
-      $("#join_form").hide();
+      $(form).hide();
       $(this).hide();
-      $("#join_errors").html("");
+      $(errors).html("");
     });
-  },
+  }
 
-  toggleForm: function(e) {
+  this.toggleForm = function(e) {
     e.preventDefault();
     $('#modal_background').toggle();
-    $('#join_form').toggle();
-  },
+    $(form).toggle();
+  };
 
-  showErrors: function(event, xhr, status, error) {
-    $("#join_errors").html($.parseJSON(xhr.responseText).error);
-  }
+  this.showErrors = function(event, xhr, status, error) {
+    $(errors).html($.parseJSON(xhr.responseText).error);
+  };
+
 }
 
-var LogIn = {
-  
-  init: function() {
-    $("#login_button").on('click', this.toggleForm);
-    $("#login_form").on('ajax:error', this.showErrors);
-    $("#modal_background").click(function(){
-      $("#login_form").hide();
-      $(this).hide();
-      $("#login_errors").html("");
-    });
-  },
-
-  toggleForm: function(e) {
-    e.preventDefault();
-    $('#modal_background').toggle();
-    $('#login_form').toggle();
-  },
-
-  showErrors: function(event, xhr, status, error) {
-    $("#login_errors").html($.parseJSON(xhr.responseText).error);
-  }
-}
+var joinModal = new Modal("#join_button", "#join_form", "#join_errors");
+var loginModal = new Modal("#login_button", "#login_form", "#login_errors")
 
 $(document).ready(function(){
-  Join.init();
-  LogIn.init();
-})
+  joinModal.initialize();
+  loginModal.initialize();
+});

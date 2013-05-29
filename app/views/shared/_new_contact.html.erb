@@ -1,19 +1,36 @@
-<%= contact_field.label :first_name %>
-<%= contact_field.text_field :first_name %>
-<br>
-<%= contact_field.label :last_name %>
-<%= contact_field.text_field :last_name %>  
-<br>
-<%= contact_field.label "Relation to Student" %>
-<%= contact_field.select(:relationship_to_student, options_for_select(Contact.valid_relations)) %>
-<br>
-<%= contact_field.label :language %>
-<%= contact_field.select(:language, options_for_select(Contact.valid_languages)) %>
-<br>
-<%= contact_field.label :phone_number %>
-<%= contact_field.text_field :phone_number %>
-<br>
-<%= contact_field.label :email %>
-<%= contact_field.text_field :email %>
-<br>
-<br>
+<fieldset>
+  <%= contact_field.label :first_name %>
+  <%= contact_field.text_field :first_name %>
+  <br>
+  <%= contact_field.label :last_name %>
+  <%= contact_field.text_field :last_name %>  
+  <br>
+  <%= contact_field.label "Relation to Student" %>
+  <%= contact_field.select(:relationship_to_student, options_for_select(Contact.valid_relations)) %>
+  <br>
+  <%= contact_field.label :language %>
+  <%= contact_field.select(:language, options_for_select(Contact.valid_languages)) %>
+  <br>
+  <%= contact_field.label :phone_number %>
+  <%= contact_field.text_field :phone_number %>
+  <br>
+  <%= contact_field.label :email %>
+  <%= contact_field.text_field :email %>
+  <br>
+  <% 
+    args = [:contact_students]
+    if contact_field.object.new_record?
+      args << ContactStudent.new(student: @student)
+    end
+  %>
+  <%= contact_field.fields_for *args do |cs| %>
+    <% if cs.object.student == @student %>
+      <%= cs.label :active %> 
+      <%= cs.radio_button :active, true%>
+      <%= cs.label :inactive %> 
+      <%= cs.radio_button :active, false %>
+      <%= cs.hidden_field :_destroy, :data => {:command => "delete_button"} %><br>
+    <% end %>
+  <% end %>
+  <%= link_to "Remove", "#", class: "remove-fields" %>
+</fieldset>

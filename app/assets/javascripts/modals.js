@@ -7,17 +7,16 @@ function Modal(button, form, errors) {
     $(button).on('click', this.toggleForm);
     // $(form).on('ajax:sucess', this.toggle());
     $(form).on('ajax:error', this.showErrors);
-
     $("#modal_background").click(function(){
       $(form).hide();
       $(this).hide();
-      $(errors).html("");
+      $('form').each(function() { this.reset() });
     });
   };   
 
   this.toggleForm = function(e) {
     e.preventDefault();
-    $('#modal_background').toggle();
+    $('#modal_background').fadeToggle('fast');
     $(form).toggle();
   };
 
@@ -45,5 +44,4 @@ $(document).ready(function(){
     regex = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regex, time));
   })
-
 });

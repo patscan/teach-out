@@ -1,3 +1,7 @@
+#dashboard {
+  position: relative;
+}
+
 #dashboard h2 {
   text-align: center;
 }
@@ -32,16 +36,10 @@
   padding: 1em;
 }
 
-
-
 #dashboard #last-next-texts {
   background-color: #fff;
   height:100px;
 }
-
-
-
-
 
 #dashboard .students-list {
   margin: 10px auto auto 1em;
@@ -118,35 +116,32 @@
   padding-top: 20px;
 }
 
-
-#schedule_text_form {
+#schedule_text_form, #new_text_form, #add_student_form {
   display: none;
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 40px;
-  z-index: 3;
+  z-index: 102;
   position: absolute;
-/*  margin-top: 200px;
-  margin-left: 330px;*/
-  width: 40%;
-  margin-right:auto;
-  margin-right:auto;
-  height: auto;
+  width: auto;
+  margin-top: -200px;
   background-color: white;
+  -moz-box-shadow: 3px 3px 4px #191922;
+  -webkit-box-shadow: 3px 3px 4px #191922;
+  box-shadow: 3px 3px 4px #191922;
+}
+
+#schedule_text_form {
+  margin-left: 410px;
+  width: 400px;
 }
 
 #new_text_form {
-  display: none;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-left: 40px;
-  z-index: 3;
-  position: absolute;
-/*  margin-top: 200px;
-  margin-left: 330px;*/
-  width: 40%;
-  margin-right:auto;
-  margin-right:auto;
-  height: auto;
-  background-color: white;
+  margin-left: 410px;
+  width: 400px;
+}
+
+#add_student_form {
+  margin-left: 410px;
+  width: 400px; 
 }

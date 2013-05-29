@@ -1,5 +1,7 @@
 <div id="schedule_text_errors" class="errors"></div>
 
+<div id="schedule_text_character_counter"></div>
+
 <div class="students-list">
   <%= form_for @message, :url => { :action => "schedule", :controller=>"messages" },  :remote => true do |t| %>
   <ul>
@@ -16,7 +18,7 @@
     <%= select_tag(:day_night, options_for_select([["am", "am"], ["pm", "pm"]])) %></br>
 
     <%= t.label :content %></br>
-    <%= t.text_area :content, :value => "From: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}" %></br>
+    <%= t.text_area :content, :id => "schedule_text_message_content", :value => "From: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}" %></br>
     
     <%= t.submit "Schedule It!", :class => "custom_submit" %>
   <% end %>

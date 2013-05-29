@@ -20,11 +20,6 @@
   </div>
 
 
-
-<!-- <div id="image_box">
-
-</div> -->
-
 <% if !current_user %>
   <div id="button_container">
     <%= link_to "join", "#", :class => "front_button", :id => "join_button"%>
@@ -52,33 +47,3 @@
 <div class="front_form" id="login_form" style="display:none">
   <%= render "shared/log_in" %>
 </div>
-
-
-
-
-<script type="text/javascript">
-
-function slideSwitch() {
-    var $active = $('#slideshow span.active');
-
-    if ( $active.length == 0 ) $active = $('#slideshow span:last');
-
-    var $next =  $active.next().length ? $active.next()
-        : $('#slideshow span:first');
-
-    $active.addClass('last-active');
-
-    $next.css({opacity: 0.0})
-        .addClass('active')
-        .animate({opacity: 1.0}, 1000, function() {
-   $active.removeClass('active last-active');
-        });
-}
-
-$(document).ready(function(){
- setInterval( "slideSwitch()", 3000 ); 
- });
-
-</script>
-
-

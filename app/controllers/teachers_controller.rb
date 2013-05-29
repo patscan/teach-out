@@ -18,13 +18,10 @@ class TeachersController < ApplicationController
 
   def dashboard
     @teacher = current_user
-    @message = Message.new #for displaying in the modal
-    # - refactor - locals: true?
+    @message = Message.new 
     @student = Student.new
     @student.contacts.build
-
     @students = current_user.students.order(:first_name)
-
     messages = current_user.messages
     ids = messages.pluck(:id)
     contact_messsages = ContactMessage.delivered.where(:message_id => ids)
@@ -36,24 +33,29 @@ class TeachersController < ApplicationController
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
-  def render_calendar ##route for async date changing
+  def render_calendar 
     string_date = params[:month]
     year, month = string_date.split('-')
     @date = Date.new(year.to_i, month.to_i)
     @messages_by_date = current_user.messages.group_by do |m| 
-      m.time_sent.strftime("%Y-%m-%d") if m.time_sent
+      m.time_sent.strftime("%Y-%m-%d") if @messages_by_date
     end
-
-    calendar = render_to_string(:partial => "shared/calendar", :layout => false, :locals => {:date => @date, :messages_by_date => @messages_by_date})
+    calendar = render_to_string(:partial => "shared/calendar", 
+                                :layout => false, 
+                                :locals => {:date => @date, :messages_by_date => @messages_by_date})
     render :json => {:calendar => calendar}
   end
 
   def render_single_day
-    date = params[:date]
-    @day_messages = current_user.messages.select do |m|
-      m.time_sent if m.time_sent == date
-    end
-    single_day = render_to_string(:partial => "shared/single_day", :layout => false, :locals => {:day_messages => @day_messages})
+    @date = params[:date]
+      @day_messages = current_user.messages.select do |m|
+        if m.time_sent
+          m.time_sent.strftime("%Y-%m-%d") == @date
+        end
+      end
+    single_day = render_to_string(:partial => "shared/single_day", 
+                                  :layout => false, 
+                                  :locals => {:day_messages => @day_messages, :date => @date})
     render :json => {:single_day => single_day}
   end
 

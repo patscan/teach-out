@@ -9,7 +9,7 @@
     <%= date.day %>
     <% if @messages_by_date[date.to_s] %>
     <ul>
-      <% @messages_by_date[date.to_s].each do |m| %>
+      <% @messages_by_date[date.to_s].take(6).each do |m| %>
 
       <li> <%= link_to m.content[0,10], message_path(m)%> </li>
 

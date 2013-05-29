@@ -1,16 +1,16 @@
 $(document).ready(function(){
 
-function ajaxCalendar(new_month){
-  $.ajax({
-    url: "/teachers/render_calendar",
-    dataType: 'json',
-    type: "GET",
-    data: {month: new_month},
-    success: function(data){
-      $("#calendar").html(data.calendar)
-    }
-  })
-}
+  function ajaxCalendar(new_month){
+    $.ajax({
+      url: "/teachers/render_calendar",
+      dataType: 'json',
+      type: "GET",
+      data: {month: new_month},
+      success: function(data){
+        $("#calendar").html(data.calendar)
+      }
+    })
+  }
 
   $(document).on('click', '.prev_month', function(e){
     e.preventDefault();
@@ -43,14 +43,25 @@ function ajaxCalendar(new_month){
   });
 
   $(document).on('click', 'td', function(){
-    $.ajax({
-      url: "/teachers/render_single_day",
-      dataType: "json",
-      type: "GET",
-      data: {date: $(this).data}
-    })
+    if ($(this).text().trim().length < 3) {
+       $(this).css({"background-color": "#FF6969"});
+       var thisTd = this
+       setTimeout(function(){
+         $(thisTd).css({"background-color": "#FFF"});
+       },200)
+       
+    } else {
+      $.ajax({
+        url: "/teachers/render_single_day",
+        type: "GET",
+        dataType: "json",
+        data: {date: $(this).attr("datenum")},
+        success: function(singleDayHtml){
+          $("#calendar").prepend(singleDayHtml)
+        }
+      })
+    }
+    
   })
-
-
 
 });

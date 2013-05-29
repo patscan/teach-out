@@ -89,5 +89,14 @@
 }
 
 #single_day li a {
-  color: black
+  color: black;
+}
+
+#single_day ul {
+  list-style-type:none
+}
+
+#single_day #student_name {
+  color: #21A2BC;
+  margin-left: 1em;
 }

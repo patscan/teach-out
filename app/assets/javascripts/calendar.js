@@ -63,9 +63,7 @@ $(document).ready(function(){
         $(".single_day").slideDown("ease")
                   setTimeout(function(){
          $("#single_day").first().replaceWith(singleDayHtml.single_day);
-       },300).stop()
-
-
+       },300)
           
         }      
       })

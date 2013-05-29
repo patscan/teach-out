@@ -1,4 +1,5 @@
 <div id="single_day">
+  <h4><%= @date %></h4>
    <ul>
     <% if @day_messages %>
         <% @day_messages.each do |m| %>  
@@ -7,7 +8,9 @@
 
           <small> at <%= m.time_sent.getlocal.strftime("%l:%M %P") %></small>
           <br>
-          <small> </small>
+          <% m.students.uniq.each do |s| %>
+            <small id="student_name"><%= s.first_name + " " + s.last_name %></small>
+          <% end %>
         </li>
       <% end %>
     <% end %>

@@ -4,7 +4,17 @@ function Modal(button, form, errors) {
   this.errors = errors;
 
   this.initialize = function() {
+    // this.
     $(button).on('click', this.toggleForm);
+
+    // $(button).click(function(e) {
+    //   e.preventDefault();
+    //   console.log(form);
+    //   this.center();
+    //   // this.toggleForm;
+    // });
+
+
     // $(form).on('ajax:sucess', this.toggle());
     $(form).on('ajax:error', this.showErrors);
     $("#modal_background").click(function(){
@@ -13,17 +23,29 @@ function Modal(button, form, errors) {
       $('form').each(function() { this.reset() });
       $(errors).html("");
     });
+    // console.log(this.verticalCenter());
   };   
 
   this.toggleForm = function(e) {
     e.preventDefault();
     $('#modal_background').fadeToggle('fast');
+    
+    var height = $(window).height();
+    var width = $(window).width();
+    $(form).css('top', height/8).css('left', width/4);
+
     $(form).toggle();
   };
 
   this.showErrors = function(event, xhr, status, error) {
     $(errors).html($.parseJSON(xhr.responseText).error);
   };
+
+  // this.center = function() {
+  //   var height = $(window).height();
+  //   var width  = $(window).width();
+  //   $(form).css('top', height/2).css('left', width/4);
+  // }
 }
 
 var joinModal = new Modal("#join_button", "#join_form", "#join_errors");

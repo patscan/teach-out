@@ -76,21 +76,6 @@ $off_white: #F8F8F3;
   &:hover { background-color: darken($blue, 10%)}
 }
 
-.front_form {
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-left: 40px;
-  z-index: 102;
-  position: absolute;
-  margin-top: 100px;
-  margin-left: 330px;
-  width: 300px;
-  height: auto;
-  background-color: white;
-  -moz-box-shadow: 3px 3px 4px #191922;
-  -webkit-box-shadow: 3px 3px 4px #191922;
-  box-shadow: 3px 3px 4px #191922;
-}
 
 #modal_background {
   z-index: 101;
@@ -112,8 +97,32 @@ input, select, textarea, button {
   font-family:'Roboto Slab'; 
 }
 
+.front_form {
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 40px;
+  z-index: 102;
+  position: absolute;
+  width: 300px;
+  height: auto;
+  background-color: white;
+  -moz-box-shadow: 3px 3px 4px #191922;
+  -webkit-box-shadow: 3px 3px 4px #191922;
+  box-shadow: 3px 3px 4px #191922;
+  .custom_submit {
+    margin-right: 40px;
+  }
+}
+
+#join_form {
+  margin-left: 150px;
+  margin-top: 25px;
+}
+
 #login_form {
-  margin-top: 250px;
+  margin-left: 150px;
+  margin-top: 150px;
+  /*margin-top: 250px;*/
 }
 
 .custom_submit {

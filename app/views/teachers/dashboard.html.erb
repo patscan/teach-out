@@ -24,9 +24,16 @@
   </div>
 
   <div id="modal_background"></div>
-  <div id="add_student_form"><%= render "shared/new_student" %></div>
-  <div id="schedule_text_form"><%= render "shared/schedule_message_form" %></div>
-  <div id="new_text_form"><%= render "shared/message_form" %></div>
+
+  <div id="add_student_form">
+    <%= render "shared/new_student" %>
+  </div>
+  <div id="schedule_text_form">
+    <%= render "shared/schedule_message_form" %>
+  </div>
+  <div id="new_text_form">
+    <%= render "shared/message_form" %>
+  </div>
   
 
   <div class="students-list" >
@@ -64,28 +71,10 @@
     </div>
   </div>
 
+
   <div id="calendar">
-    <h3 id="month">
-      <%= link_to "<", date: @date.prev_month %>
-      <%= @date.strftime("%B %Y") %>
-      <%= link_to ">", date: @date.next_month %>
-    </h3>
-    <%= calendar @date do |date| %>
-    <%= date.day %>
-    <% if @messages_by_date[date.to_s] %>
-    <ul>
-      <% @messages_by_date[date.to_s].each do |m| %>
-
-      <li> <%= link_to m.content[0,10], message_path(m)%> </li>
-
-      <% end %>
-    </ul>
-    <% end %>
-    <% end %>
+    <%= render "shared/calendar" %>
   </div>
-
-
-
 
 
 </div>

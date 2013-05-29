@@ -16,6 +16,7 @@ TeachOut::Application.routes.draw do
   resources :teachers do
     collection do
       get "dashboard"
+      get "render_calendar"
     end
   end
 

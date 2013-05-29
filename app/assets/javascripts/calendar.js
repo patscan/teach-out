@@ -12,6 +12,8 @@ $(document).ready(function(){
     })
   }
 
+?:
+
   $(document).on('click', '.prev_month', function(e){
     e.preventDefault();
 

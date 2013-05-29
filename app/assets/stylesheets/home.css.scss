@@ -57,11 +57,8 @@ $off_white: #F8F8F3;
 #button_container {
   position: absolute;
   z-index: 100;
-  /*left: 0;*/
   margin-top: 400px;
   margin-left: 375px;
-  
-  /*margin-left: 200px;*/
 }
 
 .front_button {
@@ -132,13 +129,42 @@ input, select, textarea, button {
   &:hover { background-color: darken($lime, 15%)};
 }
 
-/*#slideshow {
+#slideshow {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
   position: absolute;
-  width:500px;
-  height: 500px;
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
-}*/
+  width: 1000px;
+  height: 600px;
+  background-color: $peach;
+  background-size: 1000px auto;
+}
+
+.slideshowImg {
+  z-index: 8;
+  position: absolute;
+  border-radius: 12px;
+  left: 0;
+  top: 0; 
+}
+
+.active {
+  z-index: 10;
+  position: absolute;
+  border-radius: 12px;
+  left: 0;
+  top: 0; 
+}
+
+.last-active {
+  z-index: 9;
+  position: absolute;
+  border-radius: 12px;
+  left: 0;
+  top: 0; 
+}
 
 #slideshow {
   margin-top: 50px;
@@ -177,69 +203,3 @@ input, select, textarea, button {
   left: 0;
   top: 0; 
 }
-/*#slideshow1 {
-  z-index: 4;
-}
-
-#slideshow2 {
-  z-index: 3;
-}
-
-#slideshow3 {
-  z-index: 2;
-}
-
-#slideshow4 {
-  z-index: 1;
-}
-*/
-
-
-
-/*.ui-button-text {
-  font-family: 'Roboto Condensed', sans-serif;
-  }*/
-/*.ui-dialog-buttonpane {
-  display: none;
-}*/
-
-#slideshow {
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  border-radius: 12px;
-
-  overflow: hidden;
-  width: 1000px;
-  height: 600px;
-  background-color: $peach;
-  background-size: 1000px auto;
-}
-
-.slideshowImg {
-  z-index: 8;
-  position: absolute;
-  border-radius: 12px;
-  left: 0;
-  top: 0; 
-}
-
-.active {
-  z-index: 10;
-  position: absolute;
-  border-radius: 12px;
-  left: 0;
-  top: 0; 
-}
-
-.last-active {
-  z-index: 9;
-  position: absolute;
-  border-radius: 12px;
-  left: 0;
-  top: 0; 
-}
-
-
-

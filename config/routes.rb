@@ -17,6 +17,7 @@ TeachOut::Application.routes.draw do
     collection do
       get "dashboard"
       get "render_calendar"
+      get "render_single_day"
     end
   end
 

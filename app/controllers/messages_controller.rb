@@ -5,13 +5,11 @@ class MessagesController < ApplicationController
     @message = Message.new
   end
 
-
-
-
-
   def create
     message = Message.new(params[:message].merge(
       header: "From #{current_user.first_name.capitalize} #{current_user.last_name.capitalize}, #{current_user.school_name}"))
+    message.time_sent = Time.now
+    message.save
     students = Student.where :id => params[:students].values
     if message.save
       current_user.messages << message
@@ -22,12 +20,6 @@ class MessagesController < ApplicationController
     end
   end
 
-
-
-
-
-
-
   def schedule_new
     @students = current_user.students.order(:first_name)
     @message = Message.new
@@ -36,6 +28,8 @@ class MessagesController < ApplicationController
   def schedule
     message = Message.new(params[:message].merge(
       header: "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}"))
+    message.time_sent = Time.now
+    message.save
     if params[:students] != nil
       students = Student.where :id => params[:students].values
       if message.save

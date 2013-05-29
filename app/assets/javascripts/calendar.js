@@ -1,7 +1,20 @@
 $(document).ready(function(){
 
-$(document).on('click', '.prev_month', function(e){
+function ajaxCalendar(new_month){
+  $.ajax({
+    url: "/teachers/render_calendar",
+    dataType: 'json',
+    type: "GET",
+    data: {month: new_month},
+    success: function(data){
+      $("#calendar").html(data.calendar)
+    }
+  })
+}
+
+  $(document).on('click', '.prev_month', function(e){
     e.preventDefault();
+    ajaxCalendar(new_month)
     var month = $(this).parents(".calendar").data("month")
     var new_month = prevMonth(month)
     
@@ -12,20 +25,11 @@ $(document).on('click', '.prev_month', function(e){
       var y = parts[0];
       return y+'-'+(parseInt(m)-1)
     };
-
-    $.ajax({
-      url: "/teachers/render_calendar",
-      dataType: 'json',
-      type: "GET",
-      data: {month: new_month}, //date needs to increment month line 35
-      success: function(data){
-        $("#calendar").html(data.calendar)
-      }
-    })
   });
 
   $(document).on('click', '.next_month', function(e){
     e.preventDefault();
+    ajaxCalendar(new_month)
     var month = $(this).parents(".calendar").data("month")
     var new_month = nextMonth(month)
     
@@ -36,15 +40,17 @@ $(document).on('click', '.prev_month', function(e){
       var y = parts[0];
       return y+'-'+(parseInt(m)+1)
     };
-
-    $.ajax({
-      url: "/teachers/render_calendar",
-      dataType: 'json',
-      type: "GET",
-      data: {month: new_month}, //date needs to increment month line 35
-      success: function(data){
-        $("#calendar").html(data.calendar)
-      }
-    })
   });
+
+  $(document).on('click', 'td', function(){
+    $.ajax({
+      url: "/teachers/render_single_day",
+      dataType: "json",
+      type: "GET",
+      data: {date: $(this).data}
+    })
+  })
+
+
+
 });

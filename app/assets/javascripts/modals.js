@@ -46,6 +46,4 @@ $(document).ready(function(){
     $(this).before($(this).data('fields').replace(regex, time));
   })
 
-  
-
 });

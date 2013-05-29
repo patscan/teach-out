@@ -40,14 +40,21 @@ class TeachersController < ApplicationController
     string_date = params[:month]
     year, month = string_date.split('-')
     @date = Date.new(year.to_i, month.to_i)
-    puts "*" * 80
-    puts @date
     @messages_by_date = current_user.messages.group_by do |m| 
       m.time_sent.strftime("%Y-%m-%d") if m.time_sent
     end
 
     calendar = render_to_string(:partial => "shared/calendar", :layout => false, :locals => {:date => @date, :messages_by_date => @messages_by_date})
     render :json => {:calendar => calendar}
+  end
+
+  def render_single_day
+    date = params[:date]
+    @day_messages = current_user.messages.select do |m|
+      m.time_sent if m.time_sent == date
+    end
+    single_day = render_to_string(:partial => "shared/single_day", :layout => false, :locals => {:day_messages => @day_messages})
+    render :json => {:single_day => single_day}
   end
 
   def show

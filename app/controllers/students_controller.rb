@@ -31,7 +31,6 @@ class StudentsController < ApplicationController
   end
 
   def update
-    p params
     @student = Student.find(params[:id])
     @student.update_attributes(params[:student])
     p @student.errors.count
@@ -46,7 +45,7 @@ class StudentsController < ApplicationController
 
 
   def destroy
-  
+    puts 'YEAHHH BITCH'
   end
 
   def search
@@ -56,6 +55,7 @@ class StudentsController < ApplicationController
 
   def set_contact_active
     # From phone number to new contact hash
+    # binding.pry
     new_contacts = params["student"]["contacts_attributes"].
       select{|k, v| v["contact_students_attributes"].values.
         any?{|h| h["id"].nil?}}.values.index_by{|h| h['phone_number']}

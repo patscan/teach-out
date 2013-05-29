@@ -16,8 +16,6 @@
   <br>
   <%= contact_field.label :email %>
   <%= contact_field.text_field :email %>
-
-  <%= contact_field.hidden_field :_destroy %>
   <br>
   <% 
     args = [:contact_students]
@@ -30,7 +28,8 @@
       <%= cs.label :active %> 
       <%= cs.radio_button :active, true%>
       <%= cs.label :inactive %> 
-      <%= cs.radio_button :active, false %><br>
+      <%= cs.radio_button :active, false %>
+      <%= cs.hidden_field :_destroy, :data => {:command => "delete_button"} %><br>
     <% end %>
   <% end %>
   <%= link_to "Remove", "#", class: "remove-fields" %>

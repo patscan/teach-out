@@ -3,11 +3,16 @@ function charCounter(textarea, counter) {
   this.counter = counter;
 
   this.initialize = function() {
+    
     $(textarea).on('keyup', function(){
-      $(counter).html(160 - $(textarea).val().length + " characters left.");
+      var textLength = $(textarea).val().length;
+      if (textLength > 160) {
+        $(textarea).val($(textarea).val().substr(0, 160));
+      } else {
+      $(counter).html(160 - textLength + " characters left.");
+      }
     })
   };
-
 }
 
 var scheduleTextCounter = new charCounter('#schedule_text_message_content', '#schedule_text_character_counter');

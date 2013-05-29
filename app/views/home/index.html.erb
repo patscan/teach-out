@@ -25,15 +25,14 @@
 
 </div> -->
 
-<% if current_user %>
+<% if !current_user %>
   <div id="button_container">
     <%= link_to "join", "#", :class => "front_button", :id => "join_button"%>
     
     <%= link_to "login", "#", :class => "front_button", :id => "login_button" %>
   </div>
-<% end %>
 
-<% if !current_user %>
+<% else %>
   <div id="button_container">
     <%= link_to "home", dashboard_teachers_path, :class => "front_button" %>
     

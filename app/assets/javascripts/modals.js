@@ -29,11 +29,9 @@ function Modal(button, form, errors) {
   this.toggleForm = function(e) {
     e.preventDefault();
     $('#modal_background').fadeToggle('fast');
-    
     var height = $(window).height();
     var width = $(window).width();
     $(form).css('top', height/8).css('left', width/4);
-
     $(form).toggle();
   };
 

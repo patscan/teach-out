@@ -55,7 +55,7 @@ class TeachersController < ApplicationController
       end
     single_day = render_to_string(:partial => "shared/single_day", 
                                   :layout => false, 
-                                  :locals => {:day_messages => @day_messages, :date => @date})
+                                  :locals => {:date => @date, :day_messages => @day_messages })
     render :json => {:single_day => single_day}
   end
 

@@ -61,6 +61,12 @@
       </ul>
       <br>
     </div>
+  </div>
+  <div class="single_day">
+    <div id="single_day">
+      <%= render "shared/single_day", :date => @date, :day_messages => @day_messages %>
+    </div>
+  </div>
 
   <div id="calendar">
     <%= render "shared/calendar", :date => @date, :messages_by_date => @messages_by_date %>

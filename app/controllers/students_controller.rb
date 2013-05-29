@@ -44,7 +44,8 @@ class StudentsController < ApplicationController
   end
 
 
-  def delete
+  def destroy
+  
   end
 
   def search

@@ -17,7 +17,7 @@
 
     <h2>Contact Information</h2>
 
-      <%= f.fields_for :contacts do |contact_field| %>
+      <%= f.fields_for :contacts, @student.contacts do |contact_field| %>
         <%= render "shared/new_contact", contact_field: contact_field %>
       <% end %>
       <br>

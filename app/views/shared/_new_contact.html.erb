@@ -19,7 +19,13 @@
 
   <%= contact_field.hidden_field :_destroy %>
   <br>
-  <%= contact_field.fields_for :contact_students do |cs| %>
+  <% 
+    args = [:contact_students]
+    if contact_field.object.new_record?
+      args << ContactStudent.new(student: @student)
+    end
+  %>
+  <%= contact_field.fields_for *args do |cs| %>
     <% if cs.object.student == @student %>
       <%= cs.label :active %> 
       <%= cs.radio_button :active, true%>

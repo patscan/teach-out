@@ -45,4 +45,7 @@ $(document).ready(function(){
     regex = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regex, time));
   })
+
+  
+
 });

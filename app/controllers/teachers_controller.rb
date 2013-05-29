@@ -29,9 +29,25 @@ class TeachersController < ApplicationController
     ids = messages.pluck(:id)
     contact_messsages = ContactMessage.delivered.where(:message_id => ids)
     @sent_messages = messages
-    @messages_by_date = messages.group_by {|m| m.time_sent.strftime("%Y-%m-%d") if m.time_sent}
 
+    @messages_by_date = messages.group_by do |m| 
+      m.time_sent.strftime("%Y-%m-%d") if m.time_sent
+    end
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  end
+
+  def render_calendar ##route for async date changing
+    string_date = params[:month]
+    year, month = string_date.split('-')
+    @date = Date.new(year.to_i, month.to_i)
+    puts "*" * 80
+    puts @date
+    @messages_by_date = current_user.messages.group_by do |m| 
+      m.time_sent.strftime("%Y-%m-%d") if m.time_sent
+    end
+
+    calendar = render_to_string(:partial => "shared/calendar", :layout => false, :locals => {:date => @date, :messages_by_date => @messages_by_date})
+    render :json => {:calendar => calendar}
   end
 
   def show

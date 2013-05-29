@@ -14,10 +14,10 @@ $(document).ready(function(){
 
   $(document).on('click', '.prev_month', function(e){
     e.preventDefault();
-    ajaxCalendar(new_month)
+
     var month = $(this).parents(".calendar").data("month")
     var new_month = prevMonth(month)
-    
+    ajaxCalendar(new_month)    
     function prevMonth(month) {
       this.month = month;
       var parts = month.split('-');
@@ -29,10 +29,10 @@ $(document).ready(function(){
 
   $(document).on('click', '.next_month', function(e){
     e.preventDefault();
-    ajaxCalendar(new_month)
+
     var month = $(this).parents(".calendar").data("month")
     var new_month = nextMonth(month)
-    
+    ajaxCalendar(new_month)    
     function nextMonth(month) {
       this.month = month;
       var parts = month.split('-');

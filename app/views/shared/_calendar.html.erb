@@ -1,18 +1,17 @@
-<%= content_tag :div, class: "calendar", "data-month" => @date.strftime("%Y-%m") do %>
+<%= content_tag :div, class: "calendar", "data-month" => date.strftime("%Y-%m") do %>
 
   <h3 id="month">
-  <%= link_to "<", {:controller => "teachers", :action=> "render_calendar"}, :class => "prev_month", :locals => {:date => @date} %>
-    <%= @date.strftime("%B %Y") %>
-  <%= link_to ">", {:controller => "teachers", :action=> "render_calendar"}, :class => "next_month", :locals => {:date => @date} %>
+  <%= link_to "<", {:controller => "teachers", :action=> "render_calendar"}, :class => "prev_month", :locals => {:date => date} %>
+    <%= date.strftime("%B %Y") %>
+  <%= link_to ">", {:controller => "teachers", :action=> "render_calendar"}, :class => "next_month", :locals => {:date => date} %>
   </h3>
-    <%= calendar @date do |date| %>
+    <%= calendar date do |date| %>
+
     <%= date.day %>
-    <% if @messages_by_date[date.to_s] %>
-    <ul>
-      <% @messages_by_date[date.to_s].take(6).each do |m| %>
-
+    <% if messages_by_date[date.to_s] %>
+    <ul id="message-text">
+      <% messages_by_date[date.to_s].take(4).each do |m| %>
       <li> <%= link_to m.content[0,10], message_path(m)%> </li>
-
       <% end %>
     </ul>
     <% end %>

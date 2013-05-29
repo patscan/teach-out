@@ -38,7 +38,7 @@ class TeachersController < ApplicationController
     year, month = string_date.split('-')
     @date = Date.new(year.to_i, month.to_i)
     @messages_by_date = current_user.messages.group_by do |m| 
-      m.time_sent.strftime("%Y-%m-%d") if @messages_by_date
+      m.time_sent.strftime("%Y-%m-%d") if m.time_sent
     end
     calendar = render_to_string(:partial => "shared/calendar", 
                                 :layout => false, 

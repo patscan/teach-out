@@ -1,4 +1,8 @@
 <div id="new_text_errors" class="errors"></div>
+<div id="new_text_character_counter"></div>
+
+<!-- <div id="new_text_character_counter"></div> -->
+
 
   <%= form_for @message, :remote => true do |t| %>
   <ul>
@@ -8,7 +12,7 @@
   </ul>
 
   <%= t.label :content %>
-  <%= t.text_area :content, :value => "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}" %>
+  <%= t.text_area :content, :id=> "new_text_message_content", :value => "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}" %>
 
   <%= t.submit :class => "custom_submit" %>
   <% end %>

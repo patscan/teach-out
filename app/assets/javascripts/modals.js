@@ -11,6 +11,7 @@ function Modal(button, form, errors) {
       $(form).hide();
       $(this).hide();
       $('form').each(function() { this.reset() });
+      $(errors).html("");
     });
   };   
 

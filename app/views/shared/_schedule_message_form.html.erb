@@ -1,8 +1,8 @@
 <div id="schedule_text_errors" class="errors"></div>
 
-<div id="schedule_text_character_counter"></div>
+<div id="schedule_text_character_counter">160 characters left.</div>
 
-<div class="students-list">
+<div id="form_students_list">
   <%= form_for @message, :url => { :action => "schedule", :controller=>"messages" },  :remote => true do |t| %>
   <ul>
   <% @students.each do |student| %>
@@ -10,6 +10,7 @@
     <% end %>
   </ul>
 </div>
+
 <div class="compose">
     <%= t.label :Time %></br>
     <%= text_field_tag "scheduled_for", nil, :placeholder => "Click to Choose Date", :class => "scheduled-for" %>

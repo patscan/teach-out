@@ -131,22 +131,7 @@ $peach: #E8D0C0;
 $tan: #C8BFB7;
 $off_white: #F8F8F3;
 
-#schedule_text_form, #new_text_form, #add_student_form {
-  display: none;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-left: 40px;
-  z-index: 102;
-  position: relative;
-  height: 100%;
-  margin: 0 auto 0 auto;
-  width: 200px;
-  margin-top: -200px;
-  background-color: white;
-  -moz-box-shadow: 3px 3px 4px #191922;
-  -webkit-box-shadow: 3px 3px 4px #191922;
-  box-shadow: 3px 3px 4px #191922;
-}
+
 
 .dashboard_buttons {
   position: relative;
@@ -202,7 +187,7 @@ $off_white: #F8F8F3;
 }
 
 #dashboard_container {
-  position: absolute;
+  position: relative;
   min-width: 1000px;
 }
 
@@ -234,8 +219,54 @@ $off_white: #F8F8F3;
 padding-left: 0;
 margin-right: 0;}
 
+#schedule_text_form, #new_text_form, #add_student_form {
+  display: none;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 40px;
+  z-index: 102;
+  position: relative;
+  height: 100%;
+  margin: 0 auto 0 auto;
+  width: 600px;
+  height: 550px;
+  overflow: auto;
+  /*margin-top: -200px;*/
+  background-color: white;
+  -moz-box-shadow: 3px 3px 4px #191922;
+  -webkit-box-shadow: 3px 3px 4px #191922;
+  box-shadow: 3px 3px 4px #191922;
+}
 
+#new-message {
+  float: left;
+  /*width: 45%;*/
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+}
 
+#form_students_list {
+  margin-left: 0;
+  width: 200px;
+  float: left;
+  font-size: .8em;
+  ul {
+    padding-left: 0;
+  }
+}
+
+.compose {
+  padding-top: 10px;
+  float: right;
+  /*width: 45%;*/
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 40px;
+  .custom_submit {
+    margin-right: 0;
+  }
+}
 /*
 #schedule_text_form {
   margin-left: 410px;

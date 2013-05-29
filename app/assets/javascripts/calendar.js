@@ -43,22 +43,31 @@ $(document).ready(function(){
   });
 
   $(document).on('click', 'td', function(){
+
     if ($(this).text().trim().length < 3) {
        $(this).css({"background-color": "#FF6969"});
        var thisTd = this
        setTimeout(function(){
          $(thisTd).css({"background-color": "#FFF"});
+         $(".single_day").slideUp("swing")
        },200)
-       
     } else {
+
       $.ajax({
         url: "/teachers/render_single_day",
         type: "GET",
         dataType: "json",
         data: {date: $(this).attr("datenum")},
         success: function(singleDayHtml){
-          $("#calendar").prepend(singleDayHtml)
-        }
+        $(".single_day").slideUp("ease")
+        $(".single_day").slideDown("ease")
+                  setTimeout(function(){
+         $("#single_day").first().replaceWith(singleDayHtml.single_day);
+       },300).stop()
+
+
+          
+        }      
       })
     }
     

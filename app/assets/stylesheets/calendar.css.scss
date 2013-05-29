@@ -72,7 +72,22 @@
   color: #999
 }
 
-#single_day {
-  background-color: #fff;
+.single_day {
+  display:none;
+  background-color:white;
+  clear:both;
+  padding: 0 10 10 10;
+  width: 700px;
+  float:right;
+      border: 1px solid #EBEBEB;
+}
 
+#single_day_header {
+  background-color: #F5F5F5;
+  margin-top:0;
+  text-align: center
+}
+
+#single_day li a {
+  color: black
 }

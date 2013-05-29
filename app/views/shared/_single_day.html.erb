@@ -1,8 +1,15 @@
 <div id="single_day">
- <h3>Messages for <%= @date %></h3> 
- <ul>
-  <% @day_messages.each do |m| %>  
-    <li><%= link_to m.content, message_path(m)%></li>
-  <% end %>
-</ul>
+   <ul>
+    <% if @day_messages %>
+        <% @day_messages.each do |m| %>  
+        <li>
+          <%= link_to m.content, message_path(m)%>
+
+          <small> at <%= m.time_sent.getlocal.strftime("%l:%M %P") %></small>
+          <br>
+          <small> </small>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
 </div>

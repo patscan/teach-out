@@ -16,7 +16,7 @@ function Modal(button, form, errors) {
 
   this.toggleForm = function(e) {
     e.preventDefault();
-    $('#modal_background').toggle();
+    $('#modal_background').fadeToggle('fast');
     $(form).toggle();
   };
 

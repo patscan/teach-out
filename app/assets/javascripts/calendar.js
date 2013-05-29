@@ -1,10 +1,23 @@
 $(document).ready(function(){
 
-$(document).on('click', '.prev_month', function(e){
+  function ajaxCalendar(new_month){
+    $.ajax({
+      url: "/teachers/render_calendar",
+      dataType: 'json',
+      type: "GET",
+      data: {month: new_month},
+      success: function(data){
+        $("#calendar").html(data.calendar)
+      }
+    })
+  }
+
+  $(document).on('click', '.prev_month', function(e){
     e.preventDefault();
+
     var month = $(this).parents(".calendar").data("month")
     var new_month = prevMonth(month)
-    
+    ajaxCalendar(new_month)    
     function prevMonth(month) {
       this.month = month;
       var parts = month.split('-');
@@ -12,23 +25,14 @@ $(document).on('click', '.prev_month', function(e){
       var y = parts[0];
       return y+'-'+(parseInt(m)-1)
     };
-
-    $.ajax({
-      url: "/teachers/render_calendar",
-      dataType: 'json',
-      type: "GET",
-      data: {month: new_month}, //date needs to increment month line 35
-      success: function(data){
-        $("#calendar").html(data.calendar)
-      }
-    })
   });
 
   $(document).on('click', '.next_month', function(e){
     e.preventDefault();
+
     var month = $(this).parents(".calendar").data("month")
     var new_month = nextMonth(month)
-    
+    ajaxCalendar(new_month)    
     function nextMonth(month) {
       this.month = month;
       var parts = month.split('-');
@@ -36,15 +40,28 @@ $(document).on('click', '.prev_month', function(e){
       var y = parts[0];
       return y+'-'+(parseInt(m)+1)
     };
-
-    $.ajax({
-      url: "/teachers/render_calendar",
-      dataType: 'json',
-      type: "GET",
-      data: {month: new_month}, //date needs to increment month line 35
-      success: function(data){
-        $("#calendar").html(data.calendar)
-      }
-    })
   });
+
+  $(document).on('click', 'td', function(){
+    if ($(this).text().trim().length < 3) {
+       $(this).css({"background-color": "#FF6969"});
+       var thisTd = this
+       setTimeout(function(){
+         $(thisTd).css({"background-color": "#FFF"});
+       },200)
+       
+    } else {
+      $.ajax({
+        url: "/teachers/render_single_day",
+        type: "GET",
+        dataType: "json",
+        data: {date: $(this).attr("datenum")},
+        success: function(singleDayHtml){
+          $("#calendar").prepend(singleDayHtml)
+        }
+      })
+    }
+    
+  })
+
 });

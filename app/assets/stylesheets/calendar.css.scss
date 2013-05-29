@@ -33,9 +33,13 @@
   td {
     background: #FFF;
     color: #777;
-    height: 80px;
     vertical-align: top;
     font-size: 16px;
+    transition: background-color 0.2s linear; 
+    -webkit-transition: background-color 0.2s linear;
+    height: 95px;
+    overflow:hidden;
+    text-overflow: ellipsis;
   }
 
   .notmonth, .notmonth a { color: #CCC; }
@@ -58,4 +62,18 @@
 #calendar ul {
   font-size: 11px;
   padding-left: 20px;
+  margin:0px;
+  margin-top: 5px4
+}
+
+#message-text a{
+  color: black
+}
+#message-text a:hover{
+  color: #999
+}
+
+#single_day {
+  background-color: #fff;
+
 }

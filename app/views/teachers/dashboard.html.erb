@@ -50,7 +50,7 @@
       <% end %>
     </div>
   </div>-->  
-
+  
   <div id="dashboard_container">
     <div class="students-list" >
       <h3>Students</h3>
@@ -62,11 +62,8 @@
       <br>
     </div>
 
-
-    <div id="calendar">
-      <%= render "shared/calendar" %>
-    </div>
+  <div id="calendar">
+    <%= render "shared/calendar", :date => @date, :messages_by_date => @messages_by_date %>
   </div>
-
 
 </div>

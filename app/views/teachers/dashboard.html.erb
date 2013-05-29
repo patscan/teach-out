@@ -1,11 +1,17 @@
 <div id="dashboard">
   <h2>Welcome, <%= @teacher.first_name.capitalize %></h2>
 
-  <div class="dashboard-buttons">
-      <%= link_to "Schedule text", schedule_new_messages_path, :class => "button", :id => "schedule_text_button"  %>
-      <%= link_to "Send Text", new_message_path, :class => "button", :id => "new_text_button" %>
-      <%= link_to "Add Student", new_student_path, :class => "button", :id => "add_student_button"  %>
+  <div class="dashboard_buttons">
+    <%= link_to "schedule text", schedule_new_messages_path, :class => "button", :id => "schedule_text_button"  %>
+    <%= link_to "send text", new_message_path, :class => "button", :id => "new_text_button" %>
+    <%= link_to "add student", new_student_path, :class => "button", :id => "add_student_button"  %>
   </div>
+
+<!--   <div class="dashboard_buttons_hover">
+    <%=image_tag('dash_buttonhover.png', :class => "button_hover") %>
+    <%=image_tag('dash_buttonhover.png', :class => "button_hover") %>
+    <%=image_tag('dash_buttonhover.png', :class => "button_hover") %>
+  </div> -->
 
   <div id="modal_background"></div>
 
@@ -46,7 +52,7 @@
 
   <div id="dashboard_container">
     <div class="students-list" >
-      <h4>students</h4>
+      <h3>Students</h3>
       <ul>
         <% @students.each do |student| %>
         <li><%= link_to "#{student.first_name} #{student.last_name}", edit_student_path(student.id) %></li>

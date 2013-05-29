@@ -8,6 +8,7 @@
   <title>Teach-Out.com</title>
 </head>
 
+<div header_container>
 <header>
   <h2 class="logo"><%= link_to "Teach-Out.com", root_path %></h2>
   <% if current_user %>
@@ -21,6 +22,8 @@
   </span>
   <% end %>
 </header>
+</div>
+
 <body>
  <div id="container">
    <%= yield %>

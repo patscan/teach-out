@@ -124,14 +124,23 @@
   padding-top: 20px;
 }*/
 
+$orange: #ED9B7E;
+$blue: #21A2BC;
+$lime: #DCE89D;
+$peach: #E8D0C0;
+$tan: #C8BFB7;
+$off_white: #F8F8F3;
+
 #schedule_text_form, #new_text_form, #add_student_form {
   display: none;
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 40px;
   z-index: 102;
-  position: absolute;
-  width: auto;
+  position: relative;
+  height: 100%;
+  margin: 0 auto 0 auto;
+  width: 200px;
   margin-top: -200px;
   background-color: white;
   -moz-box-shadow: 3px 3px 4px #191922;
@@ -139,22 +148,57 @@
   box-shadow: 3px 3px 4px #191922;
 }
 
-.dashboard-buttons {
-  /*height: auto;*/
+.dashboard_buttons {
   position: relative;
+  margin-left: 325px;
+  /*margin-right: auto;*/
+  /*width: 1000px;*/
   height: 70px;
-  /*clear: both;*/
   margin-bottom: 10px;
 }
 
+.dashboard_buttons a{
+  /*z-index: 12;*/
+}
+
+/*.dashboard_buttons_hover {
+  z-index: 11;
+  position: absolute;
+  margin-top: -80px;
+  margin-left: 325px;
+  /*margin-right: auto;*/
+/*  min-width: 1000px;
+  height: 70px;
+  margin-bottom: 10px;*/
+/*}*/
+
+/*.button_hover {
+  opacity: .3;
+  border-radius: 5px;
+  background-color: black;
+  margin-right: -4px;
+}*/
+
 .button {
-  width: 125px;
-  height: 50px;
+  font-family: "Roboto Condensed", sans-serif;
+  letter-spacing: 1px;
+  position: relative;
+  line-height: 54px;
+  background-color: black;
+  width: 129px;
+  height: 54px;
   display: block;
   float: left;
+  margin-left: 0px;
   text-align: center;
-  background: url(image_path("rails.png"));
-  /*background-size: percentage(1);*/
+  text-decoration: none;
+  color: $off_white;
+
+  &:hover{
+    /*text-shadow: 2px 2px 30px rgba(0, 32, 0, 1);*/
+    /*text-shadow: 1px 1px 20px rgba(150, 150, 150, 1);*/
+    text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.48);
+  }
 }
 
 #dashboard_container {
@@ -168,6 +212,27 @@
   display: block;
   width: 270px;
 }
+
+#schedule_text_button {
+  background: url(image_path("dash_button001.png"));
+}
+
+#new_text_button {
+  background: url(image_path("dash_button002.png"));
+}
+
+#add_student_button{
+  background: url(image_path("dash_button003.png"));
+}
+
+.students-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.students-list ul li {
+padding-left: 0;
+margin-right: 0;}
 
 
 

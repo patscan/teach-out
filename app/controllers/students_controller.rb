@@ -39,6 +39,7 @@ class StudentsController < ApplicationController
       @errors = @student.errors.full_messages.join("<br/>") 
       render :edit
     else
+      set_contact_active
       redirect_to dashboard_teachers_path
     end
   end
@@ -49,5 +50,22 @@ class StudentsController < ApplicationController
   end
 
   def search
+  end
+
+  private
+
+  def set_contact_active
+    # From phone number to new contact hash
+    new_contacts = params["student"]["contacts_attributes"].
+      select{|k, v| v["contact_students_attributes"].values.
+        any?{|h| h["id"].nil?}}.values.index_by{|h| h['phone_number']}
+
+    contacts = Contact.where(phone_number: new_contacts.keys).index_by(&:id)
+
+    @student.contact_students.where(contact_id: contacts.keys).each do |cs|
+      new_contact = new_contacts[contacts[cs.contact_id].phone_number]
+      cs.active = new_contact["contact_students_attributes"]["0"]["active"] == "true"
+      cs.save
+    end
   end
 end

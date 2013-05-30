@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
   def update
     student = Student.find(params[:id])
     if student.update_attributes(params[:student])
-      render :json => {:success => true}
+      render :js => "window.location='/teachers/dashboard'"
     else
       render :json => { :error => student.errors.full_messages.join("<br/>") }, :status => 422
     end

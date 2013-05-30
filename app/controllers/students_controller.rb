@@ -3,7 +3,8 @@ class StudentsController < ApplicationController
   def create
     student = current_user.students.build params[:student]
     if student.save
-      render :json => {:success => true}
+      render :js => "window.location='/teachers/dashboard'"
+      # render :js => {:success => true}
     else
       render :json => { :error => student.errors.full_messages.join("<br/>") }, :status => 422
     end
@@ -30,7 +31,7 @@ class StudentsController < ApplicationController
   def destroy
     student = Student.find(params[:id])
     student.destroy
-    redirect_to dashboard_teachers_path
+    render :js => "window.location='/teachers/dashboard'"
   end
 
 end

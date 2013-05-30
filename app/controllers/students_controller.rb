@@ -18,7 +18,6 @@ class StudentsController < ApplicationController
   end
 
   def update
-    binding.pry
     student = Student.find(params[:id])
     if student.update_attributes(params[:student])
       render :json => {:success => true}

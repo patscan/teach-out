@@ -840,7 +840,7 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
 	border: 1px solid #999999;
-	background: #dadada url(images/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;
+	background: #dadada 50% 50% repeat-x;
 	font-weight: normal;
 	color: #212121;
 }
@@ -1164,14 +1164,14 @@ body .ui-tooltip {
 
 /* Overlays */
 .ui-widget-overlay {
-	background: #000 url(images/ui-bg_flat_0_000_40x100.png) 50% 50% repeat-x;
+	background: #000 50% 50% repeat-x;
 	opacity: .5;
 	filter: Alpha(Opacity=50);
 }
 .ui-widget-shadow {
 	margin: -8px 0 0 -8px;
 	padding: 8px;
-	background: #aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
+	background: #aaaaaa 50% 50% repeat-x;
 	opacity: .3;
 	filter: Alpha(Opacity=30);
 	border-radius: 8px;

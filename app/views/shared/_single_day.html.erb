@@ -4,7 +4,11 @@
     <% if @day_messages %>
         <% @day_messages.each do |m| %>  
         <li>
-          <%= link_to m.subject, message_path(m)%>
+          <% unless m.subject.nil? || m.subject.empty? %>
+            <%= link_to m.subject, message_path(m)%>
+          <% else %>
+            <%= link_to m.content[0,100], message_path(m)%>
+          <% end %>
 
           <small> at <%= m.time_sent.getlocal.strftime("%l:%M %P") %></small>
           <br>

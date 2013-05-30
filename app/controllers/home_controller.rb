@@ -5,4 +5,8 @@ class HomeController < ApplicationController
     render :index, :layout => "splash"
   end
 
+  def show
+    render :about
+  end
+
 end

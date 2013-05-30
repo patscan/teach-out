@@ -1,0 +1,28 @@
+$blue: #21A2BC;
+
+.about_image {
+  border: 10px solid white;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .1);
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, .1);
+}
+
+#about_image_right {
+  float: right;
+  margin-left: 20px;
+}
+
+#about_image_left {
+  float: left;
+  margin-right: 20px;
+}
+
+#about_header {
+  font-family: 'Montserrat', sans-serif;
+  color: $blue;
+}
+
+#profile_images {
+  margin-top: 50px; 
+  margin-left: 110px;
+}

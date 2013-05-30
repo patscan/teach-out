@@ -33,7 +33,7 @@ gem 'redis'
 gem 'sidekiq'
 gem 'factory_girl_rails'
 gem 'twilio-ruby'
-
+gem 'database_cleaner'
 gem 'faker'
 
 # To use ActiveModel has_secure_password

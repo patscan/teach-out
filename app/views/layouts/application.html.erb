@@ -9,7 +9,7 @@
 </head>
 
 <header>
-  <h2 class="logo"><%= link_to "Teach-Out.com", root_path %></h2>
+  <h2 class="logo"><%= link_to "Teach-Out.com", dashboard_teachers_path %></h2>
   <% if current_user %>
   <span class="header-info">
     <%= current_user.first_name %> <%= current_user.last_name %>  &nbsp; 

@@ -1,57 +1,21 @@
 <div id="dashboard">
   <h2>Welcome, <%= @teacher.first_name.capitalize %></h2>
-
-  <div class="dashboard_buttons">
-    <%= link_to "schedule text", schedule_new_messages_path, :class => "button", :id => "schedule_text_button"  %>
-    <%= link_to "send text", new_message_path, :class => "button", :id => "new_text_button" %>
-    <%= link_to "add student", new_student_path, :class => "button", :id => "add_student_button"  %>
-  </div>
-
-<!--   <div class="dashboard_buttons_hover">
-    <%=image_tag('dash_buttonhover.png', :class => "button_hover") %>
-    <%=image_tag('dash_buttonhover.png', :class => "button_hover") %>
-    <%=image_tag('dash_buttonhover.png', :class => "button_hover") %>
-  </div> -->
-
-  <div id="modal_background"></div>
-
-
-  <div id="schedule_text_form" class="dash_form_modal">
-    <%= render "shared/schedule_message_form" %>
-  </div>
-  <div id="new_text_form">
-    <%= render "shared/message_form" %>
-  </div>
-  <div id="add_student_form">
-    <%= render "shared/new_student" %>
-  </div>
-  
-  <!--<div class="text-preview">
-    <div id="last-text">
-      <span class="text-title"> last text </span>
-      <% if @last_sent_message %>
-      <span class="text-content">
-        <%=  %>
-        <%= @last_sent_message.content %>
-      </span>
-      <% end %>
+  <div id="col1">
+    <div class="dashboard-buttons">
+      <div class="dash-button", id="new_text_button">
+        <%= link_to image_tag("icons1/sendtext.png", :border => 0, :alt => '', :title => ''), new_message_path, :class => 'dash-icon', :id => "new_text_button" %>
+        <a href="/messages/new", id="new_text_button">Send Text</a>
+      </div>
+      <div class="dash-button", id="schedule_text_button">    
+        <%= link_to image_tag("icons1/schedule.png", :border => 0, :alt => '', :title => ''),   schedule_new_messages_path, :class => 'dash-icon', :id => "schedule_text_button" %>
+        <a href="/messages/schedule_new", id="schedule_text_button">Schedule Text</a>
+      </div>
+      <div class="dash-button", id="add_student_button">
+        <%= link_to image_tag("icons1/addstudent.png", :border => 0, :alt => '', :title => ''), new_student_path, :class => 'dash-icon' %>
+        <a href="/students/new", id="add_student_button">Add Student</a>
+      </div>
     </div>
 
-    <div id="next-text">
-      <span class="text-title"> next text </span>
-      <% if @last_unsent_message %>
-      <span class="text-content">
-        <%= @last_unsent_message.content %>
-      </span>
-      <% else %>
-      <span class="text-content">
-        You have no scheduled texts
-      </span>
-      <% end %>
-    </div>
-  </div>-->  
-  
-  <div id="dashboard_container">
     <div class="students-list" >
       <h3>Students</h3>
       <ul>
@@ -62,14 +26,29 @@
       <br>
     </div>
   </div>
-  <div class="single_day">
-    <div id="single_day">
-      <%= render "shared/single_day", :date => @date, :day_messages => @day_messages %>
+
+  <div id="col2">
+    <div class="single_day">
+      <div id="single_day">
+        <%= render "shared/single_day", :date => @date, :day_messages => @day_messages %>
+      </div>
+    </div>
+
+    <div id="calendar">
+      <%= render "shared/calendar", :date => @date, :messages_by_date => @messages_by_date %>
     </div>
   </div>
 
-  <div id="calendar">
-    <%= render "shared/calendar", :date => @date, :messages_by_date => @messages_by_date %>
+  <div id="modal_background">
+  </div>
+  <div id="schedule_text_form" class="dash_form_modal">
+    <%= render "shared/schedule_message_form" %>
+  </div>
+  <div id="new_text_form">
+    <%= render "shared/message_form" %>
+  </div>
+  <div id="add_student_form">
+    <%= render "shared/new_student" %>
   </div>
 
 </div>

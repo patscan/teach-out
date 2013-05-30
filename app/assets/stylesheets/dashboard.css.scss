@@ -68,7 +68,7 @@ $off_white: #F8F8F3;
   margin-right: auto;
   float: left;
   text-align: center;
-  padding: 1em;
+  padding: 3px;
 }
 
 /*
@@ -156,7 +156,6 @@ $off_white: #F8F8F3;
   background-color: black;
   width: 129px;
   height: 54px;
-  display: block;
   float: left;
   margin-left: 0px;
   text-align: center;
@@ -207,8 +206,6 @@ margin-right: 0;}
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 40px;
-/*  z-index: 102;
-  position: relative;*/
   z-index: 1000;
   position: absolute;
   height: 100%;
@@ -216,7 +213,6 @@ margin-right: 0;}
   width: 600px;
   height: 550px;
   overflow: auto;
-  /*margin-top: -200px;*/
   background-color: white;
   -moz-box-shadow: 3px 3px 4px #191922;
   -webkit-box-shadow: 3px 3px 4px #191922;

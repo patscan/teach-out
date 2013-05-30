@@ -53,9 +53,10 @@ TeachOut::Application.configure do
 
   # Enable threaded mode
   # config.threadsafe!
-  twilio_config = YAML.load(File.read(Rails.root
-    .join("config", "app_config.yml")))
-  twilio_config.each { |k,v| ENV[k]= v }
+  
+  # twilio_config = YAML.load(File.read(Rails.root
+  #   .join("config", "app_config.yml")))
+  # twilio_config.each { |k,v| ENV[k]= v }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)

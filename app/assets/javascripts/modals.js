@@ -14,7 +14,6 @@ function Modal(button, form, errors) {
     //   // this.toggleForm;
     // });
 
-
     // $(form).on('ajax:sucess', this.toggle());
     $(form).on('ajax:error', this.showErrors);
     $("#modal_background").click(function(){

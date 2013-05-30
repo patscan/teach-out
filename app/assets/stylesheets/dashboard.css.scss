@@ -174,9 +174,16 @@ $off_white: #F8F8F3;
 #new_text_form {
   .compose {
     display: block;
-    float: none;
+    float: right;
   }
-  .custom_submit {
-    margin-right: 17px;
-  }
+}
+
+.compose #message_subject {
+  width: 100%;
+}
+
+#send_text_compose_area {
+  position: relative;
+  width: 340px;
+  float: right;
 }

@@ -10,7 +10,11 @@
     <% if messages_by_date[date.to_s] %>
     <ul id="message-text">
       <% messages_by_date[date.to_s].take(4).each do |m| %>
-      <li> <%= link_to m.content[0,10], message_path(m)%> </li>
+        <% unless m.subject.nil? || m.subject.empty? %>
+          <li><%= m.subject %></li>
+        <% else %>
+        <li><%= m.content[0,10] %></li>
+        <% end %>
       <% end %>
     </ul>
     <% end %>

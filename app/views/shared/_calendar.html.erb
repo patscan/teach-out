@@ -6,7 +6,6 @@
   <%= link_to ">", {:controller => "teachers", :action=> "render_calendar"}, :class => "next_month", :locals => {:date => date} %>
   </h3>
     <%= calendar date do |date| %>
-
     <%= date.day %>
     <% if messages_by_date[date.to_s] %>
     <ul id="message-text">

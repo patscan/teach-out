@@ -15,7 +15,7 @@ class Message < ActiveRecord::Base
   end
 
   def sent_on
-    self.time_sent.strftime("%m/%d/%y @ %H:%M")
+    self.time_sent.getlocal.strftime("%m/%d/%y @ %H:%M")
   end
 
 end

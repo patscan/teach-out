@@ -47,12 +47,15 @@ class Student < ActiveRecord::Base
   private
   def autosave_associated_records_for_contacts
     self.contacts.each do |contact|
-      if contact.new_record?
-        if existing_contact = Contact.find_by_phone_number(contact.phone_number)
+
+      if contact.id == nil
+        existing_contact = Contact.find_by_phone_number(contact.phone_number)
+        if existing_contact
           self.contacts.delete(contact)
           self.contacts << existing_contact
         else
           self.contacts << contact
+          contact.save!
         end
       else
         contact.save!

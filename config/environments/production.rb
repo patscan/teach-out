@@ -15,7 +15,7 @@ TeachOut::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -53,7 +53,7 @@ TeachOut::Application.configure do
 
   # Enable threaded mode
   # config.threadsafe!
-  
+
   # twilio_config = YAML.load(File.read(Rails.root
   #   .join("config", "app_config.yml")))
   # twilio_config.each { |k,v| ENV[k]= v }

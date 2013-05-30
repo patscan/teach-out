@@ -71,55 +71,6 @@ $off_white: #F8F8F3;
   padding: 1em;
 }
 
-/*
-#last-text {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  float: left;
-  width: 45%;
-  min-height: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #fff;
-  border: 1px solid #EBEBEB;
-}*/
-
-/*#next-text {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  float: right;
-  width: 45%;
-  min-height: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #fff;
-  border: 1px solid #EBEBEB;
-}
-
-.text-title {
-  font-family: "Lucida Grande", arial, helvetica, sans-serif;
-  color: #666;
-  font-size: 12px;
-  text-align: center;
-  display: block;
-  background-color: whitesmoke;
-  padding: 6px;
-}
-
-.text-content {
-  padding: 1em;
-  line-height: 20px;
-  display: block;
-}*/
-
-
-/*.text-preview {
-  clear:both;
-  padding-top: 20px;
-}*/
-
-
-
 .dashboard_buttons {
   position: relative;
   margin-left: 325px;
@@ -129,24 +80,6 @@ $off_white: #F8F8F3;
 
 .dashboard_buttons a{
 }
-
-/*.dashboard_buttons_hover {
-  z-index: 11;
-  position: absolute;
-  margin-top: -80px;
-  margin-left: 325px;
-  /*margin-right: auto;*/
-/*  min-width: 1000px;
-  height: 70px;
-  margin-bottom: 10px;*/
-/*}*/
-
-/*.button_hover {
-  opacity: .3;
-  border-radius: 5px;
-  background-color: black;
-  margin-right: -4px;
-}*/
 
 .button {
   font-family: "Roboto Condensed", sans-serif;
@@ -170,23 +103,6 @@ $off_white: #F8F8F3;
   }
 }
 
-#dashboard_container {
-  position: relative;
-  min-width: 1000px;
-}
-
-//#schedule_text_button {
-//  background: url(image_path("dash_button001.png"));
-//}
-
-//#new_text_button {
-//  background: url(image_path("dash_button002.png"));
-//}
-
-//#add_student_button{
-//  background: url(image_path("dash_button003.png"));
-//}
-
 .students-list {
   float: left;
   width: 270px;
@@ -199,16 +115,26 @@ $off_white: #F8F8F3;
 }
 
 .students-list ul li {
-padding-left: 0;
-margin-right: 0;}
+  padding-left: 0;
+  margin-right: 0;
+  border-bottom: 1px solid lighten($blue, 35%);
+}
+
+.students-list ul li a {
+  font-family: 'Montserrat', sans-serif;
+  color: $blue;
+  padding-left: 0;
+  margin-right: 0;
+  &:hover {
+    color: darken($orange, 15%);
+  }
+}
 
 #schedule_text_form, #new_text_form, #add_student_form {
   display: none;
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 40px;
-/*  z-index: 102;
-  position: relative;*/
   z-index: 1000;
   position: absolute;
   height: 100%;
@@ -216,7 +142,6 @@ margin-right: 0;}
   width: 600px;
   height: 550px;
   overflow: auto;
-  /*margin-top: -200px;*/
   background-color: white;
   -moz-box-shadow: 3px 3px 4px #191922;
   -webkit-box-shadow: 3px 3px 4px #191922;
@@ -237,7 +162,6 @@ margin-right: 0;}
 .compose {
   padding-top: 10px;
   float: right;
-  /*width: 45%;*/
   padding-right: 40px;
   .custom_submit {
     margin-right: 0;
@@ -252,49 +176,8 @@ margin-right: 0;}
   .compose {
     display: block;
     float: none;
-    /*margin-left: -20px;*/
   }
   .custom_submit {
     margin-right: 17px;
   }
 }
-
-
-/*
-#schedule_text_form {
-  margin-left: 410px;
-  width: 400px;
-}
-
-#new_text_form {
-  margin-left: 410px;
-  width: 400px;
-}
-
-#add_student_form {
-  margin-left: 410px;
-  width: 400px; 
-}
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

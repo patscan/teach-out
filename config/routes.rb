@@ -2,6 +2,8 @@ TeachOut::Application.routes.draw do
   
   root :to => 'home#index'
 
+  match "about" => "home#show"
+
   match "message/status" => "messagestatus#create"
   
   resources :messages do

@@ -12,6 +12,8 @@
 </div>
 
 <div class="compose">
+    <%= t.label :Subject %></br>
+    <%= t.text_field :subject %></br>
     <%= t.label :Time %></br>
     <%= text_field_tag "scheduled_for", nil, :placeholder => "Click to Choose Date", :class => "scheduled-for" %>
     <%= select_tag(:hour, options_for_select([["1", 1],["2", 2 ],["3", 3],["4", 4],["5", 5],["6", 6],["7", 7],["8", 8],["9", 9],["10", 10],["11", 11],["12", 12]])) %>

@@ -14,6 +14,10 @@ class Contact < ActiveRecord::Base
     self.first_name +" " + self.last_name
   end
 
+  def active_for?(student)
+    self.contact_students.where(:student_id => student.id).first.active?
+  end
+
   def self.valid_relations
     [
       "Mother",

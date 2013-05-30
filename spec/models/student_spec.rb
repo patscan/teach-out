@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Student do 
-  
+
   it "has a valid factory" do
     FactoryGirl.create(:student).should be_valid
   end
@@ -35,7 +35,7 @@ describe Student do
 
   context "#send_to_contacts" do
 
-  let(:message) {FactoryGirl.build(:message)}
+    let(:message) {FactoryGirl.build(:message)}
 
     before(:each) do
       student.contacts << FactoryGirl.build(:contact)
@@ -50,6 +50,61 @@ describe Student do
       t = mock(Twilio::RestAccount)
     end
 
+  end
+
+  describe "update_attibutes" do
+    context "with valid attributes" do
+      # let!(:student) {FactoryGirl.create(:student)}
+      student = FactoryGirl.create(:student)
+      contact = FactoryGirl.create(:contact, :students => [student])
+      let!(:new_contact) {FactoryGirl.create(:new_contact)}
+      let!(:contact_student) { FactoryGirl.create(:contact_student, :student => student, :contact => contact)}
+
+    binding.pry
+      it "should be failing" do
+        attributes = 
+        {"student" => 
+          {"first_name"=>"Bobby",
+           "last_name"=>"Wilson",
+           "contacts_attributes"=>
+           {"0"=>
+            {"first_name"=>"Jkai",
+             "last_name"=>"Hsu",
+             "relationship_to_student"=>"Father",
+             "language"=>"English",
+             "phone_number"=>"760-668-5378",
+             "email"=>"jkai@son.com",
+             "contact_students_attributes"=>
+             {"0"=>{"active"=>"false", "_destroy"=>"false", "id"=>"1"}},
+             "id"=>"1"},
+
+             "1"=>
+             {"first_name"=>"Michael",
+               "last_name"=>"Phelps",
+               "relationship_to_student"=>"Mother",
+               "language"=>"English",
+               "phone_number"=>"999-999-9999",
+               "email"=>"m@phelps.com",
+               "contact_students_attributes"=>
+               {"0"=>{"active"=>"false", "_destroy"=>"false"}}}}
+               }}
+
+               binding.pry
+
+               student.update_attributes(attributes)
+               student.contacts.length.should == 2
+               Contact.count.should == 2
+
+             end
+   # "student" => {"first_name" => 'new name' , :id => student.id}
+   #                    "contacts" => contact1.name}
+
+
+      # student.name.should == "new name"
+
+      # student.contacts.length.should == 3
+      # Contact.count.should == 2
+    end
   end
 
 end

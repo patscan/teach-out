@@ -25,17 +25,31 @@ FactoryGirl.define do
   factory :contact do
     first_name "Jkai"
     last_name "Hsu"
-    relationship_to_student "Parent"
+    relationship_to_student "Father"
     language "English"
-    phone_number{ ((rand(900) + 100).to_s + "-" + (rand(900) + 100).to_s + "-" + (rand(9000) + 1000).to_s) }
+    phone_number "760-668-5378"
+    # phone_number{ ((rand(900) + 100).to_s + "-" + (rand(900) + 100).to_s + "-" + (rand(9000) + 1000).to_s) }
+    # students {[FactoryGirl.create(:student)]}
     email "jkai@son.com"
+  
+  end
+
+  factory :new_contact, class: Contact do
+    id "2"
+    first_name "Michael"
+    last_name "Phelps"
+    relationship_to_student "Mother"
+    language "English"
+    phone_number "999-999-9999"
+    # phone_number{ ((rand(900) + 100).to_s + "-" + (rand(900) + 100).to_s + "-" + (rand(9000) + 1000).to_s) }
+    email "m@phelps.com"
+    
+  end
+
+  factory :contact_student do
+    contact
+    student
     active true
-    trait :active do
-      active true
-    end
-    trait :inactive do
-      active false
-    end
   end
 
   factory :message do

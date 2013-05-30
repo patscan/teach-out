@@ -1,8 +1,0 @@
-$('fieldset').last().children('input').each(function(i, v){
-  a.push($(v).val())
-})
-
-
-$('.remove-fields').last().parent('fieldset').find('input[type="text"]').each(function(index, value){
-  acc += $(value).val().length;
-})

@@ -1,7 +1,8 @@
 #calendar {
-  clear:both;
+  /*clear:both;*/
   padding-top: 24px;
   padding-bottom:100px;
+  position: relative;
   float:right;
 }
 
@@ -16,7 +17,7 @@
   }
 
   td, th {
-    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    font-family: "Roboto Condensed", arial, helvetica, sans-serif;
     font-size: 10px;
     padding: 6px;
     border: 1px solid #EBEBEB;
@@ -32,9 +33,13 @@
   td {
     background: #FFF;
     color: #777;
-    height: 80px;
     vertical-align: top;
     font-size: 16px;
+    transition: background-color 0.2s linear; 
+    -webkit-transition: background-color 0.2s linear;
+    height: 95px;
+    overflow:hidden;
+    text-overflow: ellipsis;
   }
 
   .notmonth, .notmonth a { color: #CCC; }
@@ -57,4 +62,42 @@
 #calendar ul {
   font-size: 11px;
   padding-left: 20px;
+  margin:0px;
+  margin-top: 5px4
+}
+
+#message-text a{
+  color: black
+}
+#message-text a:hover{
+  color: #999
+}
+
+.single_day {
+  display:none;
+  background-color:white;
+  clear:both;
+  padding: 0 10 10 10;
+  width: 700px;
+  float:right;
+      border: 1px solid #EBEBEB;
+}
+
+#single_day_header {
+  background-color: #F5F5F5;
+  margin-top:0;
+  text-align: center
+}
+
+#single_day li a {
+  color: black;
+}
+
+#single_day ul {
+  list-style-type:none
+}
+
+#single_day #student_name {
+  color: #21A2BC;
+  margin-left: 1em;
 }

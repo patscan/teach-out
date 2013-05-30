@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
     message = Message.new(params[:message].merge(
       header: "From #{current_user.first_name.capitalize} #{current_user.last_name.capitalize}, #{current_user.school_name}"))
     message.time_sent = Time.now
+    message.save
     students = Student.where :id => params[:students].values
     if message.save
       current_user.messages << message
@@ -18,7 +19,6 @@ class MessagesController < ApplicationController
       render :json => { :error => message.errors.full_messages.join("<br/>") }, :status => 422
     end
   end
-
 
   def schedule_new
     @students = current_user.students.order(:first_name)

@@ -1,15 +1,19 @@
 <div id="new_text_errors" class="errors"></div>
-<div id="new_text_character_counter"></div>
+<div id="new_text_character_counter">160 characters left.</div>
 
-  <%= form_for @message, :remote => true do |t| %>
+<%= form_for @message, :remote => true do |t| %>
+<div id="form_students_list">
   <ul>
-    <% @students.each do |student| %>
-    <%= check_box_tag "students[#{student.first_name}]", student.id %> <%= student.first_name %>
-    <% end %>
+  <% @students.each do |student| %>
+  <li><%= check_box_tag "students[#{student.first_name}]", student.id %> <%= student.first_name %></li>
+  <% end %>
   </ul>
+</div>
 
-  <%= t.label :content %>
+<div class="compose">
+  <%= t.label :content %><br/>
   <%= t.text_area :content, :id=> "new_text_message_content", :value => "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}" %>
 
   <%= t.submit :class => "custom_submit" %>
-  <% end %>
+</div>
+<% end %>

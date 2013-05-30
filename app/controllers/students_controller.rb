@@ -18,6 +18,7 @@ class StudentsController < ApplicationController
   end
 
   def update
+    binding.pry
     student = Student.find(params[:id])
     if student.update_attributes(params[:student])
       render :json => {:success => true}
@@ -28,6 +29,9 @@ class StudentsController < ApplicationController
 
 
   def destroy
+    student = Student.find(params[:id])
+    student.destroy
+    redirect_to dashboard_teachers_path
   end
 
 end

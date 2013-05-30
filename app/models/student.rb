@@ -5,7 +5,7 @@ class Student < ActiveRecord::Base
   has_many :contact_students, :dependent => :destroy
   has_and_belongs_to_many :messages
 
-  accepts_nested_attributes_for :contacts
+  accepts_nested_attributes_for :contacts, :reject_if => :all_blank
   validates_presence_of :first_name, :last_name
 
 

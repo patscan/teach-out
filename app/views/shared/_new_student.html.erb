@@ -6,7 +6,7 @@
 <%= form_for @student, :remote => true do |f| %>
 
   <%= f.label :first_name %>
-  <%= f.text_field :first_name %><br>
+  <%= f.text_field :first_name, :autofocus =>"autofocus" %><br>
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
 

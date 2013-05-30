@@ -1,52 +1,32 @@
 <div id="dashboard">
   <h2>Welcome, <%= @teacher.first_name.capitalize %></h2>
 
-  <div class="dashboard-buttons">
-    <div class="button" id="schedule_text_button">
-      <%= link_to image_tag("scheduletext.png"), schedule_new_messages_path %>
-      <%= link_to "Schedule text" %>
-    </div>
-
-    <div class="button" id="new_text_button">    
-      <%= link_to image_tag("newtext.png"), new_message_path %>
-      <%= link_to "Send Text" %>
-    </div>
-
-    <div class="button" id="add_student_button">
-      <%= image_tag "addstudent.png" %>
-      <%= link_to "Add Student", new_student_path %>
-    </div>
-    
-    <div class="button" id="edit_student_button">
-      <%= image_tag "edit-student.png" %>
-      <%= link_to "Edit Student", new_student_path %>
-    </div>
+  <div class="dashboard_buttons">
+    <%= link_to "schedule text", schedule_new_messages_path, :class => "button", :id => "schedule_text_button"  %>
+    <%= link_to "send text", new_message_path, :class => "button", :id => "new_text_button" %>
+    <%= link_to "add student", new_student_path, :class => "button", :id => "add_student_button"  %>
   </div>
+
+<!--   <div class="dashboard_buttons_hover">
+    <%=image_tag('dash_buttonhover.png', :class => "button_hover") %>
+    <%=image_tag('dash_buttonhover.png', :class => "button_hover") %>
+    <%=image_tag('dash_buttonhover.png', :class => "button_hover") %>
+  </div> -->
 
   <div id="modal_background"></div>
 
-  <div id="add_student_form">
-    <%= render "shared/new_student" %>
-  </div>
-  <div id="schedule_text_form">
+
+  <div id="schedule_text_form" class="dash_form_modal">
     <%= render "shared/schedule_message_form" %>
   </div>
   <div id="new_text_form">
     <%= render "shared/message_form" %>
   </div>
-  
-
-  <div class="students-list" >
-    <h4>students</h4>
-    <ul>
-      <% @students.each do |student| %>
-      <li><%= link_to "#{student.first_name} #{student.last_name}", edit_student_path(student.id) %></li>
-      <% end %>
-    </ul>
-    <br>
+  <div id="add_student_form">
+    <%= render "shared/new_student" %>
   </div>
-
-  <div class="text-preview">
+  
+  <!--<div class="text-preview">
     <div id="last-text">
       <span class="text-title"> last text </span>
       <% if @last_sent_message %>
@@ -68,6 +48,18 @@
         You have no scheduled texts
       </span>
       <% end %>
+    </div>
+  </div>-->  
+  
+  <div id="dashboard_container">
+    <div class="students-list" >
+      <h3>Students</h3>
+      <ul>
+        <% @students.each do |student| %>
+        <li><%= link_to "#{student.first_name} #{student.last_name}", edit_student_path(student.id) %></li>
+        <% end %>
+      </ul>
+      <br>
     </div>
   </div>
   <div class="single_day">

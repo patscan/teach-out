@@ -1,0 +1,35 @@
+$orange: #ED9B7E;
+$blue: #21A2BC;
+$lime: #DCE89D;
+$peach: #E8D0C0;
+$tan: #C8BFB7;
+$off_white: #F8F8F3;
+
+#edit_student_container {
+  position: relative;
+}
+
+#edit_student_col {
+  padding-left: 20px;
+  border-radius: 8px;
+  float: left;
+  position: relative;
+  width: 550px;
+  background-color: white;
+  .custom_submit {
+    margin-top: 20px;
+    float: left;
+    margin-right: 15px;
+  }
+}
+
+#student_info_col {
+  border-radius: 8px;
+
+  float: right;
+  position: relative;
+  width: 400px;
+  height: 350px;
+
+  background-color: white;
+}

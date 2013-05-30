@@ -7,8 +7,8 @@ require 'sidekiq-status'
 #   end
 # end
 
-Sidekiq.configure_server do |config|
-  config.server_middleware do |chain|
-    chain.add Sidekiq::Status::ServerMiddleware, expiration: 2.minutes # default
-  end
-end
+# Sidekiq.configure_server do |config|
+#   config.server_middleware do |chain|
+#     chain.add Sidekiq::Status::ServerMiddleware, expiration: 2.minutes # default
+#   end
+# end

@@ -33,10 +33,12 @@ $off_white: #F8F8F3;
 }
 
 #dashboard h2 {
+  font-family: "Montserrat", sans-serif;
   text-align: center;
 }
 
 .dashboard-buttons {
+  font-family: "Montserrat", sans-serif;
   background-color: #F5F5F5;
   float:left;
   position: relative;
@@ -71,55 +73,6 @@ $off_white: #F8F8F3;
   padding: 1em;
 }
 
-/*
-#last-text {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  float: left;
-  width: 45%;
-  min-height: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #fff;
-  border: 1px solid #EBEBEB;
-}*/
-
-/*#next-text {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  float: right;
-  width: 45%;
-  min-height: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #fff;
-  border: 1px solid #EBEBEB;
-}
-
-.text-title {
-  font-family: "Lucida Grande", arial, helvetica, sans-serif;
-  color: #666;
-  font-size: 12px;
-  text-align: center;
-  display: block;
-  background-color: whitesmoke;
-  padding: 6px;
-}
-
-.text-content {
-  padding: 1em;
-  line-height: 20px;
-  display: block;
-}*/
-
-
-/*.text-preview {
-  clear:both;
-  padding-top: 20px;
-}*/
-
-
-
 .dashboard_buttons {
   position: relative;
   margin-left: 325px;
@@ -129,24 +82,6 @@ $off_white: #F8F8F3;
 
 .dashboard_buttons a{
 }
-
-/*.dashboard_buttons_hover {
-  z-index: 11;
-  position: absolute;
-  margin-top: -80px;
-  margin-left: 325px;
-  /*margin-right: auto;*/
-/*  min-width: 1000px;
-  height: 70px;
-  margin-bottom: 10px;*/
-/*}*/
-
-/*.button_hover {
-  opacity: .3;
-  border-radius: 5px;
-  background-color: black;
-  margin-right: -4px;
-}*/
 
 .button {
   font-family: "Roboto Condensed", sans-serif;
@@ -169,23 +104,6 @@ $off_white: #F8F8F3;
   }
 }
 
-#dashboard_container {
-  position: relative;
-  min-width: 1000px;
-}
-
-//#schedule_text_button {
-//  background: url(image_path("dash_button001.png"));
-//}
-
-//#new_text_button {
-//  background: url(image_path("dash_button002.png"));
-//}
-
-//#add_student_button{
-//  background: url(image_path("dash_button003.png"));
-//}
-
 .students-list {
   float: left;
   width: 270px;
@@ -198,8 +116,20 @@ $off_white: #F8F8F3;
 }
 
 .students-list ul li {
-padding-left: 0;
-margin-right: 0;}
+  padding-left: 0;
+  margin-right: 0;
+  border-bottom: 1px solid lighten($blue, 35%);
+}
+
+.students-list ul li a {
+  font-family: 'Montserrat', sans-serif;
+  color: $blue;
+  padding-left: 0;
+  margin-right: 0;
+  &:hover {
+    color: darken($orange, 15%);
+  }
+}
 
 #schedule_text_form, #new_text_form, #add_student_form {
   display: none;
@@ -211,7 +141,7 @@ margin-right: 0;}
   height: 100%;
   margin: 0 auto 0 auto;
   width: 600px;
-  height: 550px;
+  height: auto;
   overflow: auto;
   background-color: white;
   -moz-box-shadow: 3px 3px 4px #191922;
@@ -233,7 +163,6 @@ margin-right: 0;}
 .compose {
   padding-top: 10px;
   float: right;
-  /*width: 45%;*/
   padding-right: 40px;
   .custom_submit {
     margin-right: 0;
@@ -247,50 +176,95 @@ margin-right: 0;}
 #new_text_form {
   .compose {
     display: block;
-    float: none;
-    /*margin-left: -20px;*/
-  }
-  .custom_submit {
-    margin-right: 17px;
+    float: right;
   }
 }
 
-
-/*
-#schedule_text_form {
-  margin-left: 410px;
-  width: 400px;
+.compose #message_subject {
+  width: 100%;
 }
 
-#new_text_form {
-  margin-left: 410px;
-  width: 400px;
+#send_text_compose_area {
+  position: relative;
+  width: 340px;
+  float: right;
+}
+
+#edit_student_col h2 {
+  color: $blue;
+}
+
+form h3 {
+  color: $blue;
+  margin-bottom: 5px;
 }
 
 #add_student_form {
-  margin-left: 410px;
-  width: 400px; 
+  min-width: 400px;
+  min-height: 300px;
+  width: auto;
+  input {
+    margin: 5px 0 5px 0;
+  }
+  .custom_submit {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+  h3 {
+    color: $blue;
+  }
 }
 
-*/
+#nested_contact_fields {
+  fieldset {
+    display:inline-block;
+  }
+}
+
+a.add_fields {
+  color: $blue;
+  &:hover {
+    color:darken($blue,15%);
+  }
+}
+
+.remove-fields {
+  color: lighten(red, 10%);
+  &:hover {
+    color:red;
+  }
+}
 
 
 
+#logo_box_inside {
+  float: left;
+  margin-left: 20px;
+  margin-top: 5px;
+  z-index:3;
+  position: absolute;
+  opacity: .9;
+  width: 150px;
+  height: 37px;
+  border-radius: 12px;
+  background-color: $off_white;
+}
 
+#logo_inside {
+  line-height: 54px;
+  margin-left: 40px;
+  /*margin-top: 9px;*/
+  z-index: 4;
+  opacity: 1;
+  font-size: 35px;
+  color: $off_white;
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  #dot {
+    color: $orange;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 

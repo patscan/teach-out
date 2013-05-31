@@ -25,7 +25,6 @@ $(document).ready(function(){
   });
 
   $('form').on('ajax:error', function(event, xhr, status){
-    debugger
     $("#add_student_errors").html($.parseJSON(xhr.responseText).error);
   });
 });

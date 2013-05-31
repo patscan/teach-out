@@ -1,24 +1,24 @@
 <div id="add_student_errors" class="errors">
 </div>
 
-<h2>Student Information</h2>
+<h3>Student Information</h3>
 
 <%= form_for @student, :remote => true do |f| %>
-
-  <%= f.label :first_name %>
+  <div class="form_left"><%= f.label :first_name %></div>
   <%= f.text_field :first_name, :autofocus =>"autofocus" %><br>
-  <%= f.label :last_name %>
+  <div class="form_left"><%= f.label :last_name %><div>
   <%= f.text_field :last_name %>
-
-  <h2>Contact Information</h2>
-
+  <h3>Contact Information</h3>
     <%= f.fields_for :contacts, :remote => true do |contact_field| %>
     <%= render "shared/new_contact", contact_field: contact_field %>
     
     <% end %>
     <br>
-    <%= link_to_add_fields "Add Contact", f, :contacts %>
+
+    <%= link_to_add_fields "+ Add Contact", f, :contacts %>
+
     <br>
   <%= f.submit "Submit", :class => "custom_submit" %>
+</div>
 
 <% end %>

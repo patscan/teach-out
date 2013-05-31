@@ -10,11 +10,11 @@
   </ul>
 </div>
 
-<div class="compose">
+<div class="compose" id="send_text_compose_area">
   <%= t.label :Subject %>
   <%= t.text_field :subject, :placeholder => "Optional" %>
   <%= t.label :content %><br/>
-  <%= t.text_area :content, :id=> "new_text_message_content", :value => "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}" %>
+  <%= t.text_area :content, :id=> "new_text_message_content", :value => "Sent from: #{current_user.first_name} #{current_user.last_name}, #{current_user.school_name}", :rows => 10 %>
 
   <%= t.submit "Send it!", :class => "custom_submit" %>
 </div>

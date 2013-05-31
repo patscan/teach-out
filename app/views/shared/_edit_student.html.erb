@@ -1,27 +1,30 @@
 <div id="add_student_errors" class="errors">
 </div>
 
-<h2>Student Information</h2>
+<div id="edit_student_container">
+  <div id="edit_student_col">
+  <h2>Edit Student Information</h2>
 
-  <%= form_for @student, :remote => true do |f| %>
+    <%= form_for @student, :remote => true do |f| %>
 
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %><br>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %><br>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
 
-    <h2>Contact Information</h2>
+      <h2>Edit Contact Information</h2>
 
-      <%= f.fields_for :contacts, @student.contacts do |contact_field| %>
-        <%= render "shared/new_contact", contact_field: contact_field %>
-      <% end %>
-      <br>
-      <%= link_to_add_fields "Add Contact", f, :contacts %>
-      
-      <br>
-    <%= f.submit "Submit", :class => "custom_submit" %>
+        <%= f.fields_for :contacts, @student.contacts do |contact_field| %>
+          <%= render "shared/new_contact", contact_field: contact_field %>
+        <% end %>
+        <br>
+        <%= link_to_add_fields "+ Add Contact", f, :contacts %>
+        
+        <br>
+      <%= f.submit "Submit", :id => "custom_submit_edit1"%>
 
-
-
-  <% end %>
-    <%= button_to "Remove", {:controller => :students, :action => :destroy }, :class => "custom_submit", :confirm => "Are you sure? You cannot undo this action", :method => :delete, :remote => true %><br>
+    <% end %>
+    <!-- if anything here required js, these two buttons used to have class custom_submit -->
+      <%= button_to "Remove Student", {:controller => :students, :action => :destroy }, :id => "custom_submit_edit2", :confirm => "Are you sure? You cannot undo this action", :method => :delete, :remote => true %>
+  </div>
+</div>

@@ -33,10 +33,12 @@ $off_white: #F8F8F3;
 }
 
 #dashboard h2 {
+  font-family: "Montserrat", sans-serif;
   text-align: center;
 }
 
 .dashboard-buttons {
+  font-family: "Montserrat", sans-serif;
   background-color: #F5F5F5;
   float:left;
   position: relative;
@@ -187,3 +189,45 @@ $off_white: #F8F8F3;
   width: 340px;
   float: right;
 }
+
+form h3 {
+  color: $blue;
+  margin-bottom: 5px;
+}
+
+#add_student_form {
+  min-width: 400px;
+  min-height: 300px;
+  width: auto;
+  input {
+    margin: 5px 0 5px 0;
+  }
+  .custom_submit {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+  h3 {
+    color: $blue;
+  }
+}
+
+#nested_contact_fields {
+  fieldset {
+    display:inline-block;
+  }
+}
+
+a.add_fields {
+  color: $blue;
+  &:hover {
+    color:darken($blue,15%);
+  }
+}
+
+.remove-fields {
+  color: lighten(red, 10%);
+  &:hover {
+    color:red;
+  }
+}
+

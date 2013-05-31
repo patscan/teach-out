@@ -4,7 +4,7 @@ TeachOut::Application.routes.draw do
 
   match "about" => "home#show"
 
-  match "message/status" => "messagestatus#create"
+  match "status" => "status#create"
   
   resources :messages do
     collection do

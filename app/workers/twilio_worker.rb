@@ -12,7 +12,7 @@ class TwilioWorker
     response = twilio_client.account.sms.messages.create(from: app_phone, 
                                                          to: contact.phone_number,
                                                          body: message.content,
-                                                         status_callback: "http://ancient-shore-3226.herokuapp.com/message/status")
+                                                         status_callback: "http://ancient-shore-3226.herokuapp.com/status")
     p response
     contact_message.update_attributes(sms_sid: response.sid)
   end

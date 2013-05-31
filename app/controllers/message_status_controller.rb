@@ -1,4 +1,4 @@
-class MessageStatusController < ApplicationController
+class StatusController < ApplicationController
 
   def create
     message = Message.find_by_sms_sid(params[:SmsSid])

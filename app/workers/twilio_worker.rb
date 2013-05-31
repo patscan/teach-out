@@ -14,7 +14,7 @@ class TwilioWorker
                                                          body: message.content,
                                                          status_callback: "http://ancient-shore-3226.herokuapp.com/status")
     p response
-    contact_message.update_attributes(sms_sid: response.sid)
+    contact_message.update_attributes(sms_sid: response["SmsSid"])
   end
 
   def retries_exhausted(contact_id, message_id)

@@ -4,7 +4,7 @@ TeachOut::Application.routes.draw do
 
   match "about" => "home#show"
 
-  match "status" => "status#create"
+  match "champagne_callback" => "status#champagne_callback"
   
   resources :messages do
     collection do

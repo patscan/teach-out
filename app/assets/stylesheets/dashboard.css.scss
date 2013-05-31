@@ -190,6 +190,10 @@ $off_white: #F8F8F3;
   float: right;
 }
 
+#edit_student_col h2 {
+  color: $blue;
+}
+
 form h3 {
   color: $blue;
   margin-bottom: 5px;
@@ -230,4 +234,37 @@ a.add_fields {
     color:red;
   }
 }
+
+
+
+#logo_box_inside {
+  float: left;
+  margin-left: 20px;
+  margin-top: 5px;
+  z-index:3;
+  position: absolute;
+  opacity: .9;
+  width: 150px;
+  height: 37px;
+  border-radius: 12px;
+  background-color: $off_white;
+}
+
+#logo_inside {
+  line-height: 54px;
+  margin-left: 40px;
+  /*margin-top: 9px;*/
+  z-index: 4;
+  opacity: 1;
+  font-size: 35px;
+  color: $off_white;
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  #dot {
+    color: $orange;
+  }
+
+}
+
+
 

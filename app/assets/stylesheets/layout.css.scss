@@ -20,7 +20,7 @@ body {
 
 header {
   position: relative;
-  width:100%;
+  width:101%;
   margin-left: -1px;
   margin-right: -30px;
   background-color: $blue ;
@@ -47,10 +47,9 @@ header a {
   color: #F8F8F3;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
-}
-
-header a:hover {
-  color: #363636;
+  &:hover {
+    color: lighten(#363636, 15%);
+  }
 }
 
 header .logo {

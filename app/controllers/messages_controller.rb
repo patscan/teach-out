@@ -59,6 +59,6 @@ def parse_time(date, hour, minute, day_night)
   day = month_day_year[1]
   hour = hour.to_i + 12 if day_night == "pm"
 
-  Time.mktime(year, month, day, hour, minute, 0)
+  Time.mktime(year, month, day, hour, minute, 0) + 7*60*60
 end
 

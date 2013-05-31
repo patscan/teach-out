@@ -14,11 +14,6 @@ class MessagesController < ApplicationController
     if params[:students]
       message.save
       students = Student.where :id => params[:students].values
-    # else
-    #   students = nil
-    # end
-
-    # if message.save && students
       current_user.messages << message
       students.each { |student| student.send_to_contacts(message) }
       render :js => "window.location = '/teachers/dashboard'"

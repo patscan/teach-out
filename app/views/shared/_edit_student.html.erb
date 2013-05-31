@@ -27,10 +27,4 @@
     <!-- if anything here required js, these two buttons used to have class custom_submit -->
       <%= button_to "Remove Student", {:controller => :students, :action => :destroy }, :id => "custom_submit_edit2", :confirm => "Are you sure? You cannot undo this action", :method => :delete, :remote => true %>
   </div>
-
-  <div id="student_info_col">
-    <% @student.messages.each do |message| %>
-      <%= message.content %>
-    <% end %>
-  </div>
 </div>

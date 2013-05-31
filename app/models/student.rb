@@ -32,11 +32,8 @@ class Student < ActiveRecord::Base
   end
 
   def schedule_to_contacts(message, interval)
-    binding.pry
-    p interval
-    p interval.to_f
     self.add_to_messages(message)
-    message.update_attributes(:time_sent => interval) 
+    message.update_attributes(:time_sent => interval ) 
     self.active_contacts.each do |contact|
       contact.messages << message
       TwilioWorker.perform_at(interval, contact.id, message.id)

@@ -11,7 +11,7 @@
     <ul id="message-text">
       <% messages_by_date[date.to_s].take(4).each do |m| %>
         <% unless m.subject.nil? || m.subject.empty? %>
-          <li><%= m.subject %></li>
+          <li><%= m.subject[0,10] %></li>
         <% else %>
         <li><%= m.content[0,10] %></li>
         <% end %>

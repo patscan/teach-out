@@ -6,17 +6,24 @@ class MessagesController < ApplicationController
   end
 
   def create
+    p params
     message = Message.new(params[:message].merge(
       header: "From #{current_user.first_name.capitalize} #{current_user.last_name.capitalize}, #{current_user.school_name}"))
     message.time_sent = Time.now
-    message.save
-    students = Student.where :id => params[:students].values
-    if message.save
+    
+    if params[:students]
+      message.save
+      students = Student.where :id => params[:students].values
+    # else
+    #   students = nil
+    # end
+
+    # if message.save && students
       current_user.messages << message
       students.each { |student| student.send_to_contacts(message) }
       render :js => "window.location = '/teachers/dashboard'"
     else
-      render :json => { :error => message.errors.full_messages.join("<br/>") }, :status => 422
+      render :json => { :error => "You must have one student" }, :status => 422
     end
   end
 

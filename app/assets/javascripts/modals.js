@@ -25,6 +25,7 @@ function Modal(button, form, errors) {
   };
 
   this.showErrors = function(event, xhr, status, error) {
+    // debugger;
     $(errors).html($.parseJSON(xhr.responseText).error);
   };
 

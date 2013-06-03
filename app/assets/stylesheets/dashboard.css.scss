@@ -71,6 +71,10 @@ $off_white: #F8F8F3;
   float: left;
   text-align: center;
   padding: 1em;
+  cursor: pointer;
+  &:hover{
+   color: $blue
+  }
 }
 
 .dashboard_buttons {
@@ -98,8 +102,6 @@ $off_white: #F8F8F3;
   color: $off_white;
 
   &:hover{
-    /*text-shadow: 2px 2px 30px rgba(0, 32, 0, 1);*/
-    /*text-shadow: 1px 1px 20px rgba(150, 150, 150, 1);*/
     text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.48);
   }
 }

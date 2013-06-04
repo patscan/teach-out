@@ -1,21 +1,30 @@
 <div id="dashboard">
-  <h2>Welcome, <%= @teacher.first_name.capitalize %></h2>
+
+
+
+
+<!--   <div id="dashboard_nav_box"></span>
+
+    <div class="dashboard_buttons">
+      <%= link_to "", new_message_path, id: "new_text_button" %>
+
+      <%= link_to "", schedule_new_messages_path, id: "schedule_text_button" %>
+
+      <%= link_to "", new_student_path, id: "add_student_button" %>
+    </div> -->
+
+
+
+
   <div id="col1">
-    <div class="dashboard-buttons">
-      <div class="dash-button", id="new_text_button">
-        <%= link_to image_tag("icons1/sendtext.png"), new_message_path, :class => 'dash-icon' %>
-        Send Text
-      </div>
+     <!-- <div id="dashboard_nav_box"></span> -->
 
-      <div class="dash-button", id="schedule_text_button">    
-        <%= link_to image_tag("icons1/schedule.png"), schedule_new_messages_path, :class => 'dash-icon' %>
-        Schedule Text
-      </div>
+    <div class="dashboard_buttons">
+      <%= link_to "", new_message_path, id: "new_text_button" %>
 
-      <div class="dash-button", id="add_student_button">
-        <%= link_to image_tag("icons1/addstudent.png"), new_student_path, :class => 'dash-icon' %>
-        Add Student
-      </div>
+      <%= link_to "", schedule_new_messages_path, id: "schedule_text_button" %>
+
+      <%= link_to "", new_student_path, id: "add_student_button" %>
     </div>
 
     <div class="students-list" >

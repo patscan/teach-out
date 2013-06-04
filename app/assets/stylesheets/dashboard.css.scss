@@ -13,23 +13,14 @@ $off_white: #F8F8F3;
   float:right
 }
 
-#dash-icon-wrapper {
-  width:300px;
-  margin:auto;  
-}
-
-.dash-icon-slot {
-  float:left;
-  width: 100px;
-  & img {
-    align:center;
-    width: 60px;
-    margin:auto;
-  }
-}
-
 #dashboard {
   position: relative;
+  span {
+    font-family: "Roboto Condensed", sans-serif;
+    line-height: 47px;
+    text-transform: lowercase;
+    font-size: 20px;
+  }
 }
 
 #dashboard h2 {
@@ -37,55 +28,59 @@ $off_white: #F8F8F3;
   text-align: center;
 }
 
-.dashboard-buttons {
-  font-family: "Montserrat", sans-serif;
-  background-color: #F5F5F5;
-  float:left;
-  position: relative;
+#dashboard_name {
+  display: block;
+  /*text-align: center;*/
 
-  margin-left: -16px;
-  margin-right: auto;
-
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -khtml-border-radius: 20px;
-  border-radius: 20px;
+  width: 1008px;
+  height: 47px;
+  background: url('dashboard_name.png') no-repeat;
+  padding: 5px 0 0 10px;
 }
 
-.dashboard-buttons img{
-  margin:auto;
-}
-
-.dashboard-buttons a {
-  color: #363636;
-}
-
-.dashboard-buttons a:hover {
-  color: #21A2BC;
-}
-
-.dash-button {
-  width: 70px;
-  margin-left: auto;
-  margin-right: auto;
+.dashboard_buttons{
+  height: auto;
+  width: 278px;
   float: left;
-  text-align: center;
-  padding: 1em;
-  cursor: pointer;
-  &:hover{
-   color: $blue
-  }
-}
-
-.dashboard_buttons {
   position: relative;
-  margin-left: 325px;
-  height: 70px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .dashboard_buttons a{
+  position: relative;
+  margin: 5px 30px 0px 0;
+  /*float: left;*/
+  display: block;
+  width: 278px;
+  height: 93px;
 }
+
+.dashboard_buttons a:first-child{
+  /*margin-left: 30px;*/
+}
+
+#new_text_button {
+  background: url('send_text_up.png');
+  &:hover{
+    background: url('send_text_down.png');
+  }
+}
+
+#schedule_text_button {
+  background: url('schedule_text_up.png');
+  &:hover{
+    background: url('schedule_text_down.png');
+  }
+}
+
+#add_student_button {
+  background: url('add_student_up.png');
+  &:hover{
+    background: url('add_student_down.png');
+  }
+}
+
+
 
 .button {
   font-family: "Roboto Condensed", sans-serif;
@@ -265,8 +260,8 @@ a.add_fields {
   #dot {
     color: $orange;
   }
-
 }
+
 
 
 

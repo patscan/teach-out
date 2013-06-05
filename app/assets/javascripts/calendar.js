@@ -13,32 +13,41 @@ $(document).ready(function(){
   }
 
   $('#calendar').on('click', '.prev_month', function(e){
-    e.preventDefault();
-    console.log($(this));
-    var month = $(this).parents(".calendar").data("month")
-    var new_month = prevMonth(month)
-    ajaxCalendar(new_month)
-    function prevMonth(month) {
-      this.month = month;
-      var parts = month.split('-');
-      var m = parts[1];
-      var y = parts[0];
-      return y+'-'+(parseInt(m)-1)
-    };
+    if($(this).hasClass('ignore')){
+      e.preventDefault();
+    }
+    else {
+      e.preventDefault();
+      var month = $(this).parents(".calendar").data("month")
+      var new_month = prevMonth(month)
+      ajaxCalendar(new_month)
+      function prevMonth(month) {
+        this.month = month;
+        var parts = month.split('-');
+        var m = parts[1];
+        var y = parts[0];
+        return y+'-'+(parseInt(m)-1)
+      };
+    }
   });
 
   $('#calendar').on('click', '.next_month', function(e){
-    e.preventDefault();
-    var month = $(this).parents(".calendar").data("month")
-    var new_month = nextMonth(month)
-    ajaxCalendar(new_month)
-    function nextMonth(month) {
-      this.month = month;
-      var parts = month.split('-');
-      var m = parts[1];
-      var y = parts[0];
-      return y+'-'+(parseInt(m)+1)
-    };
+    if($(this).hasClass('ignore')){
+      e.preventDefault();
+    }
+    else {
+      e.preventDefault();
+      var month = $(this).parents(".calendar").data("month")
+      var new_month = nextMonth(month)
+      ajaxCalendar(new_month)
+      function nextMonth(month) {
+        this.month = month;
+        var parts = month.split('-');
+        var m = parts[1];
+        var y = parts[0];
+        return y+'-'+(parseInt(m)+1)
+      };
+    }
   });
 
   $('#calendar').on('click', 'td', function(){
@@ -53,6 +62,9 @@ $(document).ready(function(){
         left: '+=300'
       }, 400);
       $('#calendar td').removeClass("yo");
+      $('.prev_month').removeClass("ignore");
+      $('.next_month').removeClass("ignore");
+
     } else if($(this).text().trim().length < 3) {
      $(this).css({"background-color": "#FF6969"});
      var thisTd = this
@@ -77,6 +89,8 @@ $(document).ready(function(){
           left: '-=300'
         }, 400);
         $('#calendar td').addClass("yo");
+        $('.next_month').addClass("ignore");
+        $('.prev_month').addClass("ignore");
         setTimeout(function(){
           $("#single_day").first().replaceWith(singleDayHtml.single_day);
         },300);

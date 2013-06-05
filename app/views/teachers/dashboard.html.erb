@@ -21,8 +21,11 @@
   </div>
 
   <div id="col2">
-    <div id="calendar">
-      <%= render "shared/calendar", :date => @date, :messages_by_date => @messages_by_date %>
+    <div class="calendar">
+      <div id="calendar">
+        <%= render "shared/calendar", :date => @date, :messages_by_date => @messages_by_date %>
+        </div>
+      </div>
     </div>
     <div class="single_day">
       <div id="single_day">

@@ -17,7 +17,7 @@ $(document).ready(function(){
 
     var month = $(this).parents(".calendar").data("month")
     var new_month = prevMonth(month)
-    ajaxCalendar(new_month)    
+    ajaxCalendar(new_month)
     function prevMonth(month) {
       this.month = month;
       var parts = month.split('-');
@@ -32,7 +32,7 @@ $(document).ready(function(){
 
     var month = $(this).parents(".calendar").data("month")
     var new_month = nextMonth(month)
-    ajaxCalendar(new_month)    
+    ajaxCalendar(new_month)
     function nextMonth(month) {
       this.month = month;
       var parts = month.split('-');
@@ -45,30 +45,62 @@ $(document).ready(function(){
   $(document).on('click', 'td', function(){
 
     if ($(this).text().trim().length < 3) {
-       $(this).css({"background-color": "#FF6969"});
-       var thisTd = this
-       setTimeout(function(){
-         $(thisTd).css({"background-color": "#FFF"});
-         $(".single_day").slideUp("swing")
-       },200)
-    } else {
+     $(this).css({"background-color": "#FF6969"});
+     var thisTd = this
+     setTimeout(function(){
+       $(thisTd).css({"background-color": "#FFF"});
+       // $(".single_day").slideUp("swing")
+     },200)
+   } else {
 
-      $.ajax({
-        url: "/teachers/render_single_day",
-        type: "GET",
-        dataType: "json",
-        data: {date: $(this).attr("datenum")},
-        success: function(singleDayHtml){
-        $(".single_day").slideUp("ease")
-        $(".single_day").slideDown("ease")
-                  setTimeout(function(){
+    $.ajax({
+      url: "/teachers/render_single_day",
+      type: "GET",
+      dataType: "json",
+      data: {date: $(this).attr("datenum")},
+      success: function(singleDayHtml){
+        // $(".single_day").slideUp("ease")
+        // $(".single_day").slideDown("ease")
+        $('.single_day').animate({
+          left: '-=300'
+            }, 1000);
+        $('#calendar').animate({
+          left: '-=300'
+            }, 1000);
+        $('#col1').animate({
+          left: '-=300'
+            }, 1000);
+        $('.calendar').addClass("yo");
+        setTimeout(function(){
          $("#single_day").first().replaceWith(singleDayHtml.single_day);
        },300)
-          
-        }      
-      })
-    }
-    
-  })
+
+      }
+    })
+  }
+
+  $('.yo').on('click', function(e){
+    // e.stopPropogation();
+    e.preventDefault();
+    $('.single_day').animate({
+          left: '+=300'
+            }, 1000);
+    $('#calendar').animate({
+          left: '+=300'
+            }, 1000);
+    $('#col1').animate({
+          left: '+=300'
+            }, 1000);
+    $('body').removeClass("yo");
+  });
+
+})
 
 });
+
+
+// things to slide -300:
+
+// #col1
+// #calendar
+// .single_day

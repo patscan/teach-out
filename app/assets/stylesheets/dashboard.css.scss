@@ -5,6 +5,7 @@ $peach: #E8D0C0;
 $tan: #C8BFB7;
 $off_white: #F8F8F3;
 
+
 #col1 {
   float:left
 }
@@ -51,32 +52,33 @@ $off_white: #F8F8F3;
   margin: 5px 30px 0px 0;
   /*float: left;*/
   display: block;
-  width: 278px;
-  height: 93px;
+  width: 282px;
+  height: 67px;
 }
 
 .dashboard_buttons a:first-child{
+  margin-top: 20px;
   /*margin-left: 30px;*/
 }
 
 #new_text_button {
-  background: url('send_text_up.png');
+  background: url('send-text-up.png');
   &:hover{
-    background: url('send_text_down.png');
+    background: url('send-text-down.png');
   }
 }
 
 #schedule_text_button {
-  background: url('schedule_text_up.png');
+  background: url('schedule-text-up.png');
   &:hover{
-    background: url('schedule_text_down.png');
+    background: url('schedule-text-down.png');
   }
 }
 
 #add_student_button {
-  background: url('add_student_up.png');
+  background: url('add-student-up.png');
   &:hover{
-    background: url('add_student_down.png');
+    background: url('add-student-down.png');
   }
 }
 
@@ -248,7 +250,7 @@ a.add_fields {
 }
 
 #logo_inside {
-  line-height: 54px;
+  line-height: 61px;
   margin-left: 40px;
   /*margin-top: 9px;*/
   z-index: 4;

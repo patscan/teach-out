@@ -19,6 +19,7 @@ body {
 }
 
 header {
+  background: url('header_tile.png');
   position: relative;
   width:101%;
   margin-left: -1px;
@@ -26,9 +27,9 @@ header {
   background-color: $blue ;
   margin-bottom: 10px;
   clear: both;
-  height: 54px;
+  height: 61px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.25), 0 0 50px rgba(0,0,0,0.1) inset;
-  border-radius: 1%     1%     1%     1% /     1%     1%     1%     1%;
+  /*border-radius: 1%     1%     1%     1% /     1%     1%     1%     1%;*/
 }
 
 header:after {
@@ -36,17 +37,23 @@ header:after {
   width: 80%;
   height: 40%;
   left: 10%;
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   z-index: -1;
   bottom: 0%;
   content: "";
-  box-shadow: 0 7px 16px rgba(0,0,0,0.4);
+  /*box-shadow: 0 7px 16px rgba(0,0,0,0.4);*/
+}
+
+.header-info {
+  margin-top: 5px;
+  font-family: "Roboto Condensed", sans-serif;
+  padding-left: 5px;
 }
 
 header a {
   color: #F8F8F3;
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   &:hover {
     color: lighten(#363636, 15%);
   }
@@ -55,7 +62,7 @@ header a {
 header .logo {
   float: left;
   padding-left: 24px;
-  margin-top: 12px;
+  margin-top: 15px;
 }
 
 header .header-info {
@@ -103,7 +110,7 @@ input[type=text], input[type=password], input[type=email], textarea {
   margin: 5px 1px 3px 0px;
   border: 1px solid #DDDDDD;
 }
- 
+
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, textarea:focus {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   padding: 3px 0px 3px 3px;

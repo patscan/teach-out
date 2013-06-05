@@ -4,6 +4,10 @@
   float:right;
 }
 
+.prev_month, .next_month {
+margin-bottom: 5px;
+}
+
 #calendar .calendar {
   border-collapse: collapse;
   width: 700px;
@@ -32,7 +36,7 @@
     color: #777;
     vertical-align: top;
     font-size: 16px;
-    transition: background-color 0.2s linear; 
+    transition: background-color 0.2s linear;
     -webkit-transition: background-color 0.2s linear;
     height: 80px;
     overflow:hidden;
@@ -43,17 +47,16 @@
   .today { background-color: #D7F2FF; }
 }
 
-
 #calendar #month {
-  margin: 0;
-  padding-bottom: 10px;
+  background: url("calendar_header.png");
+  margin: 5px 0 10px 0;
+  padding: 5px;
   text-align: center;
   font-size: 18px;
   a {
     text-decoration: none;
     padding: 0 10px;
     color: #999;
-
   }
 }
 

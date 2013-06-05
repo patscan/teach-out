@@ -80,6 +80,8 @@ header .header-info {
   width: 1000px;
   margin-right: auto;
   margin-left: auto;
+  overflow-x: hidden;
+  min-height: 1000px;
 }
 
 .errors {

@@ -7,11 +7,24 @@ $off_white: #F8F8F3;
 
 
 #col1 {
-  float:left
+  float: left;
+  position: absolute;
 }
 
 #col2 {
   float:right
+}
+
+#calendar {
+  position: absolute;
+  left: 300px;
+}
+
+.single_day {
+  position: absolute;
+  left: 1020px;
+  top: 22px;
+  width: 279px;
 }
 
 #dashboard {
@@ -29,15 +42,14 @@ $off_white: #F8F8F3;
   text-align: center;
 }
 
-#dashboard_name {
-  display: block;
+/*#dashboard_name {
+  display: block;*/
   /*text-align: center;*/
-
-  width: 1008px;
+/*  width: 1008px;
   height: 47px;
   background: url('dashboard_name.png') no-repeat;
   padding: 5px 0 0 10px;
-}
+}*/
 
 .dashboard_buttons{
   height: auto;

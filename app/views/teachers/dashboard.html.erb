@@ -1,29 +1,11 @@
 <div id="dashboard">
 
-
 <!--http://fortawesome.github.io/Font-Awesome/icons/ use these!-->
 
-<!--   <div id="dashboard_nav_box"></span>
-
-    <div class="dashboard_buttons">
-      <%= link_to "", new_message_path, id: "new_text_button" %>
-
-      <%= link_to "", schedule_new_messages_path, id: "schedule_text_button" %>
-
-      <%= link_to "", new_student_path, id: "add_student_button" %>
-    </div> -->
-
-
-
-
   <div id="col1">
-     <!-- <div id="dashboard_nav_box"></span> -->
-
     <div class="dashboard_buttons">
       <%= link_to "", new_message_path, id: "new_text_button" %>
-
       <%= link_to "", schedule_new_messages_path, id: "schedule_text_button" %>
-
       <%= link_to "", new_student_path, id: "add_student_button" %>
     </div>
 
@@ -39,16 +21,20 @@
   </div>
 
   <div id="col2">
-    <div class="single_day">
-      <div id="single_day">
-        <%= render "shared/single_day", :date => @date, :day_messages => @day_messages %>
-      </div>
-    </div>
-
     <div id="calendar">
       <%= render "shared/calendar", :date => @date, :messages_by_date => @messages_by_date %>
     </div>
+    <div class="single_day">
+      <div id="single_day">
+        <%= render "shared/single_day", :date => @date, :day_messages => @day_messages %>
+        </div>
+      </div>
+    </div>
   </div>
+
+
+
+
 
   <div id="modal_background">
   </div>

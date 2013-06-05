@@ -4,10 +4,6 @@
   float:right;
 }
 
-.prev_month, .next_month {
-margin-bottom: 5px;
-}
-
 #calendar .calendar {
   border-collapse: collapse;
   width: 700px;
@@ -75,7 +71,7 @@ margin-bottom: 5px;
 }
 
 .single_day {
-  display:none;
+  display:block;
   background-color:white;
   padding: 0 10 10 10;
   width: 680px;

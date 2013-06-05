@@ -12,9 +12,8 @@ $(document).ready(function(){
     })
   }
 
-  $(document).on('click', '.prev_month', function(e){
+  $('.calendar').on('click', '.prev_month', function(e){
     e.preventDefault();
-
     var month = $(this).parents(".calendar").data("month")
     var new_month = prevMonth(month)
     ajaxCalendar(new_month)
@@ -27,7 +26,7 @@ $(document).ready(function(){
     };
   });
 
-  $(document).on('click', '.next_month', function(e){
+  $('.calendar').on('click', '.next_month', function(e){
     e.preventDefault();
 
     var month = $(this).parents(".calendar").data("month")
@@ -42,65 +41,49 @@ $(document).ready(function(){
     };
   });
 
-  $(document).on('click', 'td', function(){
-
-    if ($(this).text().trim().length < 3) {
+  $('.calendar').on('click', 'td', function(){
+    $(this);
+    if($(this).hasClass('yo')){
+      $('.single_day').animate({
+        left: '+=300'
+      }, 400);
+      $('#calendar').animate({
+        left: '+=300'
+      }, 400);
+      $('#col1').animate({
+        left: '+=300'
+      }, 400);
+      $('.calendar td').removeClass("yo");
+    } else if($(this).text().trim().length < 3) {
      $(this).css({"background-color": "#FF6969"});
      var thisTd = this
      setTimeout(function(){
        $(thisTd).css({"background-color": "#FFF"});
-       // $(".single_day").slideUp("swing")
      },200)
-   } else {
-
+   }
+   else {
     $.ajax({
       url: "/teachers/render_single_day",
       type: "GET",
       dataType: "json",
       data: {date: $(this).attr("datenum")},
       success: function(singleDayHtml){
-        // $(".single_day").slideUp("ease")
-        // $(".single_day").slideDown("ease")
         $('.single_day').animate({
           left: '-=300'
-            }, 1000);
+        }, 400);
         $('#calendar').animate({
           left: '-=300'
-            }, 1000);
+        }, 400);
         $('#col1').animate({
           left: '-=300'
-            }, 1000);
-        $('.calendar').addClass("yo");
+        }, 400);
+        $('.calendar td').addClass("yo");
         setTimeout(function(){
          $("#single_day").first().replaceWith(singleDayHtml.single_day);
        },300)
-
       }
     })
   }
-
-  $('.yo').on('click', function(e){
-    // e.stopPropogation();
-    e.preventDefault();
-    $('.single_day').animate({
-          left: '+=300'
-            }, 1000);
-    $('#calendar').animate({
-          left: '+=300'
-            }, 1000);
-    $('#col1').animate({
-          left: '+=300'
-            }, 1000);
-    $('body').removeClass("yo");
-  });
-
 })
 
 });
-
-
-// things to slide -300:
-
-// #col1
-// #calendar
-// .single_day

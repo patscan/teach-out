@@ -29,7 +29,6 @@ $(document).ready(function(){
 
   $('#calendar').on('click', '.next_month', function(e){
     e.preventDefault();
-
     var month = $(this).parents(".calendar").data("month")
     var new_month = nextMonth(month)
     ajaxCalendar(new_month)
@@ -43,7 +42,6 @@ $(document).ready(function(){
   });
 
   $('#calendar').on('click', 'td', function(){
-    // $(this);
     if($(this).hasClass('yo')){
       $('.single_day').animate({
         left: '+=300'
@@ -80,12 +78,11 @@ $(document).ready(function(){
         }, 400);
         $('#calendar td').addClass("yo");
         setTimeout(function(){
-        $("#single_day").first().replaceWith(singleDayHtml.single_day);
-       },300);
+          $("#single_day").first().replaceWith(singleDayHtml.single_day);
+        },300);
 
       }
     })
   }
 })
-
 });

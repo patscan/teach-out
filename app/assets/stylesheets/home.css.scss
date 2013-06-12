@@ -5,13 +5,17 @@ $peach: #E8D0C0;
 $tan: #C8BFB7;
 $off_white: #F8F8F3;
 
+h1, h2, h3, h4 {
+  font-weight: normal;
+}
+
 .log-in, .sign-up  {
   text-align: center;
   float: left;
-  width: 45%; 
+  width: 45%;
   margin-left: auto;
   margin-right: auto;
-  padding-right: 8px; 
+  padding-right: 8px;
 }
 
 #image_box {
@@ -89,12 +93,12 @@ $off_white: #F8F8F3;
   opacity: .7;
 }
 
-input, select, textarea, button { 
+input, select, textarea, button {
   margin-left: auto;
   margin-right: auto;
-  font-size:0.85em; 
-  outline:none; 
-  font-family:'Roboto Slab'; 
+  font-size:0.85em;
+  outline:none;
+  font-family:'Roboto Slab';
 }
 
 .front_form {
@@ -156,7 +160,7 @@ input, select, textarea, button {
   position: absolute;
   border-radius: 12px;
   left: 0;
-  top: 0; 
+  top: 0;
 }
 
 .active {
@@ -164,7 +168,7 @@ input, select, textarea, button {
   position: absolute;
   border-radius: 12px;
   left: 0;
-  top: 0; 
+  top: 0;
 }
 
 .last-active {
@@ -172,7 +176,7 @@ input, select, textarea, button {
   position: absolute;
   border-radius: 12px;
   left: 0;
-  top: 0; 
+  top: 0;
 }
 
 #slideshow {
@@ -194,7 +198,7 @@ input, select, textarea, button {
   position: absolute;
   border-radius: 12px;
   left: 0;
-  top: 0; 
+  top: 0;
 }
 
 .active {
@@ -202,7 +206,7 @@ input, select, textarea, button {
   position: absolute;
   border-radius: 12px;
   left: 0;
-  top: 0; 
+  top: 0;
 }
 
 .last-active {
@@ -210,5 +214,5 @@ input, select, textarea, button {
   position: absolute;
   border-radius: 12px;
   left: 0;
-  top: 0; 
+  top: 0;
 }

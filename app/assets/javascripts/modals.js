@@ -13,7 +13,7 @@ function Modal(button, form, errors) {
       $('form').each(function() { this.reset() });
       $(errors).html("");
     });
-  };   
+  };
 
   this.toggleForm = function(e) {
     e.preventDefault();
@@ -25,7 +25,6 @@ function Modal(button, form, errors) {
   };
 
   this.showErrors = function(event, xhr, status, error) {
-    // debugger;
     $(errors).html($.parseJSON(xhr.responseText).error);
   };
 
@@ -49,5 +48,6 @@ $(document).ready(function(){
     time = new Date().getTime();
     regex = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regex, time));
+    return false;
   })
 });

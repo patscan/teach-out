@@ -15,3 +15,6 @@
 /tmp
 /config/app_config.yml
 /app/assets/.DS_Store
+
+# Ignore redis backups
+dump.rdb

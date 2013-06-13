@@ -1,7 +1,5 @@
 <div id="dashboard">
 
-<!--http://fortawesome.github.io/Font-Awesome/icons/ use these!-->
-
   <div id="col1">
 
     <div class="dashboard_buttons">
@@ -23,7 +21,6 @@
   </div>
 
   <div id="col2">
-
     <div class="calendar">
       <div id="calendar">
         <%= render "shared/calendar", :date => @date, :messages_by_date => @messages_by_date %>
@@ -37,15 +34,11 @@
         </div>
       </div>
     </div>
-
   </div>
-
-
-
-
 
   <div id="modal_background">
   </div>
+
   <div id="schedule_text_form" class="dash_form_modal">
     <%= render "shared/schedule_message_form" %>
   </div>

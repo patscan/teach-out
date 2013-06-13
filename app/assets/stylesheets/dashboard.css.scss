@@ -42,58 +42,45 @@ $off_white: #F8F8F3;
   text-align: center;
 }
 
-/*#dashboard_name {
-  display: block;*/
-  /*text-align: center;*/
-/*  width: 1008px;
-  height: 47px;
-  background: url('dashboard_name.png') no-repeat;
-  padding: 5px 0 0 10px;
-}*/
-
 .dashboard_buttons{
   height: auto;
   width: 278px;
   float: left;
   position: relative;
-  /*margin-bottom: 30px;*/
+  margin-top: 15px;
 }
 
 .dashboard_buttons a{
   position: relative;
-  margin: 5px 30px 0px 0;
-  display: block;
-  width: 282px;
-  height: 67px;
+  margin: 5px 0 0px 0;
+  display: inline-block;
+  height: 96px;
 }
 
-.dashboard_buttons a:first-child{
-  margin-top: 20px;
-  /*margin-left: 30px;*/
-}
 
 #new_text_button {
-  background: url('send-text-up.png');
+  width: 85px;
+  background: url('upstate_01.png') no-repeat;
   &:hover{
-    background: url('send-text-down.png');
+    background: url('downstate_01.png') no-repeat;
   }
 }
 
 #schedule_text_button {
-  background: url('schedule-text-up.png');
+  width: 93px;
+  background: url('upstate_02.png') no-repeat;
   &:hover{
-    background: url('schedule-text-down.png');
+    background: url('downstate_02.png') no-repeat;
   }
 }
 
 #add_student_button {
-  background: url('add-student-up.png');
+  width: 84px;
+  background: url('upstate_03.png') no-repeat;
   &:hover{
-    background: url('add-student-down.png');
+    background: url('downstate_03.png') no-repeat;
   }
 }
-
-
 
 .button {
   font-family: "Roboto Condensed", sans-serif;
@@ -263,7 +250,6 @@ a.add_fields {
 #logo_inside {
   line-height: 61px;
   margin-left: 40px;
-  /*margin-top: 9px;*/
   z-index: 4;
   opacity: 1;
   font-size: 35px;
